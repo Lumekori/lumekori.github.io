@@ -1,76 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO principal -->
-  <title>Lumekori | Desarrollo de software</title>
+  <title>Lumekori Studio | Desarrollo de software</title>
 
   <meta
     name="description"
-    content="Lumekori es un estudio independiente de desarrollo de software que crea aplicaciones, herramientas y experiencias digitales."
-  >
+    content="Lumekori Studio es un estudio independiente de desarrollo de software. Creamos aplicaciones, herramientas y experiencias digitales, incluyendo proyectos como Nao."
+  />
 
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Lumekori">
-  <meta name="theme-color" content="#090a10">
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
 
-  <link rel="canonical" href="https://lumekori.dev/">
+  <link rel="canonical" href="https://lumekori.dev/" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Lumekori">
-  <meta property="og:title" content="Lumekori | Desarrollo de software">
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lumekori Studio" />
+  <meta property="og:title" content="Lumekori Studio | Desarrollo de software" />
   <meta
     property="og:description"
-    content="Estudio independiente de software creando aplicaciones, herramientas y nuevas experiencias digitales."
-  >
-  <meta property="og:url" content="https://lumekori.dev/">
-  <meta property="og:locale" content="es_PE">
+    content="Creamos aplicaciones, herramientas y experiencias digitales. Conoce Lumekori Studio y proyectos como Nao."
+  />
+  <meta property="og:url" content="https://lumekori.dev/" />
+  <meta property="og:locale" content="es_PE" />
 
   <!-- X / Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@LUMEKORI">
-  <meta name="twitter:title" content="Lumekori | Desarrollo de software">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lumekori Studio | Desarrollo de software" />
   <meta
     name="twitter:description"
-    content="Estudio independiente de software creando aplicaciones, herramientas y nuevas experiencias digitales."
-  >
+    content="Creamos aplicaciones, herramientas y experiencias digitales. Conoce Lumekori Studio y proyectos como Nao."
+  />
 
-  <!-- Datos estructurados para Google -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://lumekori.dev/#organization",
-        "name": "Lumekori",
-        "alternateName": "Lumekori Studio",
-        "url": "https://lumekori.dev/",
-        "description": "Estudio independiente de desarrollo de software que crea aplicaciones, herramientas y experiencias digitales.",
-        "sameAs": [
-          "https://x.com/LUMEKORI",
-          "https://www.youtube.com/@LumekoriStudio",
-          "https://github.com/Lumekori"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://lumekori.dev/#website",
-        "url": "https://lumekori.dev/",
-        "name": "Lumekori",
-        "publisher": {
-          "@id": "https://lumekori.dev/#organization"
-        },
-        "inLanguage": "es"
-      }
+    "@type": "Organization",
+    "name": "Lumekori",
+    "alternateName": "Lumekori Studio",
+    "url": "https://lumekori.dev/",
+    "description": "Estudio independiente de desarrollo de software que crea aplicaciones, herramientas y experiencias digitales.",
+    "sameAs": [
+      "https://x.com/LUMEKORI",
+      "https://www.youtube.com/@LumekoriStudio",
+      "https://github.com/Lumekori"
     ]
   }
   </script>
 
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f0f10;
+      --muted: #6b6b73;
+      --line: #e8e8ec;
+      --soft: #f6f6f8;
+      --card: #fbfbfc;
+      --black: #111111;
+      --white: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -83,49 +76,41 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(135, 75, 255, .20),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 80% 30%,
-          rgba(73, 130, 255, .15),
-          transparent 35%
-        ),
-        #090a10;
-      color: white;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
       z-index: 1000;
-      backdrop-filter: blur(16px);
-      background: rgba(9, 10, 16, .7);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
 
     nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
     }
 
     .logo {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      letter-spacing: -.5px;
-    }
-
-    .logo span {
-      color: #a87cff;
+      letter-spacing: -0.5px;
     }
 
     .nav-links {
@@ -134,319 +119,323 @@
     }
 
     .nav-links a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: .95rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: white;
+      color: var(--text);
     }
 
     .hero {
-      min-height: 100vh;
-      max-width: 1100px;
-      margin: auto;
-      padding: 130px 24px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 110px 0 90px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .badge {
-      width: fit-content;
-      padding: 7px 14px;
-      border: 1px solid rgba(168,124,255,.35);
-      background: rgba(168,124,255,.10);
-      color: #cbb4ff;
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      margin-bottom: 25px;
-      font-size: .85rem;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
-      line-height: .95;
-      letter-spacing: -4px;
-      max-width: 900px;
-    }
-
-    .gradient {
-      background: linear-gradient(
-        90deg,
-        #ffffff,
-        #a87cff,
-        #6596ff
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      font-size: clamp(2.6rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -2.5px;
+      max-width: 820px;
+      margin-bottom: 24px;
     }
 
     .hero p {
-      margin-top: 28px;
-      max-width: 630px;
-      font-size: 1.15rem;
-      color: #a9a9b5;
+      max-width: 700px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 34px;
     }
 
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 35px;
     }
 
     .btn {
-      padding: 13px 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
       border-radius: 12px;
-      text-decoration: none;
       font-weight: 600;
-      transition: .2s ease;
-    }
-
-    .primary {
-      color: #090a10;
-      background: white;
-    }
-
-    .secondary {
-      color: white;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.05);
+      transition: 0.2s ease;
+      border: 1px solid var(--line);
     }
 
     .btn:hover {
       transform: translateY(-2px);
     }
 
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--text);
+    }
+
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 90px 24px;
+      padding: 90px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      letter-spacing: -1.5px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -1.4px;
+      margin-bottom: 14px;
     }
 
-    .subtitle {
-      color: #9999a7;
-      max-width: 650px;
-      margin-bottom: 40px;
+    .section-intro {
+      max-width: 720px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      font-size: 1.05rem;
     }
 
-    .cards {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(260px, 1fr)
-      );
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
     }
 
     .card {
-      padding: 28px;
-      min-height: 220px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.09);
-      background: rgba(255,255,255,.035);
-      backdrop-filter: blur(8px);
-      transition: .25s ease;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+      transition: 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(168,124,255,.35);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     }
 
     .card h3 {
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       margin-bottom: 12px;
+      letter-spacing: -0.5px;
     }
 
     .card p {
-      color: #9999a7;
+      color: var(--muted);
+      margin-bottom: 18px;
     }
 
     .tag {
       display: inline-block;
-      margin-top: 25px;
-      color: #b99aff;
-      font-size: .9rem;
+      font-size: 0.92rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .about-block {
+      max-width: 800px;
+    }
+
+    .about-block p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .link-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .link-box:hover {
+      background: var(--soft);
     }
 
     footer {
-      max-width: 1100px;
-      margin: auto;
-      padding: 45px 24px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: #777784;
+      padding: 34px 0 50px;
+    }
+
+    .footer-wrap {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: 15px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    footer a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    @media (max-width: 650px) {
-      h1 {
-        letter-spacing: -2px;
-      }
-
+    @media (max-width: 760px) {
       .nav-links {
         display: none;
       }
 
       .hero {
-        min-height: 90vh;
+        padding: 90px 0 70px;
+      }
+
+      section {
+        padding: 70px 0;
       }
     }
   </style>
 </head>
-
 <body>
 
   <header>
-    <nav>
-      <div class="logo">
-        Lume<span>kori</span>
-      </div>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Lumekori</a>
 
-      <div class="nav-links">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-    </nav>
+        <div class="nav-links">
+          <a href="#proyectos">Proyectos</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main>
 
     <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Lumekori Studio</div>
 
-      <div class="badge">
-        Lumekori Studio
+        <h1>
+          Creamos software útil, simple y pensado para el futuro.
+        </h1>
+
+        <p>
+          Lumekori Studio es un estudio independiente de desarrollo de software.
+          Creamos aplicaciones, herramientas y experiencias digitales enfocadas
+          en resolver problemas reales con una visión clara, funcional y escalable.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+          <a class="btn btn-secondary" href="#sobre">Conocer Lumekori</a>
+        </div>
       </div>
-
-      <h1>
-        Creamos software para
-        <span class="gradient">
-          imaginar lo siguiente.
-        </span>
-      </h1>
-
-      <p>
-        Lumekori es un estudio independiente de desarrollo de
-        software dedicado a crear aplicaciones, herramientas y
-        experiencias digitales pensadas para hacer la tecnología
-        más útil y cercana.
-      </p>
-
-      <div class="buttons">
-        <a
-          class="btn primary"
-          href="#proyectos"
-        >
-          Ver proyectos
-        </a>
-
-        <a
-          class="btn secondary"
-          href="#nosotros"
-        >
-          Conocer Lumekori
-        </a>
-      </div>
-
     </section>
 
     <section id="proyectos">
+      <div class="container">
+        <h2>Proyectos</h2>
+        <p class="section-intro">
+          Estos son algunos de los productos y líneas de desarrollo en los que
+          trabaja Lumekori Studio.
+        </p>
 
-      <h2>Proyectos</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Nao</h3>
+            <p>
+              Nao es un proyecto en desarrollo centrado en asistencia inteligente,
+              automatización de tareas y nuevas formas de interacción con servicios
+              y herramientas digitales.
+            </p>
+            <span class="tag">Fase alpha</span>
+          </article>
 
-      <p class="subtitle">
-        Productos creados y desarrollados por Lumekori.
-      </p>
-
-      <div class="cards">
-
-        <article class="card">
-          <h3>Nao</h3>
-
-          <p>
-            Un proyecto de Lumekori enfocado en crear una
-            experiencia inteligente capaz de ayudar con tareas,
-            información y servicios cotidianos.
-          </p>
-
-          <span class="tag">
-            En desarrollo →
-          </span>
-        </article>
-
-        <article class="card">
-          <h3>Próximamente</h3>
-
-          <p>
-            Estamos explorando nuevas ideas, tecnologías y
-            productos. Este es solo el comienzo.
-          </p>
-
-          <span class="tag">
-            Lumekori Labs →
-          </span>
-        </article>
-
+          <article class="card">
+            <h3>Lumekori Labs</h3>
+            <p>
+              Un espacio para explorar nuevas ideas, experimentar con productos
+              propios y desarrollar conceptos que puedan convertirse en futuras
+              aplicaciones o plataformas.
+            </p>
+            <span class="tag">En exploración</span>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="nosotros">
+    <section id="sobre">
+      <div class="container">
+        <h2>Sobre Lumekori</h2>
 
-      <h2>Sobre Lumekori</h2>
+        <div class="about-block">
+          <p>
+            Lumekori Studio nace con la idea de construir productos tecnológicos
+            propios, experimentar con software útil y desarrollar experiencias
+            digitales que puedan crecer con el tiempo.
+          </p>
 
-      <p class="subtitle">
-        Lumekori nace con la idea de construir productos
-        tecnológicos propios, experimentar con nuevas formas
-        de interacción y desarrollar software que pueda crecer
-        con el tiempo.
-      </p>
-
+          <p>
+            Nuestro enfoque combina simplicidad, funcionalidad y evolución constante.
+            Creemos en crear herramientas claras, bien diseñadas y capaces de adaptarse
+            a las necesidades reales de las personas.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p class="section-intro">
+          Puedes seguir el desarrollo de Lumekori Studio y sus proyectos
+          a través de nuestras plataformas oficiales.
+        </p>
 
-      <h2>Contacto</h2>
+        <div class="contact-links">
+          <a class="link-box" href="https://lumekori.dev/" target="_blank" rel="noopener">
+            Sitio web — lumekori.dev
+          </a>
 
-      <p class="subtitle">
-        Puedes seguir el desarrollo de nuestros proyectos y las
-        novedades de Lumekori en nuestras plataformas oficiales.
-      </p>
+          <a class="link-box" href="https://x.com/LUMEKORI" target="_blank" rel="noopener">
+            X — @LUMEKORI
+          </a>
 
-      <div class="buttons">
-        <a
-          class="btn secondary"
-          href="https://x.com/LUMEKORI"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @LUMEKORI en X
-        </a>
+          <a class="link-box" href="https://www.youtube.com/@LumekoriStudio" target="_blank" rel="noopener">
+            YouTube — @LumekoriStudio
+          </a>
+
+          <a class="link-box" href="https://github.com/Lumekori" target="_blank" rel="noopener">
+            GitHub — Lumekori
+          </a>
+        </div>
       </div>
-
     </section>
 
   </main>
 
   <footer>
-    <div>© 2026 Lumekori. Todos los derechos reservados.</div>
-    <div>lumekori.dev</div>
+    <div class="container">
+      <div class="footer-wrap">
+        <div>© 2026 Lumekori Studio. Todos los derechos reservados.</div>
+        <div>lumekori.dev</div>
+      </div>
+    </div>
   </footer>
 
 </body>
