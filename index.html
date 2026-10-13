@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lumekori Studio | Desarrollo de software</title>
+
+  <meta name="description"
+        content="Lumekori Studio desarrolla software, aplicaciones y nuevas experiencias digitales. Conoce nuestros proyectos como Nao.">
+
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#090a10">
+
+  <link rel="canonical" href="https://lumekori.dev/">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(135, 75, 255, .20), transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(73, 130, 255, .15), transparent 35%),
+        #090a10;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(9, 10, 16, .7);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: #a87cff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: .95rem;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      max-width: 1100px;
+      margin: auto;
+      padding: 130px 24px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .badge {
+      width: fit-content;
+      padding: 7px 14px;
+      border: 1px solid rgba(168,124,255,.35);
+      background: rgba(168,124,255,.10);
+      color: #cbb4ff;
+      border-radius: 999px;
+      margin-bottom: 25px;
+      font-size: .85rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: .95;
+      letter-spacing: -4px;
+      max-width: 900px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff, #a87cff, #6596ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 28px;
+      max-width: 630px;
+      font-size: 1.15rem;
+      color: #a9a9b5;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    .primary {
+      color: #090a10;
+      background: white;
+    }
+
+    .secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 24px;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+      color: #9999a7;
+      max-width: 650px;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      min-height: 220px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.035);
+      backdrop-filter: blur(8px);
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(168,124,255,.35);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #9999a7;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 25px;
+      color: #b99aff;
+      font-size: .9rem;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 45px 24px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: #777784;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 650px) {
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Lume<span>kori</span></div>
+
+    <div class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <div class="badge">
+      Lumekori Studio
+    </div>
+
+    <h1>
+      Creamos software para
+      <span class="gradient">imaginar lo siguiente.</span>
+    </h1>
+
+    <p>
+      Lumekori Studio es un estudio de desarrollo de software dedicado
+      a crear aplicaciones, herramientas y experiencias digitales
+      pensadas para hacer la tecnología más útil y cercana.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn secondary" href="#nosotros">Conocer Lumekori</a>
+    </div>
+
+  </section>
+
+  <section id="proyectos">
+
+    <h2>Proyectos</h2>
+
+    <p class="subtitle">
+      Productos creados y desarrollados por Lumekori Studio.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <h3>Nao</h3>
+
+        <p>
+          Un proyecto de Lumekori enfocado en crear una experiencia
+          inteligente capaz de ayudar con tareas, información
+          y servicios cotidianos.
+        </p>
+
+        <span class="tag">En desarrollo →</span>
+      </article>
+
+      <article class="card">
+        <h3>Próximamente</h3>
+
+        <p>
+          Estamos explorando nuevas ideas, tecnologías y productos.
+          Este es solo el comienzo.
+        </p>
+
+        <span class="tag">Lumekori Labs →</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="nosotros">
+
+    <h2>Sobre Lumekori</h2>
+
+    <p class="subtitle">
+      Lumekori Studio nace con la idea de construir productos tecnológicos
+      propios, experimentar con nuevas formas de interacción y desarrollar
+      software que pueda crecer con el tiempo.
+    </p>
+
+  </section>
+
+  <section id="contacto">
+
+    <h2>Contacto</h2>
+
+    <p class="subtitle">
+      Puedes seguir el desarrollo de nuestros proyectos y las novedades
+      de Lumekori en nuestras plataformas oficiales.
+    </p>
+
+    <div class="buttons">
+      <a class="btn secondary"
+         href="https://x.com/lumekori"
+         target="_blank"
+         rel="noopener">
+         @lumekori en X
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div>© 2026 Lumekori Studio</div>
+  <div>lumekori.dev</div>
+</footer>
+
+</body>
+</html>
