@@ -1,10 +1,14 @@
-# Lumekori website v2
+# Lumekori website — English + Spanish
 
-Static GitHub Pages site for lumekori.dev.
+Static GitHub Pages site for https://lumekori.dev.
 
-Important: keep the existing Google Search Console verification HTML file already in the repository.
+- English is the default language at the root URLs.
+- Spanish versions live under `/es/`.
+- Every page includes an EN / ES language selector.
+- `hreflang`, canonical URLs, Open Graph, Twitter cards, robots.txt, and sitemap.xml are included.
+- The Google Search Console verification file is included: `google20c45a489e173f56.html`.
 
-Main structure:
+Main English routes:
 - /products/
 - /support/
 - /privacy/
@@ -17,4 +21,11 @@ Main structure:
 - /nao/terms/
 - /nao/policies/
 
-Nao Google Play target: https://play.google.com/store/apps/details?id=com.lumekori.nao
+Spanish routes mirror these under `/es/`.
+
+Nao Google Play target:
+https://play.google.com/store/apps/details?id=com.lumekori.nao
+
+
+## Theme selector
+The site supports Light and Dark themes. The visitor's choice is stored locally in the browser, and the first visit follows the operating-system preference.
