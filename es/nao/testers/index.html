@@ -51,11 +51,11 @@ async function initializeForm(){
     const settings=await fns.getDoc(fns.doc(db,"nao_tester_applications","config"));
     isOpen=settings.exists()&&settings.data().status==="open";
     button.disabled=!isOpen;
-    button.textContent=isOpen?messages.submit:messages.closed;
+    button.textContent=isOpen?messages.submit:"Inscripciones cerradas";
     notify(isOpen?messages.ready:messages.closed,isOpen);
   } catch(error){
     console.warn("Nao Testers: cannot initialize registrations",error.code||error.message);
-    isOpen=false;button.disabled=true;button.textContent=messages.closed;
+    isOpen=false;button.disabled=true;button.textContent="Inscripciones cerradas";
     notify(messages.unable);
   }
 }
