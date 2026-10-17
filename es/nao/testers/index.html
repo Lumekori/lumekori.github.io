@@ -9,35 +9,92 @@ html[data-theme="dark"]{--bg:#0c0d10;--surface:#15171b;--ink:#f5f6f7;--muted:#a6
 .main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(275px,.85fr);gap:18px;align-items:start;margin-bottom:70px}.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:30px}.card h2{margin:0 0 6px;font-size:1.4rem;letter-spacing:-.035em}.lead{color:var(--muted);font-size:.92rem;margin:0 0 22px}.field{margin-top:18px}.field label{display:block;font-size:.88rem;font-weight:750;margin-bottom:7px}.field input{width:100%;min-height:46px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 13px;color:var(--ink);outline:0}.field input:focus{border-color:#858ef9;box-shadow:0 0 0 3px #858ef922}.hint{color:var(--muted);font-size:.78rem;margin-top:6px}.check{display:flex;gap:11px;align-items:flex-start;margin:16px 0;font-size:.83rem;color:var(--muted)}.check input{accent-color:#4a59ee;margin-top:5px;min-width:15px;min-height:15px}.primary{background:var(--ink);color:var(--bg);border:0;border-radius:14px;min-height:50px;width:100%;font-weight:800;cursor:pointer}.primary:disabled{opacity:.5;cursor:not-allowed}.status{padding:13px 15px;margin:18px 0;border-radius:12px;background:var(--soft);font-size:.87rem;color:var(--muted)}.status[hidden]{display:none}.note{font-size:.91rem;color:var(--muted)}.note a{font-weight:750}.contact{border-top:1px solid var(--line);margin-top:22px;padding-top:18px}.footer{border-top:1px solid var(--line);padding:25px 0 40px;display:flex;gap:14px;justify-content:space-between;color:var(--muted);font-size:.82rem}.footer a{text-decoration:none}input[name="website"]{position:absolute;left:-10000px;opacity:0;height:0}
 html[data-theme="dark"] .warning{background:#28271c;color:#f1edd7;border-color:#49452c}
 @media(max-width:760px){.hero{padding:58px 0 39px}.steps,.main{grid-template-columns:1fr}.steps{gap:9px}.step{padding:19px}.card{padding:22px}.warning{padding:20px}.nav-right{gap:8px}.hero h1{font-size:clamp(2.35rem,10vw,3.7rem)}.footer{flex-direction:column}}
-</style></head><body><header class="shell header"><nav class="nav" aria-label="Navegación"><a class="brand" href="/es/"><img src="/assets/lumekori-icon.png" alt="">Lumekori</a><div class="nav-right"><span class="tiny"><a href="/es/nao/">← Volver a Nao</a></span><span class="tiny lang"><a href="/nao/testers/" lang="en">English</a></span><button id="theme" class="theme" type="button" aria-label="Cambiar tema">◐</button></div></nav></header><main class="shell"><section class="hero"><span class="tag">Proyecto Nao · Programa de pruebas</span><h1>Ayúdanos a construir la próxima versión de Nao.</h1><p>Nao es un asistente en desarrollo Pre-Alpha. Estamos invitando a un grupo reducido de personas a probar versiones experimentales y compartir sus experiencias.</p><span class="phase">PRE-ALPHA · ACCESO LIMITADO</span></section><section class="steps" aria-label="Cómo funciona"><div class="step"><div class="num">01</div><h3>Envía tu solicitud</h3><p>Cuéntanos cómo llamarte, tu fecha de nacimiento y el correo de tu cuenta de Google Play.</p></div><div class="step"><div class="num">02</div><h3>Revisión manual</h3><p>Lumekori revisará cada solicitud. Enviar el formulario no garantiza obtener acceso.</p></div><div class="step"><div class="num">03</div><h3>Invitación a Google Play</h3><p>Si se aprueba tu participación, añadiremos manualmente tu correo a la lista de probadores de Play Console.</p></div></section><section class="warning" aria-label="Antes de solicitar acceso"><strong>⚠ Antes de solicitar acceso</strong><p>Nao se encuentra en una etapa muy temprana de desarrollo. Puede tener errores, respuestas imprecisas, interrupciones y funciones incompletas. No se recomienda depender de la app para tareas críticas ni compartir información sensible durante las pruebas. Lumekori prioriza la privacidad y la seguridad y aplica medidas para proteger los datos; aun así, ningún software puede garantizar estar libre de vulnerabilidades.</p></section><section class="main"><div class="card"><h2>Solicitud de acceso</h2><p class="lead">Por ahora, las inscripciones se están preparando. El formulario se activará cuando terminemos de comprobar su seguridad.</p><form id="apply" novalidate><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="field"><label for="nickname">Apodo</label><input id="nickname" name="nickname" placeholder="¿Cómo podemos llamarte?" maxlength="45" minlength="2" autocomplete="nickname" required></div><div class="field"><label for="birthDate">Fecha de nacimiento</label><input id="birthDate" name="birthDate" type="date" min="1900-01-01" required><p class="hint">Por seguridad, esta primera convocatoria está limitada provisionalmente a personas mayores de 18 años.</p></div><div class="field"><label for="email">Correo de tu cuenta de Google Play</label><input id="email" name="email" type="email" placeholder="tu@gmail.com" maxlength="254" autocomplete="email" required></div><label class="check"><input type="checkbox" name="risks" required><span>He leído y comprendo que Nao es una versión Pre-Alpha experimental y que mi solicitud será revisada manualmente.</span></label><label class="check"><input type="checkbox" name="privacy" required><span>Acepto que Lumekori trate los datos enviados para evaluar mi solicitud y contactarme sobre las pruebas, según el aviso de privacidad incluido abajo.</span></label><button id="send" class="primary" type="submit" disabled>Inscripciones en preparación</button><div id="result" class="status" role="status">La página todavía no acepta solicitudes. Estamos terminando la configuración segura del formulario.</div></form></div><aside class="card"><h2>Tus datos y tu privacidad</h2><p class="note">Lumekori Studio recopilará el apodo, fecha de nacimiento y correo electrónico indicados exclusivamente para revisar la elegibilidad, administrar invitaciones a Nao y comunicarse contigo acerca de esta solicitud. Utilizamos Firebase de Google para almacenar las solicitudes en infraestructura ubicada en Estados Unidos. Los solicitantes no pueden consultar los datos de otros. Puedes pedir información o la eliminación de tu solicitud escribiendo a hello@lumekori.dev. La información se conservará solo durante el tiempo necesario para gestionar la convocatoria y las obligaciones aplicables.</p><p class="note"><a href="/es/nao/privacy/">Consulta también la política de privacidad de Nao ↗</a></p><div class="contact"><strong>¿Tienes preguntas?</strong><p class="note">Escríbenos a <a href="mailto:hello@lumekori.dev">hello@lumekori.dev</a></p></div></aside></section></main><footer class="shell footer"><span>© 2026 Lumekori Studio · Nao</span><span><a href="/es/nao/">Nao</a> · <a href="/es/">Lumekori</a></span></footer><script type="module">
-const text={"invalid":"Revisa los datos. Para esta convocatoria debes tener 18 años o más.","ok":"Solicitud enviada. Está pendiente de revisión; esto no es una invitación ni concede acceso a Nao.","error":"No pudimos enviar tu solicitud. Comprueba tu conexión e inténtalo más tarde o contáctanos por correo.","wait":"Enviando solicitud…","loading":"Protegiendo el envío…","notice":"La página todavía no acepta solicitudes. Estamos terminando la configuración segura del formulario."};
-const enabled=false;
-const form=document.querySelector("#apply");
-const button=document.querySelector("#send");
-const result=document.querySelector("#result");
-document.querySelector("#theme").onclick=()=>{const el=document.documentElement;el.dataset.theme=el.dataset.theme==="dark"?"light":"dark";localStorage.setItem("lumekori-theme",el.dataset.theme);};
-const saved=localStorage.getItem("lumekori-theme");if(saved) document.documentElement.dataset.theme=saved;
-const eighteen=new Date();eighteen.setFullYear(eighteen.getFullYear()-18);document.querySelector("#birthDate").max=eighteen.toISOString().slice(0,10);
-function message(s,good=false){result.hidden=false;result.textContent=s;result.style.color=good?"#16804c":""}
-form.addEventListener("submit",async(e)=>{
-e.preventDefault();if(!enabled){message(text.notice);return}
-if(form.elements.website.value)return;
-const nickname=form.elements.nickname.value.trim();
-const email=form.elements.email.value.trim().toLowerCase();
-const birthDate=form.elements.birthDate.value;
-const date=new Date(birthDate+"T12:00:00Z");
-const minAge=new Date();minAge.setFullYear(minAge.getFullYear()-18);
-if(nickname.length<2||nickname.length>45||email.length>254||!/^\S+@\S+\.\S+$/.test(email)||Number.isNaN(date.getTime())||date.toISOString().slice(0,10)!==birthDate||date>minAge||!form.elements.risks.checked||!form.elements.privacy.checked){message(text.invalid);return;}
-button.disabled=true;button.textContent=text.loading;
-try{
-const {initializeApp}=await import("https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js");
-const {initializeAppCheck,ReCaptchaEnterpriseProvider,getToken}=await import("https://www.gstatic.com/firebasejs/12.4.0/firebase-app-check.js");
-const {getFirestore,collection,addDoc,serverTimestamp}=await import("https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js");
-const app=initializeApp({"apiKey":"AIzaSyAhwuVK1w3pXitIPNXnGtclwZJSHj-9-fg","authDomain":"lmk-nao.firebaseapp.com","projectId":"lmk-nao","storageBucket":"lmk-nao.firebasestorage.app","messagingSenderId":"506801975831","appId":"1:506801975831:web:881375c4a03d6d0e206252"});
-const appCheck=initializeAppCheck(app,{provider:new ReCaptchaEnterpriseProvider("6Lf8GPMtAAAAAKVxiOexivn7hLFHc_CXyabLIba-"),isTokenAutoRefreshEnabled:true});
-await getToken(appCheck);
-await addDoc(collection(getFirestore(app),"nao_tester_applications"),{nickname,email,birthDate,phase:"pre-alpha",status:"pending",acceptedRisks:true,acceptedPrivacy:true,source:"lumekori.dev",createdAt:serverTimestamp()});
-form.reset();message(text.ok,true);
-}catch(err){console.error("Nao Testers application error:",err.code||err.message);message(text.error)}
-finally{button.disabled=false;button.textContent="Enviar solicitud"}
-});</script></body></html>
+</style></head><body><header class="shell header"><nav class="nav" aria-label="Navegación"><a class="brand" href="/es/"><img src="/assets/lumekori-icon.png" alt="">Lumekori</a><div class="nav-right"><span class="tiny"><a href="/es/nao/">← Volver a Nao</a></span><span class="tiny lang"><a href="/nao/testers/" lang="en">English</a></span><button id="theme" class="theme" type="button" aria-label="Cambiar tema">◐</button></div></nav></header><main class="shell"><section class="hero"><span class="tag">Proyecto Nao · Programa de pruebas</span><h1>Ayúdanos a construir la próxima versión de Nao.</h1><p>Nao es un asistente en desarrollo Pre-Alpha. Estamos invitando a un grupo reducido de personas a probar versiones experimentales y compartir sus experiencias.</p><span class="phase">PRE-ALPHA · ACCESO LIMITADO</span></section><section class="steps" aria-label="Cómo funciona"><div class="step"><div class="num">01</div><h3>Envía tu solicitud</h3><p>Cuéntanos cómo llamarte, tu fecha de nacimiento y el correo de tu cuenta de Google Play.</p></div><div class="step"><div class="num">02</div><h3>Revisión manual</h3><p>Lumekori revisará cada solicitud. Enviar el formulario no garantiza obtener acceso.</p></div><div class="step"><div class="num">03</div><h3>Invitación a Google Play</h3><p>Si se aprueba tu participación, añadiremos manualmente tu correo a la lista de probadores de Play Console.</p></div></section><section class="warning" aria-label="Antes de solicitar acceso"><strong>⚠ Antes de solicitar acceso</strong><p>Nao se encuentra en una etapa muy temprana de desarrollo. Puede tener errores, respuestas imprecisas, interrupciones y funciones incompletas. No se recomienda depender de la app para tareas críticas ni compartir información sensible durante las pruebas. Lumekori prioriza la privacidad y la seguridad y aplica medidas para proteger los datos; aun así, ningún software puede garantizar estar libre de vulnerabilidades.</p></section><section class="main"><div class="card"><h2>Solicitud de acceso</h2><p class="lead">Completa el formulario para solicitar acceso a Nao Pre-Alpha. Revisaremos cada solicitud personalmente.</p><form id="apply" novalidate><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="field"><label for="nickname">Apodo</label><input id="nickname" name="nickname" placeholder="¿Cómo podemos llamarte?" maxlength="45" minlength="2" autocomplete="nickname" required></div><div class="field"><label for="birthDate">Fecha de nacimiento</label><input id="birthDate" name="birthDate" type="date" min="1900-01-01" required><p class="hint">Por seguridad, esta primera convocatoria está limitada provisionalmente a personas mayores de 18 años.</p></div><div class="field"><label for="email">Correo de tu cuenta de Google Play</label><input id="email" name="email" type="email" placeholder="tu@gmail.com" maxlength="254" autocomplete="email" required></div><label class="check"><input type="checkbox" name="risks" required><span>He leído y comprendo que Nao es una versión Pre-Alpha experimental y que mi solicitud será revisada manualmente.</span></label><label class="check"><input type="checkbox" name="privacy" required><span>Acepto que Lumekori trate los datos enviados para evaluar mi solicitud y contactarme sobre las pruebas, según el aviso de privacidad incluido abajo.</span></label><button id="send" class="primary" type="submit" disabled>Comprobando disponibilidad de inscripciones…</button><div id="result" class="status" role="status">Comprobando disponibilidad de inscripciones…</div></form></div><aside class="card"><h2>Tus datos y tu privacidad</h2><p class="note">Lumekori Studio recopilará el apodo, fecha de nacimiento y correo electrónico indicados exclusivamente para revisar la elegibilidad, administrar invitaciones a Nao y comunicarse contigo acerca de esta solicitud. Utilizamos Firebase de Google para almacenar las solicitudes en infraestructura ubicada en Estados Unidos. Los solicitantes no pueden consultar los datos de otros. Puedes pedir información o la eliminación de tu solicitud escribiendo a hello@lumekori.dev. La información se conservará solo durante el tiempo necesario para gestionar la convocatoria y las obligaciones aplicables.</p><p class="note"><a href="/es/nao/privacy/">Consulta también la política de privacidad de Nao ↗</a></p><div class="contact"><strong>¿Tienes preguntas?</strong><p class="note">Escríbenos a <a href="mailto:hello@lumekori.dev">hello@lumekori.dev</a></p></div></aside></section></main><footer class="shell footer"><span>© 2026 Lumekori Studio · Nao</span><span><a href="/es/nao/">Nao</a> · <a href="/es/">Lumekori</a></span></footer><script type="module">
+const messages={"lead":"Completa el formulario para solicitar acceso a Nao Pre-Alpha. Revisaremos cada solicitud personalmente.","checking":"Comprobando disponibilidad de inscripciones…","closed":"Las inscripciones aún no están abiertas. Vuelve a intentarlo más tarde.","ready":"Las inscripciones están abiertas. Tu solicitud será revisada manualmente.","unable":"No pudimos comprobar la disponibilidad del formulario. Recarga la página más tarde.","error":"No pudimos guardar tu solicitud. No se ha confirmado el registro. Vuelve a intentarlo más tarde o escribe a hello@lumekori.dev.","success":"¡Solicitud recibida! Está pendiente de revisión. Esto no concede acceso inmediato a Nao.","invalid":"Revisa tu apodo, correo y fecha de nacimiento. Debes tener al menos 18 años y aceptar los avisos.","rate":"Acabas de enviar una solicitud desde este navegador. Espera unos minutos antes de intentar de nuevo.","sending":"Enviando solicitud…","submit":"Enviar solicitud"};
+const form=document.getElementById("apply");
+const button=document.getElementById("send");
+const result=document.getElementById("result");
+let isOpen=false, db=null, appCheck=null, firebaseFns=null;
+document.getElementById("theme").addEventListener("click",()=>{
+  const el=document.documentElement;
+  el.dataset.theme=el.dataset.theme==="dark"?"light":"dark";
+  localStorage.setItem("lumekori-theme",el.dataset.theme);
+});
+const storedTheme=localStorage.getItem("lumekori-theme");
+if(storedTheme)document.documentElement.dataset.theme=storedTheme;
+const adultCutoff=()=>{const date=new Date();date.setFullYear(date.getFullYear()-18);
+  return date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0");
+};
+document.getElementById("birthDate").max=adultCutoff();
+function notify(s,positive=false){
+  result.hidden=false;result.textContent=s;
+  result.style.color=positive?"#16804c":"";
+}
+async function initializeForm(){
+  button.disabled=true;
+  notify(messages.checking);
+  try {
+    const [{initializeApp},{initializeAppCheck,ReCaptchaEnterpriseProvider,getToken},fns]=await Promise.all([
+      import("https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/12.4.0/firebase-app-check.js"),
+      import("https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js")
+    ]);
+    const app=initializeApp({"apiKey":"AIzaSyAhwuVK1w3pXitIPNXnGtclwZJSHj-9-fg","authDomain":"lmk-nao.firebaseapp.com","projectId":"lmk-nao","storageBucket":"lmk-nao.firebasestorage.app","messagingSenderId":"506801975831","appId":"1:506801975831:web:881375c4a03d6d0e206252"});
+    appCheck=initializeAppCheck(app,{
+      provider:new ReCaptchaEnterpriseProvider("6Lf8GPMtAAAAAKVxiOexivn7hLFHc_CXyabLIba-"),
+      isTokenAutoRefreshEnabled:true
+    });
+    firebaseFns={...fns,getToken};
+    db=fns.getFirestore(app);
+    // Firestore rules allow a public get ONLY for the non-personal config document.
+    await getToken(appCheck);
+    const settings=await fns.getDoc(fns.doc(db,"nao_tester_applications","config"));
+    isOpen=settings.exists()&&settings.data().status==="open";
+    button.disabled=!isOpen;
+    button.textContent=isOpen?messages.submit:messages.closed;
+    notify(isOpen?messages.ready:messages.closed,isOpen);
+  } catch(error){
+    console.warn("Nao Testers: cannot initialize registrations",error.code||error.message);
+    isOpen=false;button.disabled=true;button.textContent=messages.closed;
+    notify(messages.unable);
+  }
+}
+form.addEventListener("submit",async(event)=>{
+  event.preventDefault();
+  if(!isOpen||button.disabled||!db||!firebaseFns)return;
+  if(form.elements.website.value)return;
+  const nickname=form.elements.nickname.value.trim();
+  const email=form.elements.email.value.trim().toLowerCase();
+  const birthDate=form.elements.birthDate.value;
+  const parsed=new Date(birthDate+"T12:00:00Z");
+  const dateValid=/^\d{4}-\d{2}-\d{2}$/.test(birthDate)&&
+    !Number.isNaN(parsed.getTime())&&parsed.toISOString().slice(0,10)===birthDate;
+  if(nickname.length<2||nickname.length>45||email.length>254||
+     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||
+     !dateValid||birthDate<"1900-01-01"||birthDate>adultCutoff()||
+     !form.elements.risks.checked||!form.elements.privacy.checked){
+    notify(messages.invalid);return;
+  }
+  const last=Number(localStorage.getItem("nao-testers-last-send")||0);
+  if(Date.now()-last<5*60*1000){notify(messages.rate);return}
+  button.disabled=true;button.textContent=messages.sending;
+  try{
+    await firebaseFns.getToken(appCheck);
+    await firebaseFns.addDoc(firebaseFns.collection(db,"nao_tester_applications"),{
+      nickname,email,birthDate,phase:"pre-alpha",status:"pending",
+      acceptedRisks:true,acceptedPrivacy:true,source:"lumekori.dev",
+      createdAt:firebaseFns.serverTimestamp()
+    });
+    localStorage.setItem("nao-testers-last-send",String(Date.now()));
+    form.reset();
+    notify(messages.success,true);
+  }catch(error){
+    console.warn("Nao Testers: submission failed",error.code||error.message);
+    notify(messages.error);
+  }finally{
+    button.disabled=!isOpen;
+    button.textContent=messages.submit;
+  }
+});
+initializeForm();
+</script></body></html>
