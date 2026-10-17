@@ -10,6 +10,26 @@ html[data-theme="dark"]{--bg:#0c0d10;--surface:#15171b;--ink:#f5f6f7;--muted:#a6
 html[data-theme="dark"] .warning{background:#28271c;color:#f1edd7;border-color:#49452c}
 @media(max-width:760px){.hero{padding:58px 0 39px}.steps,.main{grid-template-columns:1fr}.steps{gap:9px}.step{padding:19px}.card{padding:22px}.warning{padding:20px}.nav-right{gap:8px}.hero h1{font-size:clamp(2.35rem,10vw,3.7rem)}.footer{flex-direction:column}}
 </style></head><body><header class="shell header"><nav class="nav" aria-label="Navigation"><a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="">Lumekori</a><div class="nav-right"><span class="tiny"><a href="/nao/">← Back to Nao</a></span><span class="tiny lang"><a href="/es/nao/testers/" lang="es">Español</a></span><button id="theme" class="theme" type="button" aria-label="Toggle theme">◐</button></div></nav></header><main class="shell"><section class="hero"><span class="tag">Nao project · Testing program</span><h1>Help us shape the next version of Nao.</h1><p>Nao is a Pre-Alpha assistant in development. We're inviting a small group of people to explore experimental builds and share feedback.</p><span class="phase">PRE-ALPHA · LIMITED ACCESS</span></section><section class="steps" aria-label="How it works"><div class="step"><div class="num">01</div><h3>Submit your application</h3><p>Share a nickname, date of birth, and the email used for your Google Play account.</p></div><div class="step"><div class="num">02</div><h3>Manual review</h3><p>Lumekori will review each request. Applying does not guarantee access.</p></div><div class="step"><div class="num">03</div><h3>Google Play invitation</h3><p>If approved, we'll manually add your email to the Play Console testers list.</p></div></section><section class="warning" aria-label="Before you apply"><strong>⚠ Before you apply</strong><p>Nao is in a very early development stage. You may encounter bugs, inaccurate responses, interruptions, and unfinished features. Do not rely on the app for critical tasks or share sensitive information during testing. Lumekori prioritizes privacy and security and uses safeguards to protect data; however, no software can be guaranteed free of vulnerabilities.</p></section><section class="main"><div class="card"><h2>Request early access</h2><p class="lead">Complete the form to request access to Nao Pre-Alpha. We'll personally review each application.</p><form id="apply" novalidate><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="field"><label for="nickname">Nickname</label><input id="nickname" name="nickname" placeholder="What should we call you?" maxlength="45" minlength="2" autocomplete="nickname" required></div><div class="field"><label for="birthDate">Date of birth</label><input id="birthDate" name="birthDate" type="date" min="1900-01-01" required><p class="hint">For safety, this initial testing round is provisionally limited to adults aged 18 and over.</p></div><div class="field"><label for="email">Google Play account email</label><input id="email" name="email" type="email" placeholder="you@gmail.com" maxlength="254" autocomplete="email" required></div><label class="check"><input type="checkbox" name="risks" required><span>I understand Nao is experimental Pre-Alpha software and my request will be reviewed manually.</span></label><label class="check"><input type="checkbox" name="privacy" required><span>I agree that Lumekori may use my information to review my request and contact me about testing, as explained in the privacy notice below.</span></label><button id="send" class="primary" type="submit" disabled>Checking application availability…</button><div id="result" class="status" role="status">Checking application availability…</div></form></div><aside class="card"><h2>Your data and privacy</h2><p class="note">Lumekori Studio collects the nickname, date of birth, and email you submit only to review eligibility, manage Nao invitations, and contact you about your application. Applications are stored using Google Firebase infrastructure in the United States. Applicants cannot see other applicants' data. You may request information or deletion of your application at hello@lumekori.dev. Information is kept only as long as needed to run the testing program and meet applicable obligations.</p><p class="note"><a href="/nao/privacy/">Read Nao's privacy policy as well ↗</a></p><div class="contact"><strong>Questions?</strong><p class="note">Contact us at <a href="mailto:hello@lumekori.dev">hello@lumekori.dev</a></p></div></aside></section></main><footer class="shell footer"><span>© 2026 Lumekori Studio · Nao</span><span><a href="/nao/">Nao</a> · <a href="/">Lumekori</a></span></footer><script type="module">
+// Temporary diagnostics, enabled only when the owner opens ?diagnostico=1.
+const debugMode=new URLSearchParams(location.search).has("diagnostico");
+let appCheckServerError="";
+if(debugMode){
+  const originalFetch=window.fetch.bind(window);
+  window.fetch=async(...args)=>{
+    const response=await originalFetch(...args);
+    const requestUrl=typeof args[0]==="string"?args[0]:args[0]?.url||"";
+    if(requestUrl.includes(":exchangeRecaptchaEnterpriseToken")&&!response.ok){
+      let reason="";
+      try{
+        const details=await response.clone().json();
+        const value=details?.error;
+        reason=String(value?.status||value?.message||"").slice(0,110);
+      }catch(e){reason="error sin detalle"}
+      appCheckServerError="HTTP "+response.status+(reason?" · "+reason:"");
+    }
+    return response;
+  };
+}
 const messages={"lead":"Complete the form to request access to Nao Pre-Alpha. We'll personally review each application.","checking":"Checking application availability…","closed":"Applications are not open yet. Please check back later.","ready":"Applications are open. Your request will be reviewed manually.","unable":"We couldn't check application availability. Please reload the page later.","error":"We couldn't save your request. No submission was confirmed. Please try again later or contact hello@lumekori.dev.","success":"Application received! It's pending manual review and does not grant immediate access to Nao.","invalid":"Check your nickname, email and date of birth. You must be at least 18 and accept the notices.","rate":"You just submitted an application from this browser. Please wait a few minutes before trying again.","sending":"Submitting application…","submit":"Submit application"};
 const form=document.getElementById("apply");
 const button=document.getElementById("send");
@@ -61,7 +81,7 @@ async function initializeForm(){
     const code=String(error?.code||error?.name||"unknown").replace(/[^a-zA-Z0-9/_-]/g,"").slice(0,65);
     console.warn("Nao Testers: initialization failed at",stage,code,error);
     isOpen=false;button.disabled=true;button.textContent="Applications closed";
-    notify(messages.unable+" ("+stage+": "+code+")");
+    notify(messages.unable+" ("+stage+": "+code+")"+(debugMode&&appCheckServerError?" — "+appCheckServerError:""));
   }
 }
 form.addEventListener("submit",async(event)=>{
