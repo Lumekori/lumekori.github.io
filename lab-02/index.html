@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumekori — Concepto 02</title>
+<meta name="description" content="Concepto temporal 02 para Lumekori.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#eef1ff">
+<link rel="icon" href="/assets/favicon.png">
+<style>
+:root{
+  --bg:#eef1ff;
+  --ink:#0d1020;
+  --muted:#5d6475;
+  --paper:#ffffff;
+  --blue:#4a63ff;
+  --orange:#ff784d;
+  --lime:#c7ff63;
+  --line:#cfd5eb;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.shell{width:min(var(--max),calc(100% - 32px));margin:auto}
+.notice{
+  background:var(--ink);color:#fff;
+  font:800 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:9px 14px
+}
+.nav{
+  margin-top:16px;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);
+  border:1px solid var(--line);border-radius:22px;padding:10px 12px;
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  position:sticky;top:12px;z-index:50;box-shadow:0 12px 35px rgba(57,66,118,.08)
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:-.04em}
+.brand img{width:34px;height:34px;object-fit:contain}
+.brand em{font-style:normal;color:var(--blue)}
+.navlinks{display:flex;align-items:center;gap:4px}
+.navlinks a{padding:9px 12px;border-radius:12px;font-size:.83rem;color:var(--muted);font-weight:750}
+.navlinks a:hover{background:#edf0fb;color:var(--ink)}
+.back{padding:9px 12px;border-radius:12px;border:1px solid var(--ink);font-size:.8rem;font-weight:850}
+.hero{padding:26px 0 58px}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:16px}
+.panel{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:var(--paper)}
+.hero-copy{min-height:660px;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.hero-copy:after{
+  content:"";position:absolute;right:34px;top:34px;width:78px;height:78px;border-radius:50%;
+  background:var(--orange);box-shadow:-26px 24px 0 var(--lime),-48px 50px 0 var(--blue);opacity:.92
+}
+.kicker{font:850 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(4.7rem,10vw,10rem);line-height:.78;letter-spacing:-.08em;max-width:850px;margin-top:30px}
+h1 span{display:block;color:var(--blue)}
+.hero-bottom{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end}
+.hero-bottom p{max-width:610px;color:var(--muted);font-size:1.05rem;line-height:1.65}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;background:#f3f5fd;border:1px solid var(--line);border-radius:999px;font-size:.72rem;font-weight:850;white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:#54d88b}
+.hero-side{min-height:660px;display:grid;grid-template-rows:1.15fr .85fr;gap:16px}
+.orbit{position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#10152e,#1f2b68);border-radius:28px;border:1px solid #2e396a}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%}
+.orbit:before{width:370px;height:370px}.orbit:after{width:240px;height:240px}
+.orbit-logo{position:relative;z-index:2;width:145px;height:145px;padding:28px;background:#fff;border-radius:38px;box-shadow:0 30px 60px rgba(0,0,0,.28);transform:rotate(7deg)}
+.orbit-logo img{width:100%;height:100%;object-fit:contain}
+.side-card{padding:30px;background:var(--orange);border-radius:28px;border:1px solid #dd5d39;display:flex;flex-direction:column;justify-content:space-between}
+.side-card strong{font-size:clamp(2.2rem,4.5vw,4.3rem);line-height:.9;letter-spacing:-.055em}
+.side-card p{max-width:360px;font-size:.92rem;line-height:1.55}
+.ticker{overflow:hidden;border-block:1px solid var(--line);background:#fff}
+.ticker-track{display:flex;width:max-content;animation:scroll 28s linear infinite}
+.ticker span{padding:13px 24px;border-right:1px solid var(--line);font-size:.76rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.section{padding:82px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+.section h2{font-size:clamp(2.6rem,6vw,5.8rem);line-height:.9;letter-spacing:-.06em;max-width:780px}
+.section-copy{max-width:520px;color:var(--muted);line-height:1.6}
+.cards{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}
+.product{min-height:470px;border-radius:28px;border:1px solid var(--line);padding:34px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.product.nao{background:#fff}
+.product.games{background:#111522;color:#fff;border-color:#252a3d}
+.product-tag{font:850 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.games .product-tag{color:#a5adbd}
+.product h3{font-size:clamp(3.4rem,6vw,6.3rem);line-height:.84;letter-spacing:-.07em}
+.product p{max-width:500px;margin-top:14px;color:var(--muted)}
+.games p{color:#aab1c0}
+.product-footer{display:flex;justify-content:space-between;gap:22px;align-items:end;position:relative;z-index:2}
+.launch{width:52px;height:52px;border-radius:18px;border:1px solid currentColor;display:grid;place-items:center;font-size:1.15rem;transition:.18s ease}
+.product:hover .launch{transform:translate(4px,-4px)}
+.nao:after{content:"NAO";position:absolute;right:-8px;top:12px;font-size:9rem;font-weight:950;color:#f0f3ff;letter-spacing:-.08em}
+.games:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-50px;top:-60px;background:radial-gradient(circle at 35% 35%,#8ee8ff,#6172ff 52%,transparent 70%);opacity:.65}
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.mini{min-height:190px;border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.mini:nth-child(2){background:var(--lime)}
+.mini:nth-child(3){background:#161a28;color:#fff;border-color:#2b3146}
+.mini b{font-size:2.3rem;letter-spacing:-.05em}
+.mini p{font-size:.9rem;color:var(--muted)}
+.mini:nth-child(2) p{color:#475023}.mini:nth-child(3) p{color:#aeb6c8}
+.cta{padding:26px 0 86px}
+.cta-box{border:1px solid var(--ink);border-radius:28px;padding:42px;background:var(--blue);color:#fff;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.cta h2{font-size:clamp(3.1rem,7vw,6.8rem);line-height:.84;letter-spacing:-.065em}
+.cta p{color:#dfe4ff;max-width:460px}
+.cta a{display:inline-flex;margin-top:20px;padding:11px 15px;border-radius:999px;background:#fff;color:var(--blue);font-size:.82rem;font-weight:900}
+.footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);font-size:.8rem}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:900px){
+  .navlinks{display:none}.hero-grid,.cards,.cta-box{grid-template-columns:1fr}.hero-side{grid-template-rows:auto auto}.orbit{min-height:380px}
+  .stack{grid-template-columns:1fr}.section-head{display:block}.section-copy{margin-top:16px}
+}
+@media(max-width:560px){
+  .shell{width:min(var(--max),calc(100% - 20px))}
+  .nav{border-radius:18px}.brand em{display:none}.back{font-size:.7rem;padding:8px 9px}
+  .hero{padding-top:16px}.hero-copy{min-height:560px;padding:28px 22px}.hero-copy:after{width:54px;height:54px;right:22px;top:22px;box-shadow:-18px 18px 0 var(--lime),-34px 36px 0 var(--blue)}
+  h1{font-size:clamp(3.8rem,22vw,6.4rem)}.hero-bottom{grid-template-columns:1fr}.badge{width:max-content}
+  .orbit{min-height:310px}.orbit-logo{width:120px;height:120px;border-radius:30px}
+  .side-card{min-height:260px}.section{padding:58px 0}.product{min-height:380px;padding:24px}
+  .product h3{font-size:3.6rem}.mini{min-height:160px}.cta-box{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+<div class="notice">Concepto temporal 02 · No reemplaza la web actual</div>
+<header class="shell nav">
+  <a class="brand" href="/es/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori <em>/ 02</em></span></a>
+  <nav class="navlinks" aria-label="Navegación"><a href="#productos">Productos</a><a href="#estudio">Estudio</a><a href="#contacto">Contacto</a></nav>
+  <a class="back" href="/es/">← Web actual</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="shell hero-grid">
+    <article class="panel hero-copy">
+      <div>
+        <div class="kicker">Lumekori · Software studio</div>
+        <h1>MAKE<br><span>USEFUL</span><br>THINGS.</h1>
+      </div>
+      <div class="hero-bottom">
+        <p>Creamos software, herramientas inteligentes y nuevas experiencias digitales. Cada proyecto puede verse distinto, pero todos parten de la misma idea: que la tecnología sirva para algo real.</p>
+        <span class="badge"><i></i> Construyendo desde Perú</span>
+      </div>
+    </article>
+    <div class="hero-side">
+      <div class="orbit"><div class="orbit-logo"><img src="/assets/lumekori-icon.png" alt=""></div></div>
+      <article class="side-card"><div class="kicker" style="color:#4a2419">Ahora mismo</div><strong>NAO<br>+ GAMES</strong><p>Un asistente en evolución y una nueva división para experimentar con videojuegos.</p></article>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span>Applications</span><span>Artificial intelligence</span><span>Automation</span><span>Games</span><span>Interfaces</span><span>Experiments</span>
+  <span>Applications</span><span>Artificial intelligence</span><span>Automation</span><span>Games</span><span>Interfaces</span><span>Experiments</span>
+</div></div>
+
+<section class="section" id="productos">
+  <div class="shell">
+    <div class="section-head">
+      <div><div class="kicker">01 / Trabajo actual</div><h2>Dos direcciones.<br>La misma casa.</h2></div>
+      <p class="section-copy">Este concepto trata a Lumekori menos como una sola app y más como un estudio capaz de albergar productos con personalidades muy distintas.</p>
+    </div>
+    <div class="cards">
+      <a class="product nao" href="/es/nao/">
+        <div class="product-tag">Producto / 001</div>
+        <div class="product-footer"><div><h3>Nao</h3><p>Asistente inteligente en fase alpha, construido alrededor de tareas reales, automatización e integraciones regionales.</p></div><span class="launch">↗</span></div>
+      </a>
+      <a class="product games" href="/es/games/">
+        <div class="product-tag">División / 002</div>
+        <div class="product-footer"><div><h3>Games</h3><p>El espacio de Lumekori para videojuegos y experiencias interactivas.</p></div><span class="launch">↗</span></div>
+      </a>
+    </div>
+
+    <div class="stack" id="estudio">
+      <article class="mini"><b>01</b><div><h3>Útil</h3><p>Resolver algo antes de adornarlo.</p></div></article>
+      <article class="mini"><b>02</b><div><h3>Flexible</h3><p>La identidad puede cambiar con cada producto.</p></div></article>
+      <article class="mini"><b>03</b><div><h3>En evolución</h3><p>Construir, probar, aprender y volver a construir.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <div class="shell">
+    <div class="cta-box">
+      <h2>BUILD.<br>TEST.<br>EVOLVE.</h2>
+      <div><p>Concepto visual número 02. Más modular, más vivo y menos editorial que la primera prueba.</p><a href="/es/contact/">Hablar con Lumekori ↗</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="shell foot"><span>© 2026 Lumekori · Concepto 02</span><span>Ruta temporal: /lab-02/ · no indexada</span></div></footer>
+</body>
+</html>
