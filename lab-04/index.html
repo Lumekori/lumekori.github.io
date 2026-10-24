@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumekori — Concepto 04</title>
+<meta name="description" content="Concepto temporal 04 para Lumekori.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f5f1e8">
+<link rel="icon" href="/assets/favicon.png">
+<style>
+:root{
+  --paper:#f5f1e8;
+  --ink:#111111;
+  --acid:#c8ff36;
+  --coral:#ff6b4a;
+  --sky:#72d7ff;
+  --violet:#8f7cff;
+  --line:#111111;
+  --max:1280px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.shell{width:min(var(--max),calc(100% - 28px));margin:auto}
+.top-note{
+  border-bottom:2px solid var(--ink);
+  padding:8px 12px;
+  text-align:center;
+  font:900 .68rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.nav{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  min-height:68px;
+  border:2px solid var(--ink);
+  background:#fff;
+  box-shadow:6px 6px 0 var(--ink);
+}
+.brand{display:flex;align-items:center;gap:10px;padding:0 16px;font-weight:950;letter-spacing:-.045em}
+.brand img{width:34px;height:34px;object-fit:contain}
+.brand strong{font-size:1rem}
+.brand span{font:900 .66rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#555}
+.navlinks{display:flex;align-items:center;height:100%}
+.navlinks a{
+  display:flex;align-items:center;height:100%;padding:0 16px;
+  border-left:2px solid var(--ink);
+  font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em
+}
+.navlinks a:last-child{border-right:2px solid var(--ink)}
+.navlinks a:hover{background:var(--acid)}
+.back-wrap{display:flex;justify-content:flex-end;padding-right:10px}
+.back{padding:9px 12px;border:2px solid var(--ink);background:var(--coral);font-size:.78rem;font-weight:950}
+.hero{padding:34px 0 20px}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.45fr .55fr;
+  gap:14px;
+  min-height:700px;
+}
+.hero-main,.hero-side>div{border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.hero-main{
+  background:#fff;
+  padding:40px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+}
+.hero-main:before{
+  content:"04";
+  position:absolute;
+  right:-18px;
+  top:-42px;
+  font-size:16rem;
+  line-height:1;
+  letter-spacing:-.1em;
+  font-weight:950;
+  color:#f0eee7;
+  z-index:0;
+}
+.hero-kicker,.hero-main h1,.hero-bottom{position:relative;z-index:1}
+.hero-kicker{
+  display:flex;align-items:center;gap:10px;
+  font:900 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-transform:uppercase;letter-spacing:.13em
+}
+.hero-kicker:before{content:"";width:10px;height:10px;background:var(--acid);border:2px solid var(--ink)}
+h1{
+  margin-top:34px;
+  font-size:clamp(5rem,11vw,11.5rem);
+  line-height:.72;
+  letter-spacing:-.085em;
+  font-weight:950;
+  max-width:980px;
+}
+h1 span{display:inline-block;background:var(--acid);padding:0 .05em;transform:rotate(-1deg)}
+.hero-bottom{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:end;
+  margin-top:60px
+}
+.hero-bottom p{max-width:640px;font-size:1.03rem;line-height:1.6}
+.hero-code{
+  font:900 .7rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-align:right;
+  white-space:nowrap
+}
+.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+.logo-tile{
+  background:var(--sky);
+  position:relative;
+  display:grid;
+  place-items:center;
+  overflow:hidden
+}
+.logo-tile:before,.logo-tile:after{
+  content:"";position:absolute;border:2px solid var(--ink);background:transparent
+}
+.logo-tile:before{width:230px;height:230px;transform:rotate(22deg)}
+.logo-tile:after{width:130px;height:130px;transform:rotate(-12deg)}
+.logo-box{
+  width:150px;height:150px;background:#fff;border:2px solid var(--ink);
+  display:grid;place-items:center;transform:rotate(-5deg);
+  box-shadow:8px 8px 0 var(--ink);position:relative;z-index:2
+}
+.logo-box img{width:62%;height:62%;object-fit:contain}
+.manifesto{
+  background:var(--violet);
+  color:#0e0e0e;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between
+}
+.manifesto small{
+  font:900 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-transform:uppercase;letter-spacing:.12em
+}
+.manifesto strong{
+  font-size:clamp(2.2rem,4vw,4.2rem);
+  line-height:.88;
+  letter-spacing:-.06em;
+}
+.manifesto p{font-size:.9rem;line-height:1.5;max-width:340px}
+.tape{
+  margin-top:14px;
+  border-block:2px solid var(--ink);
+  background:var(--ink);
+  color:#fff;
+  overflow:hidden
+}
+.tape-track{display:flex;width:max-content;animation:move 22s linear infinite}
+.tape span{
+  padding:12px 24px;border-right:2px solid #fff;
+  font-size:.76rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap
+}
+@keyframes move{to{transform:translateX(-50%)}}
+.section{padding:76px 0}
+.section-head{
+  display:grid;
+  grid-template-columns:.5fr 1.5fr;
+  gap:28px;
+  align-items:start;
+  margin-bottom:26px
+}
+.label{
+  font:900 .68rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  text-transform:uppercase;letter-spacing:.13em
+}
+.section h2{
+  font-size:clamp(3rem,7vw,7rem);
+  line-height:.82;
+  letter-spacing:-.07em
+}
+.section-copy{max-width:660px;margin-top:16px;font-size:.98rem;line-height:1.6;color:#4f4f4f}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.work{
+  min-height:440px;
+  border:2px solid var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:relative;
+  overflow:hidden;
+  transition:transform .16s ease,box-shadow .16s ease
+}
+.work:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.work.nao{background:#fff}
+.work.games{background:#151515;color:#fff}
+.work.games:before{
+  content:"";
+  position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,#aef0ff,#6baeff 42%,#756cff 64%,transparent 70%);
+  opacity:.75
+}
+.work-top{display:flex;justify-content:space-between;gap:16px;position:relative;z-index:2}
+.work-num{font:900 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.1em}
+.work-arrow{
+  width:48px;height:48px;border:2px solid currentColor;display:grid;place-items:center;font-size:1.2rem;background:transparent
+}
+.work-bottom{position:relative;z-index:2}
+.work h3{font-size:clamp(3.8rem,7vw,7rem);line-height:.78;letter-spacing:-.075em}
+.work p{max-width:500px;margin-top:14px;line-height:1.55;font-size:.92rem;color:#555}
+.games p{color:#bbb}
+.rules{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:2px solid var(--ink);
+  border-left:2px solid var(--ink)
+}
+.rule{
+  min-height:230px;
+  padding:24px;
+  border-right:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+  display:flex;flex-direction:column;justify-content:space-between
+}
+.rule:nth-child(1){background:var(--acid)}
+.rule:nth-child(2){background:#fff}
+.rule:nth-child(3){background:var(--coral)}
+.rule:nth-child(4){background:var(--sky)}
+.rule b{font-size:2.8rem;letter-spacing:-.07em}
+.rule h3{font-size:1.25rem;letter-spacing:-.035em}
+.rule p{font-size:.85rem;line-height:1.5;margin-top:8px}
+.cta{padding:10px 0 80px}
+.cta-box{
+  border:2px solid var(--ink);
+  box-shadow:8px 8px 0 var(--ink);
+  background:#fff;
+  padding:44px;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:44px;
+  align-items:end
+}
+.cta h2{font-size:clamp(3.8rem,8vw,8rem);line-height:.78;letter-spacing:-.075em}
+.cta p{line-height:1.6;max-width:460px}
+.cta a{
+  display:inline-flex;margin-top:20px;
+  padding:11px 14px;border:2px solid var(--ink);
+  background:var(--acid);font-size:.8rem;font-weight:950
+}
+.footer{border-top:2px solid var(--ink);padding:22px 0 34px;font-size:.78rem}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:930px){
+  .nav{grid-template-columns:1fr auto}.navlinks{display:none}
+  .hero-grid,.section-head,.cta-box{grid-template-columns:1fr}
+  .hero-main{min-height:600px}.hero-side{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .rules{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .shell{width:min(var(--max),calc(100% - 18px))}
+  .nav{min-height:60px}.brand span{display:none}.back-wrap{padding-right:8px}.back{font-size:.68rem;padding:8px 9px}
+  .hero{padding-top:20px}.hero-grid{min-height:auto}.hero-main{padding:24px;min-height:570px}
+  .hero-main:before{font-size:9rem;top:-18px}
+  h1{font-size:clamp(4rem,23vw,6.8rem)}.hero-bottom{grid-template-columns:1fr}.hero-code{text-align:left}
+  .hero-side{grid-template-columns:1fr}.logo-tile,.manifesto{min-height:280px}
+  .section{padding:54px 0}.section-head{gap:16px}.work-grid{grid-template-columns:1fr}
+  .work{min-height:360px;padding:22px}.work h3{font-size:4.2rem}
+  .rules{grid-template-columns:1fr}.rule{min-height:170px}
+  .cta{padding-bottom:58px}.cta-box{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+<div class="top-note">Concepto temporal 04 · Experimental / Neo-brutalista</div>
+
+<header class="shell nav">
+  <a class="brand" href="/es/">
+    <img src="/assets/lumekori-icon.png" alt="Lumekori">
+    <strong>Lumekori</strong>
+    <span>/ CONCEPT 04</span>
+  </a>
+
+  <nav class="navlinks" aria-label="Navegación">
+    <a href="#trabajo">Trabajo</a>
+    <a href="#reglas">Reglas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div class="back-wrap"><a class="back" href="/es/">← Web actual</a></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="shell hero-grid">
+    <article class="hero-main">
+      <div>
+        <div class="hero-kicker">Software studio · Lima, Perú</div>
+        <h1>BUILD<br><span>WEIRD</span><br>USEFUL.</h1>
+      </div>
+      <div class="hero-bottom">
+        <p>Lumekori construye software, herramientas inteligentes y experiencias digitales. No todos los productos tienen que parecerse; sí tienen que tener una razón para existir.</p>
+        <div class="hero-code">LMK / 2026<br>PRODUCTS + AI + GAMES</div>
+      </div>
+    </article>
+
+    <aside class="hero-side">
+      <div class="logo-tile">
+        <div class="logo-box"><img src="/assets/lumekori-icon.png" alt=""></div>
+      </div>
+      <div class="manifesto">
+        <small>Manifesto / 04</small>
+        <strong>MENOS<br>DECORACIÓN.<br>MÁS CARÁCTER.</strong>
+        <p>Una prueba de identidad visual más cruda, directa y memorable.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="tape" aria-hidden="true">
+  <div class="tape-track">
+    <span>Software</span><span>AI</span><span>Automation</span><span>Interfaces</span><span>Games</span><span>Experiments</span><span>Peru</span>
+    <span>Software</span><span>AI</span><span>Automation</span><span>Interfaces</span><span>Games</span><span>Experiments</span><span>Peru</span>
+  </div>
+</div>
+
+<section class="section" id="trabajo">
+  <div class="shell">
+    <div class="section-head">
+      <div class="label">01 / Lo que existe</div>
+      <div>
+        <h2>PRODUCTOS CON<br>PERSONALIDAD PROPIA.</h2>
+        <p class="section-copy">Lumekori funciona como casa matriz. Nao puede sentirse sereno y útil; Games puede ser más oscuro y experimental. La marca no necesita encerrar a todos sus productos dentro del mismo molde.</p>
+      </div>
+    </div>
+
+    <div class="work-grid">
+      <a class="work nao" href="/es/nao/">
+        <div class="work-top"><span class="work-num">Product / 001</span><span class="work-arrow">↗</span></div>
+        <div class="work-bottom"><h3>NAO</h3><p>Asistente inteligente en desarrollo, pensado para tareas cotidianas, automatización e integraciones útiles.</p></div>
+      </a>
+
+      <a class="work games" href="/es/games/">
+        <div class="work-top"><span class="work-num">Division / 002</span><span class="work-arrow">↗</span></div>
+        <div class="work-bottom"><h3>LUMEKORI<br>GAMES</h3><p>Una división para videojuegos y experiencias interactivas con libertad para construir otra identidad.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reglas">
+  <div class="shell">
+    <div class="section-head">
+      <div class="label">02 / Reglas internas</div>
+      <div><h2>NO HACER<br>SOFTWARE POR HACER.</h2></div>
+    </div>
+
+    <div class="rules">
+      <article class="rule"><b>01</b><div><h3>Resolver</h3><p>Primero tiene que existir un problema real.</p></div></article>
+      <article class="rule"><b>02</b><div><h3>Simplificar</h3><p>La tecnología no debería sentirse como trabajo extra.</p></div></article>
+      <article class="rule"><b>03</b><div><h3>Diferenciar</h3><p>Un producto sin personalidad se vuelve reemplazable.</p></div></article>
+      <article class="rule"><b>04</b><div><h3>Evolucionar</h3><p>Nada es demasiado sagrado como para no mejorarlo.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <div class="shell">
+    <div class="cta-box">
+      <h2>KEEP<br>BUILDING.</h2>
+      <div>
+        <p>Concepto visual 04. Más gráfico, crudo y reconocible que las pruebas anteriores.</p>
+        <a href="/es/contact/">Contactar a Lumekori ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="shell foot">
+    <span>© 2026 Lumekori · Concepto 04</span>
+    <span>Ruta temporal: /lab-04/ · no indexada</span>
+  </div>
+</footer>
+</body>
+</html>
