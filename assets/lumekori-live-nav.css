@@ -24,3 +24,16 @@
 @media (max-width: 560px) {
   .nav-preview-page .nav-wrap .nav { border-radius: 999px; }
 }
+
+/* Games retains its existing announcement strip above the navigation. */
+.nav-preview-page.lmk-games-page .nav-wrap { top: 44px; }
+@media (max-width: 560px) {
+  .nav-preview-page.lmk-games-page .nav-wrap { top: 36px; }
+  .nav-preview-page.lmk-games-page .mobilemenu.open { top: 104px; }
+}
+/* Keep the navigation typography from the approved preview on the Games pages. */
+.nav-preview-page.lmk-games-page .nav-wrap .navlinks a {
+  text-transform: none;
+  font-weight: 400;
+  border: 0;
+}
