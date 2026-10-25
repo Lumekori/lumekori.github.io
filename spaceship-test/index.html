@@ -3,79 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lumekori — Experimento de movimiento</title>
-<meta name="description" content="Prueba temporal de Lumekori con capas en movimiento y mockups conceptuales de Nao.">
+<title>Lumekori — Software & Apps</title>
+<meta name="description" content="Prueba temporal de Lumekori como estudio de desarrollo de software, aplicaciones y productos digitales.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#f7f8fc">
 <link rel="icon" href="/assets/lumekori-icon.png">
 <style>
 :root{
-  --bg:#f7f8fc;--ink:#101218;--muted:#666c79;--line:#dfe3ed;--surface:rgba(255,255,255,.82);
-  --blue:#5b8cff;--cyan:#78ddff;--violet:#8a79ff;--soft:#eef2fb;--max:1280px
+  --bg:#f7f8fc;--ink:#101218;--muted:#676d79;--line:#dfe3ed;--surface:rgba(255,255,255,.82);
+  --blue:#5c8dff;--cyan:#79ddff;--violet:#8d7cff;--green:#7ce6b5;--max:1280px
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:linear-gradient(#f8f9fd,#f4f7fb);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}button{font:inherit}.shell{width:min(var(--max),calc(100% - 48px));margin:auto}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:linear-gradient(#f9faff,#f4f7fb);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.shell{width:min(var(--max),calc(100% - 48px));margin:auto}
 
 .nav-wrap{position:fixed;top:18px;left:0;right:0;z-index:60;pointer-events:none}
-.nav{pointer-events:auto;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 10px 8px 16px;border:1px solid rgba(16,18,24,.08);border-radius:24px;background:rgba(255,255,255,.72);backdrop-filter:blur(20px);box-shadow:0 18px 55px rgba(39,54,105,.08)}
+.nav{pointer-events:auto;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 10px 8px 16px;border:1px solid rgba(16,18,24,.08);border-radius:24px;background:rgba(255,255,255,.74);backdrop-filter:blur(20px);box-shadow:0 18px 55px rgba(39,54,105,.08)}
 .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.04em}.brand img{width:34px;height:34px}.navlinks{display:flex;gap:4px}.navlinks a{padding:10px 13px;border-radius:14px;color:var(--muted);font-size:.82rem;font-weight:750}.navlinks a:hover{background:#eff2f8;color:var(--ink)}.back{padding:10px 13px;border-radius:14px;background:#11131a;color:#fff;font-size:.78rem;font-weight:850}
-.test-label{position:fixed;right:18px;bottom:18px;z-index:80;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(16px);font-size:.68rem;font-weight:800;color:var(--muted)}
+.test-label{position:fixed;right:18px;bottom:18px;z-index:80;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.84);backdrop-filter:blur(16px);font-size:.68rem;font-weight:800;color:var(--muted)}
 
 .bg-stage{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .bg-grid{position:absolute;inset:0;background:
 linear-gradient(rgba(49,63,105,.035) 1px,transparent 1px),
-linear-gradient(90deg,rgba(49,63,105,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.55),transparent 92%)}
+linear-gradient(90deg,rgba(49,63,105,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.52),transparent 94%)}
 .float{position:absolute;will-change:transform}
-.float-card{border:1px solid rgba(16,18,24,.08);background:rgba(255,255,255,.8);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(50,68,127,.08)}
-.float.action-a{left:4vw;top:520px;padding:14px 16px;border-radius:18px;width:205px}.float.action-b{right:5vw;top:870px;padding:14px 16px;border-radius:18px;width:220px}.float.status{left:8vw;top:1370px;padding:13px 16px;border-radius:18px;width:190px}.float.games-float{right:7vw;top:1870px;width:250px;padding:22px;border-radius:26px;background:#11131a;color:#fff;box-shadow:0 30px 80px rgba(0,0,0,.12)}
-.float b{display:block;font-size:.92rem;letter-spacing:-.02em}.float small{display:block;color:var(--muted);margin-top:4px;font-size:.7rem;line-height:1.4}.games-float small{color:#aeb4c2}.icon-dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--violet));display:inline-block;margin-right:7px}
+.float-card{border:1px solid rgba(16,18,24,.08);background:rgba(255,255,255,.82);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(50,68,127,.08)}
+.float.dev{left:4vw;top:500px;padding:14px 16px;border-radius:18px;width:210px}
+.float.api{right:5vw;top:900px;padding:14px 16px;border-radius:18px;width:220px}
+.float.ai{left:7vw;top:1400px;padding:14px 16px;border-radius:18px;width:205px}
+.float.games-float{right:6vw;top:1920px;padding:18px 20px;border-radius:22px;width:230px;background:#11131a;color:#fff}
+.float b{display:block;font-size:.9rem}.float small{display:block;margin-top:4px;color:var(--muted);font-size:.69rem;line-height:1.4}.games-float small{color:#b3b9c7}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--violet));margin-right:7px}
 
-.hero{min-height:100vh;padding:150px 0 80px;display:grid;align-items:center;position:relative}
-.hero-inner{text-align:center;max-width:1020px;margin:auto}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.75);backdrop-filter:blur(14px);font-size:.74rem;font-weight:800;color:var(--muted)}
-.hero h1{font-size:clamp(5rem,11vw,10.7rem);line-height:.8;letter-spacing:-.085em;margin-top:28px}.hero h2{font-size:clamp(2rem,4vw,4.25rem);line-height:.96;letter-spacing:-.055em;margin:24px auto 0;max-width:850px}.hero p{max-width:720px;margin:22px auto 0;color:var(--muted);font-size:1.03rem;line-height:1.65}
+.hero{min-height:100vh;padding:150px 0 85px;display:grid;align-items:center;position:relative}
+.hero-inner{text-align:center;max-width:1040px;margin:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.75);backdrop-filter:blur(14px);font-size:.74rem;font-weight:800;color:var(--muted)}
+.hero h1{font-size:clamp(5rem,11vw,10.8rem);line-height:.8;letter-spacing:-.085em;margin-top:28px}
+.hero h2{font-size:clamp(2rem,4vw,4.3rem);line-height:.96;letter-spacing:-.055em;margin:24px auto 0;max-width:900px}
+.hero p{max-width:760px;margin:22px auto 0;color:var(--muted);font-size:1.04rem;line-height:1.65}
 .actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 17px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.76);font-size:.82rem;font-weight:850}.btn.primary{background:#11131a;color:#fff;border-color:#11131a}
 
-.hero-scene{margin:72px auto 0;max-width:1100px;min-height:560px;position:relative}
-.phone{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:280px;height:548px;border-radius:44px;background:#11131a;border:7px solid #11131a;box-shadow:0 36px 90px rgba(32,44,92,.2);overflow:hidden;z-index:3}
-.phone-screen{position:absolute;inset:7px;border-radius:34px;background:linear-gradient(180deg,#f8f9fd,#eef2fa);overflow:hidden;padding:18px}.phone-top{display:flex;justify-content:space-between;align-items:center;font-size:.68rem;color:#656c79}.phone-title{text-align:center;margin-top:22px}.phone-title b{font-size:1.18rem}.phone-title span{display:block;font-size:.68rem;color:#7b8190;margin-top:2px}
-.chat{margin-top:22px;display:grid;gap:10px}.bubble{padding:10px 12px;border-radius:16px;font-size:.72rem;line-height:1.4;max-width:84%}.bubble.user{justify-self:end;background:#11131a;color:#fff;border-bottom-right-radius:5px}.bubble.nao{justify-self:start;background:#fff;border:1px solid #e1e5ed;border-bottom-left-radius:5px;color:#303541}.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.qa{background:#fff;border:1px solid #e2e6ee;border-radius:14px;padding:11px}.qa b{font-size:.68rem;display:block}.qa span{display:block;margin-top:4px;font-size:.58rem;color:#858b98}.mic{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#77dfff,#8978ff);color:#fff;font-size:1.05rem;box-shadow:0 12px 30px rgba(104,123,255,.28)}
-.device-shadow{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:340px;height:54px;border-radius:50%;background:rgba(60,77,130,.12);filter:blur(18px)}
-.scene-card{position:absolute;border:1px solid rgba(16,18,24,.08);border-radius:24px;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);box-shadow:0 25px 70px rgba(50,68,127,.09);padding:20px;z-index:2}.scene-card b{font-size:1rem}.scene-card p{font-size:.72rem;color:var(--muted);margin-top:6px;line-height:1.45}.scene-card.one{left:7%;top:12%;width:235px}.scene-card.two{right:7%;top:16%;width:230px}.scene-card.three{left:10%;bottom:9%;width:245px}.scene-card.four{right:9%;bottom:7%;width:245px;background:#11131a;color:#fff}.scene-card.four p{color:#b5bbc9}.scene-tag{display:inline-flex;align-items:center;gap:7px;margin-bottom:12px;padding:6px 8px;border-radius:999px;background:#f1f4fa;font-size:.62rem;font-weight:800;color:#697080}.four .scene-tag{background:#1d2029;color:#bfc5d1}
+.hero-scene{margin:72px auto 0;max-width:1120px;min-height:570px;position:relative}
+.code-window{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(720px,72%);min-height:390px;border-radius:32px;border:1px solid rgba(16,18,24,.09);background:rgba(255,255,255,.88);backdrop-filter:blur(20px);box-shadow:0 34px 90px rgba(45,61,116,.14);overflow:hidden;z-index:3}
+.window-bar{height:48px;border-bottom:1px solid #e3e7ef;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.window-dots{display:flex;gap:6px}.window-dots i{width:8px;height:8px;border-radius:50%;background:#d8dce6}.window-bar span{font-size:.65rem;color:#858c99;font-weight:700}
+.workspace{display:grid;grid-template-columns:160px 1fr;min-height:342px}.sidebar{border-right:1px solid #e5e8ef;padding:18px 14px;background:#f8f9fc}.side-item{padding:9px 10px;border-radius:10px;font-size:.66rem;color:#737987;margin-bottom:5px}.side-item.active{background:#fff;color:#222836;border:1px solid #e4e8ef;font-weight:800}.editor{padding:24px;display:grid;gap:16px}.code-line{height:12px;border-radius:999px;background:#e7eaf1}.code-line.w1{width:78%}.code-line.w2{width:56%}.code-line.w3{width:88%}.code-line.w4{width:42%}.preview{margin-top:8px;border:1px solid #e3e7ef;border-radius:18px;padding:18px;display:grid;grid-template-columns:1.1fr .9fr;gap:14px;background:#fbfcff}.preview-card{border-radius:14px;background:#fff;border:1px solid #e6e9f0;padding:15px}.preview-card b{font-size:.72rem}.preview-card span{display:block;margin-top:6px;color:#8a909c;font-size:.6rem;line-height:1.35}
+.scene-card{position:absolute;border:1px solid rgba(16,18,24,.08);border-radius:22px;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);box-shadow:0 24px 70px rgba(50,68,127,.09);padding:17px;z-index:2}.scene-card b{font-size:.86rem}.scene-card p{font-size:.66rem;color:var(--muted);margin-top:5px;line-height:1.4}.scene-card.a{left:3%;top:13%;width:215px}.scene-card.b{right:3%;top:15%;width:215px}.scene-card.c{left:5%;bottom:10%;width:225px}.scene-card.d{right:4%;bottom:8%;width:225px;background:#11131a;color:#fff}.scene-card.d p{color:#b4bac7}.chip{display:inline-flex;padding:5px 8px;border-radius:999px;background:#f1f4fa;color:#6d7481;font-size:.58rem;font-weight:800;margin-bottom:9px}.d .chip{background:#1d2029;color:#bec4d0}
 
-.section{min-height:92vh;padding:110px 0;display:flex;align-items:center;position:relative}.section-head{display:grid;grid-template-columns:.58fr 1.42fr;gap:64px;align-items:end;margin-bottom:42px}.kicker{font:850 .68rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase;color:#8b92a1}.section h2{font-size:clamp(3.8rem,7vw,7.4rem);line-height:.86;letter-spacing:-.07em}.section-copy{color:var(--muted);max-width:590px;line-height:1.68;font-size:1rem}
+.section{min-height:88vh;padding:110px 0;display:flex;align-items:center;position:relative}.section-head{display:grid;grid-template-columns:.56fr 1.44fr;gap:64px;align-items:end;margin-bottom:42px}.kicker{font:850 .68rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase;color:#8b92a1}.section h2{font-size:clamp(3.8rem,7vw,7.4rem);line-height:.86;letter-spacing:-.07em}.section-copy{color:var(--muted);max-width:630px;line-height:1.68;font-size:1rem}
 
-.story-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{border:1px solid rgba(16,18,24,.08);border-radius:34px;background:rgba(255,255,255,.76);backdrop-filter:blur(20px);box-shadow:0 28px 80px rgba(50,68,127,.08);overflow:hidden}
-.copy-panel{padding:48px;min-height:520px;display:flex;flex-direction:column;justify-content:space-between}.copy-panel h3{font-size:clamp(3.3rem,5vw,5.8rem);line-height:.88;letter-spacing:-.065em}.copy-panel p{color:var(--muted);line-height:1.62;margin-top:18px;max-width:590px}
-.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.feature{padding:13px 14px;border-radius:16px;background:#f4f6fb;border:1px solid #e4e8f0}.feature b{font-size:.74rem}.feature span{display:block;font-size:.65rem;color:#7b8290;margin-top:4px}
-.interface-panel{min-height:520px;padding:30px;display:grid;place-items:center;background:
-linear-gradient(135deg,rgba(122,221,255,.15),transparent 42%),
-linear-gradient(315deg,rgba(138,121,255,.13),transparent 48%),rgba(255,255,255,.72)}
-.mini-ui{width:min(100%,420px);border-radius:26px;border:1px solid #dde2ec;background:#fff;box-shadow:0 25px 70px rgba(53,70,132,.1);padding:20px}.mini-ui-head{display:flex;justify-content:space-between;align-items:center}.mini-ui-head b{font-size:.84rem}.mini-ui-head span{font-size:.65rem;color:#7e8592}.service-row{margin-top:14px;padding:13px;border:1px solid #e4e8f0;border-radius:15px;display:flex;justify-content:space-between;gap:15px;align-items:center}.service-row b{font-size:.72rem}.service-row span{font-size:.62rem;color:#848b98}.pill-ok{padding:5px 8px;border-radius:999px;background:#eaf8f0;color:#2e7d52;font-size:.58rem;font-weight:800}
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cap{min-height:280px;border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);padding:26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 22px 65px rgba(50,68,127,.06)}.cap-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#eef3ff;font-weight:900;font-size:.8rem}.cap:nth-child(2) .cap-icon{background:#eefbf7}.cap:nth-child(3) .cap-icon{background:#f3efff}.cap:nth-child(4) .cap-icon{background:#eff8ff}.cap h3{font-size:1.35rem;letter-spacing:-.03em}.cap p{margin-top:8px;color:var(--muted);font-size:.87rem;line-height:1.5}
 
-.games-section{min-height:88vh;padding:100px 0;display:flex;align-items:center}.games-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.games-main{min-height:470px;border-radius:34px;background:#11131a;color:#fff;padding:42px;position:relative;overflow:hidden}.games-main:after{content:"";position:absolute;right:-50px;top:-70px;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,#baf4ff,#6fc6ff 38%,#8777ff 62%,transparent 70%);opacity:.72}.games-main h3{position:relative;z-index:2;font-size:clamp(4rem,6.5vw,7rem);line-height:.82;letter-spacing:-.07em}.games-main p{position:relative;z-index:2;max-width:550px;margin-top:20px;color:#b7bdca;line-height:1.6}.games-side{display:grid;grid-template-columns:1fr 1fr;gap:12px}.value{min-height:225px;border:1px solid var(--line);border-radius:26px;background:rgba(255,255,255,.76);backdrop-filter:blur(18px);padding:22px;display:flex;flex-direction:column;justify-content:space-between}.value b{font-size:2.3rem;letter-spacing:-.05em}.value p{color:var(--muted);font-size:.82rem;line-height:1.45}
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.product{min-height:470px;border-radius:34px;overflow:hidden;position:relative;padding:38px;display:flex;flex-direction:column;justify-content:space-between}.product.nao{border:1px solid rgba(16,18,24,.08);background:rgba(255,255,255,.8);backdrop-filter:blur(18px);box-shadow:0 28px 80px rgba(50,68,127,.08)}.product.games{background:#11131a;color:#fff}.product.games:after{content:"";position:absolute;right:-55px;top:-70px;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,#bcf4ff,#70c8ff 38%,#8677ff 62%,transparent 70%);opacity:.72}.product-meta{display:flex;justify-content:space-between;gap:20px;position:relative;z-index:2}.product-meta span{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8b92a1}.games .product-meta span{color:#aeb5c3}.product h3{position:relative;z-index:2;font-size:clamp(4rem,6vw,6.8rem);line-height:.82;letter-spacing:-.07em}.product p{position:relative;z-index:2;max-width:540px;margin-top:16px;color:var(--muted);line-height:1.6}.games p{color:#b7bdca}.arrow{width:46px;height:46px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;position:relative;z-index:2}
 
-.final{min-height:80vh;padding:100px 0;display:flex;align-items:center}.final-card{max-width:980px;margin:auto;padding:82px 70px;border-radius:40px;border:1px solid rgba(16,18,24,.08);background:rgba(255,255,255,.74);backdrop-filter:blur(22px);box-shadow:0 35px 100px rgba(48,64,126,.09);text-align:center}.final-card h2{font-size:clamp(4rem,8vw,8.2rem);line-height:.82;letter-spacing:-.075em}.final-card p{max-width:650px;margin:24px auto 0;color:var(--muted);line-height:1.65}
-.footer{padding:28px 0 40px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.identity{min-height:78vh;padding:100px 0;display:flex;align-items:center}.identity-card{max-width:1050px;margin:auto;text-align:center;border:1px solid rgba(16,18,24,.08);border-radius:38px;background:rgba(255,255,255,.76);backdrop-filter:blur(22px);box-shadow:0 34px 95px rgba(48,64,126,.08);padding:78px 70px}.identity-card h2{font-size:clamp(4rem,8vw,8rem);line-height:.82;letter-spacing:-.075em}.identity-card p{max-width:700px;margin:24px auto 0;color:var(--muted);font-size:1rem;line-height:1.65}.footer{padding:28px 0 40px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-@media(max-width:900px){.navlinks{display:none}.shell{width:min(var(--max),calc(100% - 24px))}.hero{padding-top:125px}.hero h1{font-size:clamp(4rem,18vw,7rem)}.scene-card.one,.scene-card.two{top:auto;bottom:5%}.scene-card.one{left:2%}.scene-card.two{right:2%}.scene-card.three,.scene-card.four{display:none}.section{min-height:auto;padding:80px 0}.section-head,.story-layout,.games-grid{grid-template-columns:1fr}.games-side{grid-template-columns:1fr 1fr}.float.action-a,.float.action-b,.float.status,.float.games-float{display:none}}
-@media(max-width:560px){.nav{min-height:58px;border-radius:18px}.brand span{display:none}.back{font-size:.7rem;padding:8px 10px}.hero{padding:110px 0 55px}.hero h1{font-size:clamp(3.5rem,19vw,5.3rem)}.hero h2{font-size:1.7rem}.hero p{font-size:.9rem}.hero-scene{min-height:465px;margin-top:48px}.phone{width:215px;height:430px;border-radius:36px}.phone-screen{border-radius:27px;padding:14px}.scene-card{padding:13px;border-radius:18px}.scene-card.one{width:150px;left:-4%;bottom:3%}.scene-card.two{width:145px;right:-3%;bottom:10%}.scene-card b{font-size:.74rem}.scene-card p{font-size:.58rem}.section{padding:58px 0}.section-head{gap:18px;margin-bottom:26px}.section h2{font-size:clamp(2.7rem,13vw,4.3rem)}.copy-panel{padding:26px;min-height:380px}.copy-panel h3{font-size:3rem}.feature-list{grid-template-columns:1fr 1fr}.feature{padding:10px}.interface-panel{min-height:340px;padding:18px}.games-main{min-height:340px;padding:28px}.games-main h3{font-size:3.7rem}.games-side{grid-template-columns:1fr 1fr;gap:10px}.value{min-height:160px;padding:16px}.value b{font-size:1.8rem}.value p{font-size:.7rem}.final{min-height:auto;padding:70px 0}.final-card{padding:48px 24px;border-radius:28px}.final-card h2{font-size:clamp(3rem,14vw,4.7rem)}.test-label{right:10px;bottom:10px;font-size:.6rem}}
+@media(max-width:950px){.navlinks{display:none}.shell{width:min(var(--max),calc(100% - 24px))}.hero{padding-top:125px}.hero h1{font-size:clamp(4rem,18vw,7rem)}.scene-card.a,.scene-card.b{top:auto;bottom:6%}.scene-card.a{left:0}.scene-card.b{right:0}.scene-card.c,.scene-card.d{display:none}.section{min-height:auto;padding:80px 0}.section-head{grid-template-columns:1fr}.cap-grid{grid-template-columns:1fr 1fr}.products-grid{grid-template-columns:1fr}.float{display:none}}
+@media(max-width:560px){.nav{min-height:58px;border-radius:18px}.brand span{display:none}.back{font-size:.7rem;padding:8px 10px}.hero{padding:110px 0 55px}.hero h1{font-size:clamp(3.5rem,19vw,5.3rem)}.hero h2{font-size:1.7rem}.hero p{font-size:.9rem}.hero-scene{min-height:430px;margin-top:45px}.code-window{width:88%;min-height:330px;border-radius:25px}.workspace{grid-template-columns:95px 1fr;min-height:280px}.sidebar{padding:12px 8px}.side-item{font-size:.55rem;padding:7px 6px}.editor{padding:15px}.preview{grid-template-columns:1fr;gap:8px}.scene-card{padding:12px;border-radius:16px}.scene-card.a{width:142px;left:-3%;bottom:1%}.scene-card.b{width:140px;right:-3%;bottom:9%}.scene-card b{font-size:.68rem}.scene-card p{font-size:.55rem}.section{padding:58px 0}.section-head{gap:18px;margin-bottom:26px}.section h2{font-size:clamp(2.7rem,13vw,4.3rem)}.cap-grid{grid-template-columns:1fr 1fr;gap:10px}.cap{min-height:190px;padding:16px}.cap-icon{width:36px;height:36px;border-radius:11px}.cap h3{font-size:1rem}.cap p{font-size:.7rem}.product{min-height:360px;padding:28px}.product h3{font-size:3.8rem}.identity{min-height:auto;padding:70px 0}.identity-card{padding:48px 24px;border-radius:28px}.identity-card h2{font-size:clamp(3rem,14vw,4.8rem)}.test-label{right:10px;bottom:10px;font-size:.6rem}}
 @media(prefers-reduced-motion:reduce){.float,.scene-card{transform:none!important}}
 </style>
 </head>
 <body>
 <div class="bg-stage" aria-hidden="true">
   <div class="bg-grid"></div>
-  <div class="float float-card action-a" data-speed="0.10"><b><span class="icon-dot"></span>Consultar recibo</b><small>Acción de Nao · servicio cotidiano</small></div>
-  <div class="float float-card action-b" data-speed="-0.08"><b><span class="icon-dot"></span>Modo local</b><small>Respuestas y acciones sin conexión</small></div>
-  <div class="float float-card status" data-speed="0.06"><b><span class="icon-dot"></span>Nao · Alpha</b><small>Android · ES / EN · en evolución</small></div>
-  <div class="float games-float" data-speed="-0.07"><b>Lumekori Games</b><small>Otra identidad dentro del mismo estudio.</small></div>
+  <div class="float float-card dev" data-speed="0.08"><b><span class="dot"></span>App development</b><small>Interfaces, lógica y experiencias móviles.</small></div>
+  <div class="float float-card api" data-speed="-0.07"><b><span class="dot"></span>Integraciones</b><small>Servicios, APIs y dispositivos conectados.</small></div>
+  <div class="float float-card ai" data-speed="0.06"><b><span class="dot"></span>AI & automation</b><small>Herramientas inteligentes dentro del producto.</small></div>
+  <div class="float games-float" data-speed="-0.06"><b>Lumekori Games</b><small>División dedicada a videojuegos.</small></div>
 </div>
 
 <div class="nav-wrap"><div class="shell nav">
   <a class="brand" href="/es/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
-  <nav class="navlinks"><a href="#nao">Nao</a><a href="#interface">Interfaz</a><a href="#games">Games</a></nav>
+  <nav class="navlinks"><a href="#capabilities">Qué hacemos</a><a href="#products">Productos</a><a href="#identity">Estudio</a></nav>
   <a class="back" href="/es/">← Web actual</a>
 </div></div>
 
@@ -84,99 +82,81 @@ linear-gradient(315deg,rgba(138,121,255,.13),transparent 48%),rgba(255,255,255,.
 <main>
 <section class="hero">
   <div class="shell hero-inner">
-    <div class="eyebrow"><span class="icon-dot"></span>Estudio independiente de software</div>
+    <div class="eyebrow"><span class="dot"></span>Estudio independiente de desarrollo de software</div>
     <h1>LUMEKORI</h1>
-    <h2>Software que se mueve con lo que haces.</h2>
-    <p>Una prueba donde el fondo no es decoración: cada elemento representa algo que Lumekori ya construye o explora.</p>
-    <div class="actions"><a class="btn primary" href="#nao">Explorar</a><a class="btn" href="/es/about/">Conocer Lumekori</a></div>
+    <h2>Construimos software, aplicaciones y productos digitales.</h2>
+    <p>Lumekori es el estudio. Nao es uno de nuestros productos. Lumekori Games es nuestra división de videojuegos. La marca existe para construir mucho más que una sola aplicación.</p>
+    <div class="actions"><a class="btn primary" href="#capabilities">Ver lo que hacemos</a><a class="btn" href="/es/about/">Conocer Lumekori</a></div>
 
     <div class="hero-scene">
-      <div class="scene-card one" data-local-speed="0.08"><span class="scene-tag">Nao</span><b>Consultar recibo</b><p>Información útil sin salir del flujo.</p></div>
-      <div class="scene-card two" data-local-speed="-0.07"><span class="scene-tag">Offline</span><b>Modo local</b><p>Funciones que pueden seguir disponibles sin conexión.</p></div>
-      <div class="scene-card three" data-local-speed="0.06"><span class="scene-tag">Acciones</span><b>Abrir aplicaciones</b><p>Menos pasos para tareas cotidianas.</p></div>
-      <div class="scene-card four" data-local-speed="-0.05"><span class="scene-tag">Lumekori Games</span><b>Otro mundo.</b><p>La marca puede contener productos con identidades distintas.</p></div>
+      <div class="scene-card a" data-local-speed="0.07"><span class="chip">Android</span><b>Aplicaciones</b><p>Productos móviles pensados desde la experiencia completa.</p></div>
+      <div class="scene-card b" data-local-speed="-0.06"><span class="chip">Backend</span><b>Servicios conectados</b><p>APIs, Firebase, automatización e integraciones.</p></div>
+      <div class="scene-card c" data-local-speed="0.05"><span class="chip">AI</span><b>Funciones inteligentes</b><p>IA dentro del producto cuando realmente aporta valor.</p></div>
+      <div class="scene-card d" data-local-speed="-0.05"><span class="chip">Games</span><b>Lumekori Games</b><p>Una división distinta para crear experiencias interactivas.</p></div>
 
-      <div class="device-shadow"></div>
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
-          <div class="phone-title"><b>Nao</b><span>Asistente inteligente</span></div>
-          <div class="chat">
-            <div class="bubble user">¿Tengo algún recibo pendiente?</div>
-            <div class="bubble nao">Puedo ayudarte a consultarlo. ¿Quieres revisar tu servicio guardado?</div>
+      <div class="code-window">
+        <div class="window-bar"><div class="window-dots"><i></i><i></i><i></i></div><span>lumekori / workspace</span></div>
+        <div class="workspace">
+          <aside class="sidebar">
+            <div class="side-item active">Products</div>
+            <div class="side-item">Apps</div>
+            <div class="side-item">AI</div>
+            <div class="side-item">Integrations</div>
+            <div class="side-item">Games</div>
+          </aside>
+          <div class="editor">
+            <div class="code-line w1"></div><div class="code-line w3"></div><div class="code-line w2"></div><div class="code-line w4"></div>
+            <div class="preview">
+              <div class="preview-card"><b>Product / Nao</b><span>Asistente inteligente en desarrollo.</span></div>
+              <div class="preview-card"><b>Division / Games</b><span>Videojuegos y experiencias interactivas.</span></div>
+            </div>
           </div>
-          <div class="quick-actions">
-            <div class="qa"><b>Consultar deuda</b><span>Servicio guardado</span></div>
-            <div class="qa"><b>Modo local</b><span>Disponible offline</span></div>
-            <div class="qa"><b>Abrir app</b><span>Acción rápida</span></div>
-            <div class="qa"><b>Hogar</b><span>Integraciones</span></div>
-          </div>
-          <div class="mic">●</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="nao">
+<section class="section" id="capabilities">
   <div class="shell">
     <div class="section-head">
-      <div class="kicker">01 / Nao</div>
-      <div><h2>Mostrar el producto sin tener todavía una foto perfecta.</h2><p class="section-copy">En vez de llenar el fondo con formas genéricas, esta versión usa piezas de interfaz y acciones reales como parte del recorrido.</p></div>
+      <div class="kicker">01 / Desarrollo</div>
+      <div><h2>Software primero. Productos después.</h2><p class="section-copy">Lumekori no gira alrededor de un único producto. El estudio puede construir aplicaciones, integrar servicios, añadir automatización y explorar nuevas experiencias digitales bajo una misma marca.</p></div>
     </div>
-    <div class="story-layout">
-      <article class="panel copy-panel">
-        <div>
-          <div class="kicker">Nao / Alpha</div>
-          <h3>Una interfaz para hacer cosas.</h3>
-          <p>Nao está siendo construida alrededor de tareas cotidianas, información, automatización, modo local e integraciones que pueden crecer con el tiempo.</p>
-          <div class="feature-list">
-            <div class="feature"><b>Modo online</b><span>Respuestas con IA conectada</span></div>
-            <div class="feature"><b>Modo local</b><span>Funciones sin conexión</span></div>
-            <div class="feature"><b>Servicios</b><span>Consultas y acciones útiles</span></div>
-            <div class="feature"><b>Hogar</b><span>Integraciones con dispositivos</span></div>
-          </div>
-        </div>
-        <div class="actions" style="justify-content:flex-start"><a class="btn primary" href="/es/nao/">Conocer Nao</a><a class="btn" href="/es/nao/support/">Soporte</a></div>
-      </article>
-
-      <div class="panel interface-panel" id="interface">
-        <div class="mini-ui">
-          <div class="mini-ui-head"><b>Acciones recientes</b><span>Nao</span></div>
-          <div class="service-row"><div><b>Consultar recibo</b><span>Servicio guardado</span></div><span class="pill-ok">Listo</span></div>
-          <div class="service-row"><div><b>Modo local</b><span>Disponible sin conexión</span></div><span class="pill-ok">Activo</span></div>
-          <div class="service-row"><div><b>Abrir aplicación</b><span>Acción rápida</span></div><span class="pill-ok">Acción</span></div>
-          <div class="service-row"><div><b>Hogar</b><span>TV y dispositivos</span></div><span class="pill-ok">Pruebas</span></div>
-        </div>
-      </div>
+    <div class="cap-grid">
+      <article class="cap"><div class="cap-icon">APP</div><div><h3>Aplicaciones</h3><p>Diseño y desarrollo de experiencias móviles y productos digitales completos.</p></div></article>
+      <article class="cap"><div class="cap-icon">API</div><div><h3>Integraciones</h3><p>Conexión con servicios, plataformas, dispositivos y datos externos.</p></div></article>
+      <article class="cap"><div class="cap-icon">AI</div><div><h3>IA & automatización</h3><p>Funciones inteligentes integradas donde mejoran realmente la experiencia.</p></div></article>
+      <article class="cap"><div class="cap-icon">UX</div><div><h3>Producto & interfaz</h3><p>Interfaces claras, identidad propia y evolución continua del producto.</p></div></article>
     </div>
   </div>
 </section>
 
-<section class="games-section" id="games">
+<section class="section" id="products">
   <div class="shell">
     <div class="section-head">
-      <div class="kicker">02 / Lumekori Games</div>
-      <div><h2>Otro producto, otra identidad.</h2><p class="section-copy">El movimiento también puede servir para separar mundos dentro del mismo estudio, en lugar de usar la misma estética para todo.</p></div>
+      <div class="kicker">02 / Ecosistema</div>
+      <div><h2>Una empresa. Productos y divisiones distintas.</h2><p class="section-copy">Nao representa una dirección de producto. Lumekori Games representa otra. Ninguna de las dos sustituye a Lumekori: ambas existen dentro del estudio.</p></div>
     </div>
-    <div class="games-grid">
-      <a class="games-main" href="/es/games/"><h3>Lumekori<br>Games</h3><p>Una división dedicada a videojuegos y experiencias interactivas. Su primer proyecto sigue en desarrollo.</p></a>
-      <div class="games-side">
-        <article class="value"><b>01</b><p>Productos útiles antes que decoración.</p></article>
-        <article class="value"><b>02</b><p>Identidad propia para cada producto.</p></article>
-        <article class="value"><b>03</b><p>Probar, aprender y cambiar rápido.</p></article>
-        <article class="value"><b>04</b><p>Construir con una razón para existir.</p></article>
-      </div>
+    <div class="products-grid">
+      <a class="product nao" href="/es/nao/">
+        <div class="product-meta"><span>Producto / 001</span><span class="arrow">↗</span></div>
+        <div><h3>Nao</h3><p>Un asistente inteligente en fase alpha, creado como uno de los productos de Lumekori.</p></div>
+      </a>
+      <a class="product games" href="/es/games/">
+        <div class="product-meta"><span>División / 002</span><span class="arrow">↗</span></div>
+        <div><h3>Lumekori<br>Games</h3><p>La división del estudio enfocada en videojuegos y experiencias interactivas.</p></div>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="final">
+<section class="identity" id="identity">
   <div class="shell">
-    <div class="final-card">
-      <div class="kicker">03 / Lo siguiente</div>
-      <h2>AÚN NO<br>EXISTE.</h2>
-      <p>Cuando tengamos capturas finales, renders o material propio de Nao, estas capas pueden reemplazarse directamente por contenido real sin cambiar toda la estructura.</p>
+    <div class="identity-card">
+      <div class="kicker">03 / Lumekori</div>
+      <h2>EL ESTUDIO<br>ES LA MARCA.</h2>
+      <p>Nao puede cambiar. Games puede crecer. Vendrán otros productos. Lumekori es la empresa que los diseña, desarrolla y conecta bajo una misma visión de software útil y bien construido.</p>
       <div class="actions"><a class="btn primary" href="/es/contact/">Contacto</a><a class="btn" href="/es/">Web actual</a></div>
     </div>
   </div>
@@ -193,16 +173,8 @@ linear-gradient(315deg,rgba(138,121,255,.13),transparent 48%),rgba(255,255,255,.
   let ticking=false;
   const update=()=>{
     const y=scrollY;
-    floats.forEach(el=>{
-      const s=parseFloat(el.dataset.speed||0);
-      el.style.transform='translate3d(0,'+(y*s)+'px,0)';
-    });
-    locals.forEach(el=>{
-      const host=el.parentElement.getBoundingClientRect();
-      const center=host.top+host.height/2-innerHeight/2;
-      const s=parseFloat(el.dataset.localSpeed||0);
-      el.style.transform='translate3d(0,'+(-center*s)+'px,0)';
-    });
+    floats.forEach(el=>{const s=parseFloat(el.dataset.speed||0);el.style.transform='translate3d(0,'+(y*s)+'px,0)'});
+    locals.forEach(el=>{const host=el.parentElement.getBoundingClientRect();const center=host.top+host.height/2-innerHeight/2;const s=parseFloat(el.dataset.localSpeed||0);el.style.transform='translate3d(0,'+(-center*s)+'px,0)'});
     ticking=false;
   };
   addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});
