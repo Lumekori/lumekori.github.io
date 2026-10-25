@@ -61,3 +61,17 @@ html[data-theme="dark"] .lmk-auth-submit{background:#f1f2f4;color:#111214}
 @media(max-width:700px){.lmk-auth-label{display:none}.lmk-auth-trigger{width:35px;min-height:35px;min-width:35px;padding:6px}
  .lmk-auth-trigger svg{width:19px;height:19px}.lmk-auth-window{padding:25px 22px}
  .lmk-account-nav{padding-right:5px}}
+
+/* Only phones use the appearance control within the account dialog. */
+.lmk-auth-appearance{display:none}
+.lmk-auth-appearance[hidden]{display:none!important}
+@media(max-width:700px){
+  .controls>.theme-btn,.nav-actions>.theme-btn,.tester-controls>.tester-theme{display:none!important}
+  .lmk-auth-appearance:not([hidden]){display:flex;align-items:center;justify-content:space-between;
+    gap:12px;border-top:1px solid var(--line,#dcdeda);padding:16px 0 0;margin-top:19px}
+  .lmk-auth-appearance-title{font-size:13px;font-weight:600;color:var(--text,#111214)}
+  .lmk-auth-theme-switch{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line,#dcdeda);
+    border-radius:999px;padding:8px 13px;background:var(--soft,#efefeb);color:var(--text,#111214);
+    font:inherit;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .lmk-auth-theme-switch:hover{filter:brightness(.96)}
+}
