@@ -128,12 +128,6 @@ function initLumekoriSiteSwitcher() {
   trigger.title = spanish ? "Cambiar sitio" : "Switch site";
   while (brandLink.firstChild) trigger.appendChild(brandLink.firstChild);
 
-  const chevron = document.createElement("span");
-  chevron.className = "lmk-brand-chevron";
-  chevron.setAttribute("aria-hidden", "true");
-  chevron.textContent = "⌄";
-  trigger.appendChild(chevron);
-
   const menu = document.createElement("div");
   menu.id = "lmk-brand-site-menu";
   menu.className = "lmk-brand-menu";
