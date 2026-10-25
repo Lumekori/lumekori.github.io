@@ -236,7 +236,7 @@ html[data-theme="dark"] .nav-preview-page .nav-wrap .controls > .lmk-auth-trigge
   .nav-preview-page .nav-wrap .shell {width: min(1280px, calc(100% - 24px));}
   .nav-preview-page .nav-wrap .nav {
     min-height: 58px;
-    border-radius: 18px;
+    border-radius: 999px;
     padding: 7px 8px 7px 12px;
     gap: 8px;
   }
