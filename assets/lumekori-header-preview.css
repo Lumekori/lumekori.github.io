@@ -153,13 +153,29 @@
 }
 
 
-/* The preview CTA is an actual link (mouse, touch and keyboard). */
-.nav-preview-page .nav-wrap .nav-popover a.nav-popover-hint {
-  cursor: pointer;
+/* Preserve the divider, but present the preview action as plain linked text.
+   Target inner anchors specifically so .navlinks a pill styles cannot leak into it. */
+.nav-preview-page .nav-wrap .nav-popover .nav-popover-hint > a {
+  display: inline;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--text, #101218);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
-.nav-preview-page .nav-wrap .nav-popover a.nav-popover-hint:hover,
-.nav-preview-page .nav-wrap .nav-popover a.nav-popover-hint:focus-visible {
+.nav-preview-page .nav-wrap .nav-popover .nav-popover-hint > a:hover,
+.nav-preview-page .nav-wrap .nav-popover .nav-popover-hint > a:focus-visible {
+  background: transparent;
+  color: var(--text, #101218);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
