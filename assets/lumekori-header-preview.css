@@ -152,6 +152,18 @@
   font-weight: 550;
 }
 
+
+/* The preview CTA is an actual link (mouse, touch and keyboard). */
+.nav-preview-page .nav-wrap .nav-popover a.nav-popover-hint {
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-preview-page .nav-wrap .nav-popover a.nav-popover-hint:hover,
+.nav-preview-page .nav-wrap .nav-popover a.nav-popover-hint:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav-preview-page .nav-wrap .nav-popover {
     transition: none;
