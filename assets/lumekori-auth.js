@@ -103,6 +103,34 @@ if (document.readyState === "loading") {
 }
 
 
+
+/* Turn the call to action in each hover preview into a real, keyboard-accessible link.
+   Reuse its own navigation item's href, so Spanish and English links stay in sync. */
+function enableLumekoriNavPreviewLinks() {
+  document.querySelectorAll(".nav-preview-page .nav-wrap .nav-preview-item").forEach(item => {
+    const destination = item.querySelector(":scope > a[href]");
+    const popover = item.querySelector(":scope > .nav-popover");
+    const hint = popover?.querySelector(".nav-popover-hint");
+    if (!destination || !hint || hint.tagName === "A") return;
+
+    const link = document.createElement("a");
+    link.className = hint.className;
+    link.href = destination.getAttribute("href");
+    link.textContent = hint.textContent;
+    hint.replaceWith(link);
+
+    // The preview contains a focusable link, so it is a group rather than a tooltip.
+    popover.setAttribute("role", "group");
+    popover.setAttribute("aria-label", destination.textContent.trim());
+    destination.removeAttribute("aria-describedby");
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", enableLumekoriNavPreviewLinks, { once: true });
+} else {
+  enableLumekoriNavPreviewLinks();
+}
+
 /* Lumekori / Lumekori Games: show only the alternate site in the logo menu. */
 function initLumekoriSiteSwitcher() {
   const brandLink = document.querySelector(".nav-preview-page .nav-wrap .nav > a.brand");
