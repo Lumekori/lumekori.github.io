@@ -1,131 +1,40 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nao | Lumekori — Image Test</title><meta name="description" content="Nao is an intelligent assistant in alpha by Lumekori."><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f7f7f4"><link rel="icon" href="/assets/favicon.png"><style>
-/* Lumekori v5 — simple, calm, product-first */
-:root{
-  --bg:#f7f7f4;--surface:#ffffff;--text:#111214;--muted:#666a70;--line:#dcdeda;
-  --soft:#efefeb;--black:#111214;--white:#fff;--radius:22px;--max:1180px;
-}
-html[data-theme="dark"]{--bg:#0b0c0f;--surface:#111318;--text:#f4f5f7;--muted:#9ba0a8;--line:#2a2d33;--soft:#17191e;--black:#f4f5f7;--white:#0b0c0f;color-scheme:dark}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;color-scheme:light}
-body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
-.shell{width:min(var(--max),calc(100% - 34px));margin:auto}
-.topbar{position:sticky;top:14px;z-index:100;padding-top:14px}
-.navpill{min-height:64px;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 12px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.5px}.brand img{width:38px;height:38px;object-fit:contain;object-position:center;border-radius:0;display:block;flex:0 0 auto}.brand span{font-size:1rem}
-.navlinks{display:flex;align-items:center;gap:4px}.navlinks a,.pill-btn{padding:9px 14px;border-radius:999px;font-size:.9rem;color:var(--muted);border:1px solid transparent;background:transparent;cursor:pointer}.navlinks a:hover,.navlinks a.active,.pill-btn:hover{color:var(--text);background:var(--soft)}
-.controls{display:flex;align-items:center;gap:5px}.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface)}.lang a{padding:5px 9px;border-radius:999px;font-size:.72rem;font-weight:800;color:var(--muted)}.lang a.active{background:var(--text);color:var(--bg)}
-.theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;font-size:1rem}
-.menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--surface);cursor:pointer}
-.mobilemenu{display:none}
-.hero{min-height:calc(100vh - 96px);display:grid;place-items:center;text-align:center;padding:84px 0 72px}
-.hero-inner{max-width:980px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.78rem;font-weight:700;letter-spacing:.02em;margin-bottom:24px}.dot{width:7px;height:7px;border-radius:50%;background:#7f87ff;box-shadow:0 0 0 4px rgba(127,135,255,.12)}
-.hero h1{font-size:clamp(4.2rem,14vw,11rem);line-height:.82;letter-spacing:-.075em;font-weight:900}.hero h2{font-size:clamp(1.6rem,3vw,2.8rem);line-height:1.05;letter-spacing:-.045em;margin-top:28px}.hero p{max-width:720px;margin:20px auto 0;color:var(--muted);font-size:1.05rem}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}.btn{min-height:46px;padding:0 18px;border-radius:999px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-weight:750;font-size:.9rem;transition:.16s ease}.btn:hover{transform:translateY(-1px)}.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}.btn.secondary{background:var(--surface)}
-.section{padding:88px 0}.section+.section{border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}.kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:800;margin-bottom:12px}.section h2{font-size:clamp(2.4rem,5vw,4.7rem);line-height:.95;letter-spacing:-.055em}.section-copy{max-width:560px;color:var(--muted)}
-.product-feature{border:1px solid var(--line);background:var(--surface);border-radius:32px;padding:clamp(26px,5vw,64px);display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}.product-feature h3{font-size:clamp(2.8rem,6vw,5.8rem);line-height:.9;letter-spacing:-.06em}.product-feature p{color:var(--muted);margin-top:18px;max-width:610px}.product-badge{display:inline-flex;margin-top:22px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.76rem;font-weight:700}.visual{min-height:320px;border-radius:26px;background:linear-gradient(145deg,#e7e8ff,#dcecff 45%,#ece7ff);border:1px solid #d7d9ee;display:grid;place-items:center;overflow:hidden;padding:clamp(26px,5vw,54px)}.visual img{display:block;width:min(100%,320px);height:220px;max-width:100%;object-fit:contain;object-position:center;border-radius:0;box-shadow:none}html[data-theme="dark"] .visual{background:linear-gradient(145deg,#161727,#111a2a 50%,#1c1526);border-color:#272b3f}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;min-height:190px}.card .num{font-size:.76rem;color:var(--muted);font-weight:800}.card h3{font-size:1.35rem;letter-spacing:-.03em;margin-top:36px}.card p{color:var(--muted);font-size:.94rem;margin-top:9px}
-.pagehero{padding:110px 0 58px;text-align:center}.pagehero .eyebrow{margin-bottom:18px}.pagehero h1{font-size:clamp(3.2rem,8vw,7rem);line-height:.9;letter-spacing:-.065em}.pagehero p{max-width:720px;margin:20px auto 0;color:var(--muted);font-size:1.04rem}
-.contentbox{max-width:900px;margin:0 auto 90px;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:clamp(24px,5vw,48px)}.contentbox h2{font-size:1.75rem;letter-spacing:-.035em;margin:28px 0 10px}.contentbox h2:first-child{margin-top:0}.contentbox h3{font-size:1.05rem;margin:22px 0 8px}.contentbox p,.contentbox li{color:var(--muted)}.contentbox ul{padding-left:20px;display:grid;gap:8px}.notice{margin:22px 0;padding:16px 18px;border-radius:16px;background:var(--soft);color:var(--muted)}
-.listlinks{display:grid;border-top:1px solid var(--line);margin-top:22px}.listlinks a{display:flex;justify-content:space-between;padding:16px 2px;border-bottom:1px solid var(--line);color:var(--muted)}.listlinks a:hover{color:var(--text)}
-.footer{border-top:1px solid var(--line);padding:34px 0 44px}.footergrid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}.footerlinks{display:flex;gap:16px;flex-wrap:wrap}
-@media(max-width:850px){.navlinks{display:none}.menu-btn{display:block}.product-feature{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.section-head{display:block}.section-copy{margin-top:16px}.hero{min-height:auto;padding:90px 0 76px}.hero h1{font-size:clamp(4rem,22vw,7.4rem)}.mobilemenu.open{display:grid;position:fixed;z-index:90;top:94px;left:17px;right:17px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:12px;box-shadow:0 20px 50px rgba(0,0,0,.12)}.mobilemenu a{padding:13px 14px;border-radius:14px;color:var(--muted)}.mobilemenu a:hover{background:var(--soft);color:var(--text)}}
-@media(max-width:520px){.brand span{display:none}.navpill{padding-left:8px}.controls .lang{display:none}.hero h1{font-size:clamp(3.8rem,24vw,6rem)}.product-feature{padding:24px}.visual{min-height:240px;padding:24px}.visual img{width:min(100%,220px);height:170px}.section{padding:66px 0}.pagehero{padding:90px 0 44px}}
-
-
-/* Lumekori mobile compact 2026-10 */
-@media(max-width:520px){
-  .shell{width:min(var(--max),calc(100% - 28px))}
-  .topbar{top:8px;padding-top:8px}
-  .navpill{min-height:56px;padding:6px 8px 6px 10px}
-  .brand img{width:32px;height:32px}
-  .theme-btn,.menu-btn{width:34px;height:34px}
-  .mobilemenu.open{top:76px;left:14px;right:14px;border-radius:20px}
-  .hero{padding:64px 0 52px}
-  .hero-inner{max-width:100%}
-  .eyebrow{font-size:.72rem;padding:6px 10px;margin-bottom:18px}
-  .hero h1{font-size:clamp(2.2rem,11.8vw,4rem);line-height:.9;letter-spacing:-.06em;white-space:nowrap}
-  .hero h2{font-size:clamp(1.35rem,7vw,1.9rem);margin-top:20px}
-  .hero p{font-size:.96rem;line-height:1.55;margin-top:16px}
-  .actions{margin-top:22px;gap:8px}
-  .btn{min-height:42px;padding:0 15px;font-size:.84rem}
-  .section{padding:52px 0}
-  .section-head{margin-bottom:24px}
-  .kicker{font-size:.66rem;margin-bottom:9px}
-  .section h2{font-size:clamp(2rem,10vw,3rem);line-height:1}
-  .section-copy{font-size:.96rem;line-height:1.55;margin-top:12px}
-  .product-feature{padding:20px;border-radius:24px;gap:24px}
-  .product-feature h3{font-size:clamp(2.15rem,10.5vw,2.8rem);line-height:.95;letter-spacing:-.05em}
-  .product-feature p{font-size:.96rem;line-height:1.55;margin-top:14px}
-  .product-badge{margin-top:16px;font-size:.7rem;padding:6px 9px}
-  .visual{min-height:210px;padding:20px;border-radius:20px}
-  .visual img{width:min(100%,190px);height:150px}
-  .cards{gap:10px}
-  .card{padding:20px;min-height:150px;border-radius:18px}
-  .card h3{font-size:1.18rem;margin-top:24px}
-  .card p{font-size:.9rem;line-height:1.5;margin-top:7px}
-  .pagehero{padding:70px 0 38px}
-  .pagehero h1{font-size:clamp(2.5rem,13vw,4rem);line-height:.95}
-  .pagehero p{font-size:.96rem;margin-top:14px}
-  .contentbox{margin-bottom:56px;padding:20px;border-radius:20px}
-  .contentbox h2{font-size:1.45rem;margin:24px 0 8px}
-  .contentbox h3{font-size:1rem;margin-top:18px}
-  .contentbox p,.contentbox li{font-size:.94rem;line-height:1.58}
-  .notice{margin:18px 0;padding:14px 15px;border-radius:14px}
-  .listlinks{margin-top:18px}
-  .listlinks a{padding:14px 2px;font-size:.92rem}
-  .footer{padding:28px 0 34px}
-  .footergrid{font-size:.78rem;gap:18px}
-}
-
-/* Lumekori compact mobile system 2026-10 */
-@media(max-width:620px){
-.shell{width:min(var(--max),calc(100% - 22px))}.topbar{top:8px;padding-top:8px}.navpill{min-height:54px;padding:5px 7px 5px 9px;border-radius:18px}.brand img{width:30px;height:30px}.theme-btn,.menu-btn{width:34px;height:34px}.mobilemenu.open{top:74px;left:11px;right:11px;border-radius:18px;padding:9px}.mobilemenu a{padding:11px 12px;font-size:.84rem}
-.pagehero{padding:58px 0 28px}.pagehero .eyebrow{font-size:.64rem;padding:5px 8px;margin-bottom:12px}.pagehero h1{font-size:clamp(2.15rem,10.8vw,3.35rem);line-height:.92;letter-spacing:-.055em}.pagehero p{font-size:.86rem;line-height:1.46;margin-top:10px;max-width:94%}.pagehero .actions{margin-top:16px;gap:7px}.pagehero .btn{min-height:37px;padding:0 11px;font-size:.7rem}
-.section{padding:38px 0}.section-head{margin-bottom:16px}.section h2{font-size:clamp(1.75rem,8.4vw,2.45rem);line-height:.98}.section-copy{font-size:.84rem;line-height:1.46;margin-top:8px}.kicker{font-size:.58rem;margin-bottom:7px}
-.contentbox{margin-bottom:40px;padding:16px;border-radius:16px}.contentbox h2{font-size:1.18rem;line-height:1.1;margin:18px 0 6px}.contentbox h2:first-child{margin-top:0}.contentbox h3{font-size:.93rem;margin:15px 0 5px}.contentbox p,.contentbox li{font-size:.84rem;line-height:1.5}.contentbox ul,.contentbox ol{padding-left:17px;gap:5px}.contentbox .actions{margin-top:14px;gap:7px}.contentbox .btn{min-height:36px;padding:0 11px;font-size:.7rem}.notice{margin:13px 0;padding:11px 12px;border-radius:12px;font-size:.8rem;line-height:1.45}
-.listlinks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;border-top:0}.listlinks a{min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:var(--soft);font-size:.76rem;gap:7px}.listlinks a+a{border-top:1px solid var(--line)}.listlinks a:last-child:nth-child(odd){grid-column:1/-1}
-.product-feature{padding:14px;border-radius:18px;gap:12px;grid-template-columns:minmax(0,1.42fr) minmax(108px,.58fr);align-items:stretch}.product-feature>div:first-child{min-width:0}.product-feature h3{font-size:clamp(1.58rem,7.7vw,2.15rem);line-height:.94}.product-feature p{font-size:.77rem;line-height:1.42;margin-top:9px}.product-badge{margin-top:10px;padding:5px 7px;font-size:.59rem;white-space:normal}.visual{min-height:100%;padding:9px;border-radius:14px}.visual img{width:min(100%,100px);height:104px}
-.cards{grid-template-columns:1fr 1fr;gap:8px}.card{padding:14px;min-height:128px;border-radius:16px}.card .num{font-size:.61rem}.card h3{font-size:.91rem;line-height:1.05;margin-top:16px}.card p{font-size:.69rem;line-height:1.36;margin-top:6px}.cards>.card:nth-child(3):last-child{grid-column:1/-1;min-height:100px;display:grid;grid-template-columns:36px minmax(105px,.72fr) 1.28fr;gap:9px;align-items:center}.cards>.card:nth-child(3):last-child .num{align-self:start;padding-top:2px}.cards>.card:nth-child(3):last-child h3{margin-top:0;font-size:.98rem}.cards>.card:nth-child(3):last-child p{margin-top:0}
-.footer{padding:24px 0 29px}.footergrid{gap:14px;font-size:.7rem}.footerlinks{gap:9px 12px}}
-@media(max-width:390px){.product-feature{grid-template-columns:1fr 100px;gap:9px;padding:12px}.product-feature h3{font-size:1.45rem}.product-feature p{font-size:.71rem}.visual img{width:84px;height:90px}.card{padding:12px}.card h3{font-size:.85rem}.card p{font-size:.64rem}.cards>.card:nth-child(3):last-child{grid-template-columns:30px 1fr;gap:7px}.cards>.card:nth-child(3):last-child p{grid-column:2}.listlinks a{padding:10px;font-size:.71rem}}
-
-
-/* Nao official page image test */
-.nao-image-section{padding:20px 0 40px}
-.nao-image-frame{
-  border:1px solid var(--line);
-  background:var(--surface);
-  border-radius:28px;
-  padding:12px;
-  overflow:hidden
-}
-.nao-image-frame img{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:18px
-}
-.nao-test-note{
-  margin-top:10px;
-  text-align:center;
-  color:var(--muted);
-  font-size:.72rem
-}
-@media(max-width:620px){
-  .nao-image-section{padding:8px 0 26px}
-  .nao-image-frame{padding:7px;border-radius:17px}
-  .nao-image-frame img{border-radius:11px}
-  .nao-test-note{font-size:.62rem;margin-top:7px}
-}
-</style><meta property="og:type" content="website"><meta property="og:site_name" content="Lumekori"><meta property="og:title" content="Nao | Lumekori"><meta property="og:description" content="Nao is an intelligent assistant in alpha by Lumekori."></head><body><div class="topbar"><div class="shell"><nav class="navpill"><a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="Lumekori logo"><span>Lumekori</span></a><div class="navlinks"><a class="" href="/products/">Products</a><a class="active" href="/nao/">Nao</a><a class="" href="/support/">Support</a><a class="" href="/contact/">Contact</a></div><div class="controls"><div class="lang"><a class="active" href="/">EN</a><a class="" href="/es/">ES</a></div><button class="theme-btn" data-theme-toggle aria-label="Theme">☾</button><button class="menu-btn" data-menu aria-label="Menu">☰</button></div></nav></div></div><div class="mobilemenu"><a href="/products/">Products</a><a href="/nao/">Nao</a><a href="/support/">Support</a><a href="/contact/">Contact</a><a href="/es/">Español</a></div><main><section class="pagehero"><div class="shell"><div class="eyebrow"><span class="dot"></span>A Lumekori product · Alpha</div><h1>Nao</h1><p>An intelligent assistant designed to help with everyday tasks, information, automation, and digital services.</p><div class="actions"><a class="btn primary" href="/nao/testers/">Explore Nao Testers ↗</a><a class="btn secondary" href="https://play.google.com/store/apps/details?id=com.lumekori.nao" target="_blank" rel="noopener noreferrer">Google Play ↗</a><a class="btn secondary" href="/nao/support/">Support</a></div><p style="font-size:.86rem;margin-top:14px">Pre-Alpha testing with manual approval · Applications opening soon</p></div></section><section class="nao-image-section"><div class="shell"><div class="nao-image-frame"><img src="/assets/nao-early-access-test.webp" alt="Nao Early Access by Lumekori"></div><div class="nao-test-note">Visual placement test · official Nao page remains unchanged</div></div></section><section class="section"><div class="shell"><div class="product-feature"><div><h3>Built to be useful.</h3><p>Nao is currently in alpha. We are defining its capabilities, testing new interactions, and building a solid foundation before a broader launch.</p><span class="product-badge">English · Spanish · Chinese</span></div><div class="visual"><img src="/assets/lumekori-icon.png" alt="Nao by Lumekori"></div></div></div></section><section class="section"><div class="shell"><div class="cards"><article class="card"><div class="num">01</div><h3>Everyday assistance</h3><p>Questions, information, actions, and help with everyday tasks.</p></article><article class="card"><div class="num">02</div><h3>Automation</h3><p>Workflows and service interactions designed to reduce repetitive steps.</p></article><article class="card"><div class="num">03</div><h3>Regional depth</h3><p>Selected local integrations, including utility and bill-related experiences in Peru.</p></article></div><div class="listlinks" style="margin-top:42px"><a href="/nao/privacy/"><span>Privacy</span><span>→</span></a><a href="/nao/terms/"><span>Terms</span><span>→</span></a><a href="/nao/policies/"><span>Policies</span><span>→</span></a><a href="/nao/support/"><span>Support</span><span>→</span></a><a href="/nao/delete-account/"><span>Delete account</span><span>→</span></a></div></div></section></main><footer class="footer"><div class="shell footergrid"><div>© 2026 Lumekori · lumekori.dev</div><div class="footerlinks"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/policies/">Policies</a><a href="https://x.com/LUMEKORI" target="_blank">X ↗</a><a href="https://www.youtube.com/@LumekoriStudio" target="_blank">YouTube ↗</a><a href="https://github.com/Lumekori" target="_blank">GitHub ↗</a></div></div></footer><script>
-(() => {
-  const root=document.documentElement;
-  const stored=localStorage.getItem('lumekori-theme');
-  if(stored){root.dataset.theme=stored}else if(matchMedia('(prefers-color-scheme: dark)').matches){root.dataset.theme='dark'}
-  const updateIcon=()=>document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.textContent=root.dataset.theme==='dark'?'☀':'☾');
-  updateIcon();
-  document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('lumekori-theme',root.dataset.theme);updateIcon()}));
-  const mb=document.querySelector('[data-menu]'), mm=document.querySelector('.mobilemenu');
-  if(mb&&mm){mb.addEventListener('click',()=>mm.classList.toggle('open'));mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')))}
-})();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nao | Lumekori — Redesign Test</title>
+<meta name="description" content="Design test for the Nao product page by Lumekori.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f7f7f4">
+<link rel="icon" href="/assets/favicon.png">
+<style>
+:root{--bg:#f7f7f4;--surface:#fff;--text:#111214;--muted:#686d75;--line:#dedfdb;--soft:#efefeb;--max:1220px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.shell{width:min(var(--max),calc(100% - 34px));margin:auto}
+.topbar{position:sticky;top:14px;z-index:100;padding-top:14px}.navpill{min-height:64px;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 12px;box-shadow:0 10px 30px rgba(0,0,0,.05)}.brand{display:flex;align-items:center;gap:10px;font-weight:850}.brand img{width:38px;height:38px}.navlinks{display:flex;gap:4px}.navlinks a{padding:9px 14px;border-radius:999px;font-size:.88rem;color:var(--muted)}.navlinks a.active,.navlinks a:hover{background:var(--soft);color:var(--text)}.controls{display:flex;gap:6px;align-items:center}.ghost{padding:9px 13px;border-radius:999px;border:1px solid var(--line);font-size:.76rem;color:var(--muted);background:#fff}.menu{display:none;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:#fff}
+.test-badge{position:fixed;right:14px;bottom:14px;z-index:110;background:#111214;color:#fff;border-radius:999px;padding:8px 10px;font-size:.64rem;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.hero{padding:86px 0 78px}.hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-size:.72rem;font-weight:800}.hero h1{font-size:clamp(5.8rem,10vw,10rem);line-height:.8;letter-spacing:-.078em;margin-top:22px}.hero h2{font-size:clamp(2rem,3.7vw,4rem);line-height:.96;letter-spacing:-.055em;color:#6b7078;margin-top:18px;max-width:620px}.hero p{max-width:610px;color:var(--muted);font-size:1rem;line-height:1.62;margin-top:20px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;min-height:44px;padding:0 17px;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--line);font-size:.82rem;font-weight:820;background:#fff}.btn.primary{background:#111214;color:#fff;border-color:#111214}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:24px}.meta{border-top:1px solid var(--line);padding-top:12px}.meta b{display:block;font-size:.77rem}.meta span{display:block;color:#8a8f97;font-size:.67rem;margin-top:3px}
+.hero-art{min-height:560px;border-radius:34px;border:1px solid var(--line);overflow:hidden;position:relative;background:#fff;box-shadow:0 28px 70px rgba(40,54,97,.08)}.hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:69% center;transform:scale(1.08)}.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.08),transparent 32%)}
+.section{padding:84px 0}.section+.section{border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:38px;align-items:end;margin-bottom:30px}.kicker{font-size:.66rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase;color:#8a8f97}.section h2{font-size:clamp(2.6rem,5.7vw,5.7rem);line-height:.9;letter-spacing:-.06em}.section-copy{color:var(--muted);line-height:1.6;max-width:620px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{min-height:230px;border:1px solid var(--line);border-radius:24px;background:#fff;padding:24px;display:flex;flex-direction:column;justify-content:space-between}.feature .num{font-size:.68rem;font-weight:850;color:#8b9098}.feature h3{font-size:1.35rem;letter-spacing:-.035em}.feature p{color:var(--muted);font-size:.86rem;line-height:1.5;margin-top:8px}
+.showcase{border:1px solid var(--line);border-radius:30px;background:#fff;padding:12px;overflow:hidden}.showcase img{display:block;width:100%;height:auto;border-radius:20px}.showcase-note{display:flex;justify-content:space-between;gap:20px;padding:16px 8px 4px;color:var(--muted);font-size:.76rem}
+.access-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.access-card{border:1px solid var(--line);border-radius:26px;background:#fff;padding:30px}.access-card h3{font-size:clamp(2.1rem,4vw,3.9rem);line-height:.94;letter-spacing:-.05em}.access-card p{color:var(--muted);line-height:1.6;margin-top:14px}.access-list{display:grid;gap:9px}.access-item{padding:16px;border-radius:18px;background:var(--soft);display:flex;justify-content:space-between;gap:14px;align-items:center}.access-item b{font-size:.82rem}.access-item span{font-size:.7rem;color:#858a93}
+/* universal dark closing */
+.lk-site-end{background:#101113;color:#f6f6f4;padding:56px 0 24px;margin-top:64px}.lk-end-main{display:grid;grid-template-columns:1.05fr .9fr 2fr;gap:48px;align-items:start}.lk-end-title{font-size:clamp(3.2rem,5.5vw,6.4rem);line-height:.82;letter-spacing:-.065em;font-weight:900;max-width:620px}.lk-end-intro{color:#b9bdc5;font-size:.92rem;line-height:1.6;max-width:420px}.lk-end-cta{display:inline-flex;margin-top:18px;padding:10px 16px;border-radius:999px;background:#f6f5f2;color:#111214;font-size:.78rem;font-weight:850}.lk-end-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}.lk-end-group{display:grid;align-content:start;gap:8px;min-width:0}.lk-end-label{font-size:.58rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:#777c85;margin-bottom:5px}.lk-end-group a{color:#d7d9dd;font-size:.75rem;line-height:1.35;overflow-wrap:anywhere}.lk-end-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:42px;padding-top:20px;display:flex;justify-content:space-between;gap:18px;align-items:center;color:#989da6;font-size:.72rem}.lk-end-bottom strong{color:#fff}.lk-end-social{display:flex;gap:18px;flex-wrap:wrap}.lk-end-social a{color:#c4c7cd;font-weight:750}
+@media(max-width:900px){.navlinks{display:none}.menu{display:block}.hero-grid,.access-grid{grid-template-columns:1fr}.hero-art{min-height:480px}.section-head{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}.feature:last-child{grid-column:1/-1}.lk-end-main{grid-template-columns:1fr 1fr}.lk-end-links{grid-column:1/-1}.lk-end-links{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}}
+@media(max-width:620px){.shell{width:min(var(--max),calc(100% - 22px))}.topbar{top:8px;padding-top:8px}.navpill{min-height:54px;padding:5px 7px 5px 9px;border-radius:18px}.brand img{width:30px;height:30px}.brand span{display:none}.ghost{display:none}.hero{padding:55px 0 42px}.hero h1{font-size:clamp(4rem,23vw,6.4rem)}.hero h2{font-size:1.8rem}.hero p{font-size:.84rem}.hero-meta{gap:7px}.meta b{font-size:.68rem}.meta span{font-size:.58rem}.hero-art{min-height:310px;border-radius:20px}.hero-art img{object-position:68% center;transform:scale(1.12)}.section{padding:48px 0}.section-head{gap:12px;margin-bottom:20px}.section h2{font-size:clamp(2.2rem,11vw,3.4rem)}.section-copy{font-size:.8rem}.feature-grid{grid-template-columns:1fr 1fr;gap:8px}.feature{min-height:160px;padding:15px;border-radius:17px}.feature h3{font-size:1rem}.feature p{font-size:.68rem}.showcase{padding:7px;border-radius:18px}.showcase img{border-radius:12px}.showcase-note{font-size:.62rem;padding:10px 3px 2px;flex-direction:column;gap:4px}.access-card{padding:18px;border-radius:19px}.access-card h3{font-size:2rem}.access-card p{font-size:.78rem}.access-item{padding:12px}.lk-site-end{margin-top:38px;padding:34px 0 22px}.lk-end-main{grid-template-columns:1fr;gap:25px}.lk-end-title{font-size:clamp(2.8rem,13vw,4.4rem);max-width:360px}.lk-end-intro{font-size:.76rem;max-width:330px}.lk-end-cta{margin-top:13px;padding:9px 13px;font-size:.7rem}.lk-end-links{grid-column:auto;grid-template-columns:1fr 1fr;gap:22px 18px}.lk-end-group a{font-size:.7rem}.lk-end-bottom{margin-top:26px;padding-top:17px;align-items:flex-start;flex-direction:column;font-size:.66rem}.test-badge{font-size:.58rem}}
+</style>
+</head>
+<body>
+<div class="test-badge">Nao redesign test · noindex</div>
+<div class="topbar"><div class="shell"><nav class="navpill"><a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a><div class="navlinks"><a href="/products/">Products</a><a class="active" href="/nao/">Nao</a><a href="/support/">Support</a><a href="/contact/">Contact</a></div><div class="controls"><a class="ghost" href="/nao/">Original Nao page</a><a class="ghost" href="/es/nao/">ES</a><button class="menu" aria-label="Menu">☰</button></div></nav></div></div>
+<main>
+<section class="hero"><div class="shell hero-grid"><div><span class="eyebrow">A Lumekori product · Alpha</span><h1>Nao</h1><h2>Useful intelligence, built around everyday life.</h2><p>Nao is an intelligent assistant in development, combining local and online capabilities to help with information, everyday actions, automation and selected regional services.</p><div class="actions"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.lumekori.nao" target="_blank">Google Play ↗</a><a class="btn" href="/nao/testers/">Nao Testers ↗</a><a class="btn" href="/nao/support/">Support</a></div><div class="hero-meta"><div class="meta"><b>Android</b><span>Mobile product</span></div><div class="meta"><b>Local + online</b><span>Flexible AI modes</span></div><div class="meta"><b>Alpha</b><span>Still evolving</span></div></div></div><div class="hero-art"><img src="/assets/nao-early-access-test.webp" alt="Nao Early Access visual"></div></div></section>
+<section class="section"><div class="shell"><div class="section-head"><div class="kicker">01 / What Nao is becoming</div><div><h2>More than answers.</h2><p class="section-copy">Nao is being shaped as a practical software product: one place for useful information, quick actions, connected services and intelligent assistance.</p></div></div><div class="feature-grid"><article class="feature"><span class="num">01</span><div><h3>Everyday assistance</h3><p>Questions, information and actions designed around daily use.</p></div></article><article class="feature"><span class="num">02</span><div><h3>Local & online AI</h3><p>Different modes let Nao balance offline utility and connected intelligence.</p></div></article><article class="feature"><span class="num">03</span><div><h3>Regional integrations</h3><p>Selected services can become more useful by adapting to where people live.</p></div></article></div></div></section>
+<section class="section"><div class="shell"><div class="section-head"><div class="kicker">02 / Early Access</div><div><h2>A product still taking shape.</h2><p class="section-copy">This visual introduces Nao as an early-access Lumekori product while the app continues to evolve through internal and limited testing.</p></div></div><div class="showcase"><img src="/assets/nao-early-access-test.webp" alt="Nao Early Access by Lumekori"><div class="showcase-note"><span>Early-access visual concept</span><span>Nao · by Lumekori</span></div></div></div></section>
+<section class="section"><div class="shell"><div class="access-grid"><article class="access-card"><span class="kicker">03 / Testing</span><h3>Help shape what comes next.</h3><p>Nao’s testing program lets a limited group explore experimental builds and share feedback before broader releases.</p><div class="actions"><a class="btn primary" href="/nao/testers/">Explore Nao Testers ↗</a></div></article><div class="access-list"><div class="access-item"><b>Manual review</b><span>Limited access</span></div><div class="access-item"><b>Pre-Alpha builds</b><span>Experimental</span></div><div class="access-item"><b>Google Play</b><span>Android testing</span></div><div class="access-item"><b>Feedback</b><span>Helps development</span></div></div></div></div></section>
+</main>
+<section class="lk-site-end"><div class="shell"><div class="lk-end-main"><div class="lk-end-title">WHAT COMES NEXT<br>DOESN’T EXIST YET.</div><div class="lk-end-intro">Lumekori keeps building new ideas, tools and experiences to make software more useful, accessible and human.<br><a class="lk-end-cta" href="/products/">Explore products ↗</a></div><div class="lk-end-links"><div class="lk-end-group"><span class="lk-end-label">Contact</span><a href="mailto:hello@lumekori.dev">hello@lumekori.dev</a><a href="mailto:support@lumekori.dev">support@lumekori.dev</a></div><div class="lk-end-group"><span class="lk-end-label">Help</span><a href="/support/">General support</a><a href="/support/">FAQs</a><a href="/nao/support/">Nao support</a></div><div class="lk-end-group"><span class="lk-end-label">Lumekori</span><a href="/about/">About</a><a href="/products/">Products</a><a href="/contact/">Contact</a></div><div class="lk-end-group"><span class="lk-end-label">Legal</span><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/policies/">Policies</a></div></div></div><div class="lk-end-bottom"><div><strong>© 2026 Lumekori</strong> · Independent software development studio · lumekori.dev</div><div class="lk-end-social"><a href="https://x.com/LUMEKORI" target="_blank">X ↗</a><a href="https://www.youtube.com/@LumekoriStudio" target="_blank">YouTube ↗</a><a href="https://github.com/Lumekori" target="_blank">GitHub ↗</a></div></div></div></section>
+</body>
+</html>
