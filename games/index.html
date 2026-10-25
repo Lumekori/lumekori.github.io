@@ -152,37 +152,61 @@ h1{margin-top:24px;font-size:clamp(3.15rem,17vw,5.1rem);line-height:.76}
   .rule p{font-size:.58rem;line-height:1.24}
 }
 </style>
-<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"></head>
-<body>
+<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"><link rel="stylesheet" href="/assets/lumekori-live-nav.css?v=1"></head>
+<body class="nav-preview-page lmk-games-page">
 <div class="top-note">Lumekori Games · Games & interactive experiences</div>
 
-<header class="shell nav">
-  <div class="brand-switcher">
-    <button class="brand-trigger" type="button" data-brand-trigger aria-haspopup="true" aria-expanded="false">
-      <span class="games-logo" aria-hidden="true"></span>
-      <strong>Lumekori</strong><span class="slash">/</span><strong>Games</strong>
-    </button>
-    <div class="brand-menu" data-brand-menu>
-      <a class="brand-choice" href="/">
-        <span class="brand-choice-head"><img class="brand-choice-logo" src="/assets/lumekori-icon.png" alt=""><span class="brand-choice-divider">|</span><span class="brand-choice-title">Lumekori</span></span>
-        <span class="brand-choice-note">Software studio</span>
-      </a>
-      <a class="brand-choice active" href="/games/">
-        <span class="brand-choice-head"><span class="brand-choice-logo games" aria-hidden="true"></span><span class="brand-choice-divider">|</span><span class="brand-choice-title">Lumekori Games</span></span>
-        <span class="brand-choice-note">Games</span>
-      </a>
+<div class="nav-wrap"><div class="shell nav">
+  <a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
+  <nav class="navlinks" aria-label="Navigation">
+  <div class="nav-preview-item">
+    <a href="/products/" aria-describedby="nav-preview-1">Products</a>
+    <div class="nav-popover" id="nav-preview-1" role="tooltip">
+      <span class="nav-popover-kicker">Lumekori products</span>
+      <strong>Apps and experiences</strong>
+      <p>Explore the products, projects, and experiments being built by Lumekori.</p>
+      <span class="nav-popover-hint">Explore products ↗</span>
     </div>
   </div>
-
-  <nav class="navlinks" aria-label="Navigation">
-    <a href="#project">Project</a>
-    <a href="#principles">Principles</a>
-  </nav>
-
-  
-</header>
-
-<main>
+  <div class="nav-preview-item">
+    <a href="/nao/" aria-describedby="nav-preview-2">Nao</a>
+    <div class="nav-popover" id="nav-preview-2" role="tooltip">
+      <span class="nav-popover-kicker">Product in development</span>
+      <strong>Nao — AI assistant</strong>
+      <p>An Android assistant with local and connected features, currently in alpha.</p>
+      <span class="nav-popover-hint">Discover Nao ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/about/" aria-describedby="nav-preview-3">About</a>
+    <div class="nav-popover" id="nav-preview-3" role="tooltip">
+      <span class="nav-popover-kicker">Our studio</span>
+      <strong>Meet Lumekori</strong>
+      <p>Discover our identity, philosophy, and approach to building useful, accessible software.</p>
+      <span class="nav-popover-hint">About the studio ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/support/" aria-describedby="nav-preview-4">Support</a>
+    <div class="nav-popover" id="nav-preview-4" role="tooltip">
+      <span class="nav-popover-kicker">Help and support</span>
+      <strong>We're here to help</strong>
+      <p>Find answers and resources for Lumekori and its products, including Nao.</p>
+      <span class="nav-popover-hint">Visit support ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/contact/" aria-describedby="nav-preview-5">Contact</a>
+    <div class="nav-popover" id="nav-preview-5" role="tooltip">
+      <span class="nav-popover-kicker">Get in touch</span>
+      <strong>Let's connect</strong>
+      <p>Find our official email addresses and Lumekori's social media channels.</p>
+      <span class="nav-popover-hint">View contact ↗</span>
+    </div>
+  </div>
+</nav>
+  <div class="controls preview-auth-slot"><button class="menu-btn" type="button" data-menu aria-label="Open menu">☰</button></div>
+</div></div><div class="nav-preview-spacer" aria-hidden="true"></div><div class="mobilemenu"><a href="/products/">Products</a><a href="/nao/">Nao</a><a href="/about/">About</a><a href="/support/">Support</a><a href="/contact/">Contact</a></div><main>
 <section class="hero">
   <div class="shell hero-grid">
     <article class="hero-main">
@@ -235,5 +259,5 @@ h1{margin-top:24px;font-size:clamp(3.15rem,17vw,5.1rem);line-height:.76}
 <script>
 (()=>{const t=document.querySelector('[data-brand-trigger]'),m=document.querySelector('[data-brand-menu]');if(!t||!m)return;const close=()=>{m.classList.remove('open');t.setAttribute('aria-expanded','false')};t.addEventListener('click',e=>{e.stopPropagation();const open=!m.classList.contains('open');m.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open))});m.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
 </script>
-<script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script></body>
+<script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script><script>(()=>{const b=document.querySelector("[data-menu]"),m=document.querySelector(".mobilemenu");if(b&&m){b.addEventListener("click",()=>m.classList.toggle("open"));m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>m.classList.remove("open")));}})();</script></body>
 </html>
