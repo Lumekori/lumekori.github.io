@@ -110,6 +110,13 @@ html[data-theme="dark"] .big .stack span:nth-child(3){background:#252a32}
 /* Unified half-circle theme icon */
 .theme-btn,.theme,.tester-theme{width:34px;height:34px;min-width:34px;min-height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface,var(--paper));color:var(--ink);display:grid;place-items:center;font-size:.9rem;font-weight:400;line-height:1;cursor:pointer}
 @media(max-width:620px){.theme-btn,.theme,.tester-theme{width:30px;height:30px;min-width:30px;min-height:30px;font-size:.82rem}}
+
+/* Nao section heading readability and spacing */
+.section-head{align-items:start;gap:clamp(24px,3vw,44px)}
+.section-head>div{min-width:0}
+.section-head h3{line-height:1.06;letter-spacing:-.055em;overflow-wrap:break-word;margin:0 0 18px}
+.section-head .section-copy{display:block;line-height:1.65;margin:0;max-width:680px}
+@media(max-width:850px){.section-head{gap:18px}.section-head h3{line-height:1.1;margin-bottom:16px;letter-spacing:-.045em}}
 </style>
 </head>
 <body>
