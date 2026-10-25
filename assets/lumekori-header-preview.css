@@ -253,3 +253,72 @@ html[data-theme="dark"] .nav-preview-page .nav-wrap .controls > .lmk-auth-trigge
   .nav-preview-page .nav-preview-spacer {height: 78px;}
   .nav-preview-page .mobilemenu.open {top: 78px;}
 }
+
+
+/* Single-option site selector under the brand logo. */
+.nav-preview-page .nav-wrap .lmk-brand-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+.nav-preview-page .nav-wrap .lmk-brand-trigger {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.nav-preview-page .nav-wrap .lmk-brand-trigger:focus-visible {
+  outline: 2px solid var(--text, #101218);
+  outline-offset: 5px;
+  border-radius: 8px;
+}
+.nav-preview-page .nav-wrap .lmk-brand-chevron {
+  color: var(--muted, #676d79);
+  font-size: .85rem;
+  line-height: 1;
+  margin-left: 2px;
+  transition: transform .16s ease;
+}
+.nav-preview-page .nav-wrap .lmk-brand-trigger[aria-expanded="true"] .lmk-brand-chevron {
+  transform: rotate(180deg);
+}
+.nav-preview-page .nav-wrap .lmk-brand-menu {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: 0;
+  z-index: 180;
+  min-width: 206px;
+  max-width: calc(100vw - 28px);
+  padding: 6px;
+  border: 1px solid var(--line, #dfe3ed);
+  border-radius: 16px;
+  background: var(--surface, #fff);
+  box-shadow: 0 18px 55px rgba(16, 18, 24, .13);
+}
+.nav-preview-page .nav-wrap .lmk-brand-menu[hidden] {
+  display: none;
+}
+.nav-preview-page .nav-wrap .lmk-brand-option {
+  display: block;
+  padding: 11px 13px;
+  border-radius: 11px;
+  color: var(--text, #101218);
+  font-size: .88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nav-preview-page .nav-wrap .lmk-brand-option:hover,
+.nav-preview-page .nav-wrap .lmk-brand-option:focus-visible {
+  background: var(--soft, #eff2f8);
+}
+/* Only the logo appears on phones, on both sites and every shared header. */
+@media (max-width: 700px) {
+  .nav-preview-page .nav-wrap .brand span { display: none; }
+  .nav-preview-page .nav-wrap .lmk-brand-menu { top: calc(100% + 13px); }
+}
