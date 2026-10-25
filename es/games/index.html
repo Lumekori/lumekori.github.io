@@ -152,61 +152,33 @@ h1{margin-top:24px;font-size:clamp(3.15rem,17vw,5.1rem);line-height:.76}
   .rule p{font-size:.58rem;line-height:1.24}
 }
 </style>
-<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"><link rel="stylesheet" href="/assets/lumekori-live-nav.css?v=1"></head>
-<body class="nav-preview-page lmk-games-page">
+<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"></head>
+<body>
 <div class="top-note">Lumekori Games · Videojuegos & experiencias interactivas</div>
 
-<div class="nav-wrap"><div class="shell nav">
-  <a class="brand" href="/es/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
+<header class="shell nav">
+  <div class="brand-switcher">
+    <button class="brand-trigger" type="button" data-brand-trigger aria-haspopup="true" aria-expanded="false">
+      <span class="games-logo" aria-hidden="true"></span>
+      <strong>Lumekori</strong><span class="slash">/</span><strong>Games</strong>
+    </button>
+    <div class="brand-menu" data-brand-menu>
+      <a class="brand-choice" href="/es/">
+        <span class="brand-choice-head"><img class="brand-choice-logo" src="/assets/lumekori-icon.png" alt=""><span class="brand-choice-divider">|</span><span class="brand-choice-title">Lumekori</span></span>
+        <span class="brand-choice-note">Estudio de software</span>
+      </a>
+    </div>
+  </div>
+
   <nav class="navlinks" aria-label="Navegación">
-  <div class="nav-preview-item">
-    <a href="/es/products/" aria-describedby="nav-preview-1">Productos</a>
-    <div class="nav-popover" id="nav-preview-1" role="tooltip">
-      <span class="nav-popover-kicker">Productos de Lumekori</span>
-      <strong>Aplicaciones y experiencias</strong>
-      <p>Explora los productos, proyectos y experimentos que desarrolla Lumekori.</p>
-      <span class="nav-popover-hint">Ver productos ↗</span>
-    </div>
-  </div>
-  <div class="nav-preview-item">
-    <a href="/es/nao/" aria-describedby="nav-preview-2">Nao</a>
-    <div class="nav-popover" id="nav-preview-2" role="tooltip">
-      <span class="nav-popover-kicker">Producto en desarrollo</span>
-      <strong>Nao — asistente inteligente</strong>
-      <p>Un asistente para Android con funciones locales y conectadas, actualmente en fase alfa.</p>
-      <span class="nav-popover-hint">Conocer Nao ↗</span>
-    </div>
-  </div>
-  <div class="nav-preview-item">
-    <a href="/es/about/" aria-describedby="nav-preview-3">Acerca de</a>
-    <div class="nav-popover" id="nav-preview-3" role="tooltip">
-      <span class="nav-popover-kicker">Nuestro estudio</span>
-      <strong>Conoce Lumekori</strong>
-      <p>Descubre nuestra identidad, filosofía y enfoque para crear software útil y accesible.</p>
-      <span class="nav-popover-hint">Conocer el estudio ↗</span>
-    </div>
-  </div>
-  <div class="nav-preview-item">
-    <a href="/es/support/" aria-describedby="nav-preview-4">Soporte</a>
-    <div class="nav-popover" id="nav-preview-4" role="tooltip">
-      <span class="nav-popover-kicker">Ayuda y asistencia</span>
-      <strong>Estamos para ayudarte</strong>
-      <p>Encuentra respuestas y recursos de ayuda para Lumekori y sus productos, incluido Nao.</p>
-      <span class="nav-popover-hint">Ir a soporte ↗</span>
-    </div>
-  </div>
-  <div class="nav-preview-item">
-    <a href="/es/contact/" aria-describedby="nav-preview-5">Contacto</a>
-    <div class="nav-popover" id="nav-preview-5" role="tooltip">
-      <span class="nav-popover-kicker">Hablemos</span>
-      <strong>Ponte en contacto</strong>
-      <p>Consulta nuestros correos oficiales y las redes sociales de Lumekori.</p>
-      <span class="nav-popover-hint">Ver contacto ↗</span>
-    </div>
-  </div>
-</nav>
-  <div class="controls preview-auth-slot"><button class="menu-btn" type="button" data-menu aria-label="Abrir menú">☰</button></div>
-</div></div><div class="nav-preview-spacer" aria-hidden="true"></div><div class="mobilemenu"><a href="/es/products/">Productos</a><a href="/es/nao/">Nao</a><a href="/es/about/">Acerca de</a><a href="/es/support/">Soporte</a><a href="/es/contact/">Contacto</a></div><main>
+    <a href="#project">Proyecto</a>
+    <a href="#principles">Principios</a>
+  </nav>
+
+  <div class="navend"><a class="lang" href="/games/" aria-label="Cambiar a inglés">EN</a></div>
+</header>
+
+<main>
 <section class="hero">
   <div class="shell hero-grid">
     <article class="hero-main">
@@ -259,5 +231,5 @@ h1{margin-top:24px;font-size:clamp(3.15rem,17vw,5.1rem);line-height:.76}
 <script>
 (()=>{const t=document.querySelector('[data-brand-trigger]'),m=document.querySelector('[data-brand-menu]');if(!t||!m)return;const close=()=>{m.classList.remove('open');t.setAttribute('aria-expanded','false')};t.addEventListener('click',e=>{e.stopPropagation();const open=!m.classList.contains('open');m.classList.toggle('open',open);t.setAttribute('aria-expanded',String(open))});m.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
 </script>
-<script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script><script>(()=>{const b=document.querySelector("[data-menu]"),m=document.querySelector(".mobilemenu");if(b&&m){b.addEventListener("click",()=>m.classList.toggle("open"));m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>m.classList.remove("open")));}})();</script></body>
+<script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script></body>
 </html>
