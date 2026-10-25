@@ -34,7 +34,7 @@ const t = es ? {
   verified:"Correo verificado", signOut:"Cerrar sesión", privacy:"Privacidad",
   close:"Cerrar", loading:"Conectando con Firebase…", processing:"Procesando…",
   error:"No se pudo completar la operación. Inténtalo nuevamente.",
-  invalid:"Comprueba tu correo y contraseña.", weak:"Utiliza una contraseña más segura.",
+  invalid:"Comprueba tu correo y contraseña.", weak:"Utiliza una contraseña de al menos 15 caracteres.",
   used:"Este correo ya tiene una cuenta. Prueba a iniciar sesión o recuperar tu contraseña.",
   provider:"Esta cuenta utiliza otro método de acceso. Entra con ese método.",
   blocked:"Habilita las ventanas emergentes para iniciar sesión con Google.",
@@ -62,7 +62,7 @@ const t = es ? {
   verified:"Email verified", signOut:"Sign out", privacy:"Privacy",
   close:"Close", loading:"Connecting to Firebase…", processing:"Working…",
   error:"This action could not be completed. Please try again.",
-  invalid:"Check your email and password.", weak:"Choose a stronger password.",
+  invalid:"Check your email and password.", weak:"Use a password with at least 15 characters.",
   used:"That email already has an account. Try signing in or resetting your password.",
   provider:"This account uses another sign-in method. Please use that method.",
   blocked:"Allow pop-ups to sign in with Google.",
@@ -113,7 +113,7 @@ if (holder) {
       '</div>'+
       '<form class="lmk-auth-form" hidden>'+
         '<label>'+t.emailLabel+'<input name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required></label>'+
-        '<label class="lmk-password-field">'+t.passwordLabel+'<input name="password" type="password" autocomplete="current-password" minlength="6" maxlength="128" required></label>'+
+        '<label class="lmk-password-field">'+t.passwordLabel+'<input name="password" type="password" autocomplete="current-password" minlength="1" maxlength="4096" required></label>'+
         '<button type="submit" class="lmk-auth-submit"></button>'+
       '</form>'+
       '<div class="lmk-auth-email-links" hidden>'+
@@ -183,6 +183,7 @@ if (holder) {
     passWrap.hidden=next==="reset";
     passWrap.querySelector("input").required=next!=="reset";
     passWrap.querySelector("input").autocomplete=next==="register"?"new-password":"current-password";
+    passWrap.querySelector("input").minLength=next==="register"?15:1;
     submit.textContent=next==="register"?t.register:next==="reset"?t.sendReset:t.loginEmail;
     switchBtn.textContent=next==="register"?(t.signInPrompt+" "+t.signInLink):(t.createPrompt+" "+t.createLink);
     forgotBtn.hidden=next==="register"||next==="reset";
