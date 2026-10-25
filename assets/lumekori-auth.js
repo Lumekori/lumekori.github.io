@@ -129,6 +129,7 @@ if (holder) {
         '<button class="lmk-auth-signout" type="button"></button>'+
         '<p class="lmk-auth-account-delete"></p>'+
       '</div>'+
+      '<div class="lmk-auth-appearance" hidden><span class="lmk-auth-appearance-title"></span><button type="button" class="lmk-auth-theme-switch"><span aria-hidden="true">◐</span><span class="lmk-auth-theme-label"></span></button></div>'+
       '<p class="lmk-auth-message" role="status" aria-live="polite"></p>'+
       '<p class="lmk-auth-legal">'+t.note+' <a href="'+privacyPath+'">'+t.privacy+'</a></p>'+
     '</div>';
@@ -148,6 +149,23 @@ if (holder) {
   verifyBtn.textContent=t.resend;
   $(".lmk-auth-account-info").textContent=t.accountInfo;
   $(".lmk-auth-account-delete").textContent=t.deleteInfo;
+  // Make appearance available through the account dialog on phones; preserve desktop layout.
+  const pageThemeToggle=document.querySelector('[data-theme-toggle]')||document.getElementById("theme");
+  const appearance=$(".lmk-auth-appearance");
+  const appearanceButton=$(".lmk-auth-theme-switch");
+  if(pageThemeToggle){
+    appearance.hidden=false;
+    $(".lmk-auth-appearance-title").textContent=es?"Apariencia":"Appearance";
+    const updateAppearance=()=>{
+      const dark=document.documentElement.dataset.theme==="dark";
+      $(".lmk-auth-theme-label").textContent=es?(dark?"Tema claro":"Tema oscuro"):(dark?"Light theme":"Dark theme");
+      appearanceButton.setAttribute("aria-label",es?(dark?"Activar tema claro":"Activar tema oscuro"):(dark?"Switch to light theme":"Switch to dark theme"));
+      appearanceButton.setAttribute("aria-pressed",String(dark));
+    };
+    appearanceButton.addEventListener("click",()=>{pageThemeToggle.click();updateAppearance();});
+    opener.addEventListener("click",updateAppearance);
+    updateAppearance();
+  }
   let current=null, mode="choice", busy=false;
   const setMessage=(msg="",error=false)=>{
     message.textContent=msg;
