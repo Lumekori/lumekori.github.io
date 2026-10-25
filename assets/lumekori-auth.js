@@ -74,6 +74,33 @@ const t = es ? {
   note:"Signing in is optional; the website is open to everyone.", googleCanceled:"Sign-in canceled.",
   verifyAgain:"Another verification email was sent."
 };
+// Keep social footer links consistent on pages with older static markup.
+const lumekoriSocialProfiles = {
+  instagram: "https://www.instagram.com/lumekori.dev/",
+  tiktok: "https://www.tiktok.com/@lumekori"
+};
+function connectLumekoriSocials() {
+  document.querySelectorAll(".preview-social-row .preview-social-unlinked[data-network]").forEach(placeholder => {
+    const href = lumekoriSocialProfiles[placeholder.dataset.network];
+    if (!href) return;
+    const link = document.createElement("a");
+    link.className = "preview-social-icon";
+    link.dataset.network = placeholder.dataset.network;
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", placeholder.getAttribute("aria-label") || placeholder.dataset.network);
+    link.title = link.getAttribute("aria-label");
+    while (placeholder.firstChild) link.appendChild(placeholder.firstChild);
+    placeholder.replaceWith(link);
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", connectLumekoriSocials, { once: true });
+} else {
+  connectLumekoriSocials();
+}
+
 const app = getApps().length ? getApp() : initializeApp(config);
 const auth = getAuth(app);
 auth.languageCode = es ? "es" : "en";
