@@ -102,6 +102,11 @@ html[data-theme="dark"] .lk-end-social a{color:#34373d}
 html[data-theme="dark"] .stack span{background:#1b1e24;color:#eef0f4;border:1px solid #2b2f36}
 html[data-theme="dark"] .big .stack span:nth-child(2){background:#20242b}
 html[data-theme="dark"] .big .stack span:nth-child(3){background:#252a32}
+/* Unified language + theme capsule */
+.controls,.nav-actions{gap:6px}
+.controls>.lang,.nav-actions>.lang{position:relative;min-height:42px;padding:4px 42px 4px 5px;border:1px solid var(--line);border-radius:999px;background:var(--surface,var(--paper));display:flex;align-items:center}
+.controls>.theme-btn,.nav-actions>.theme-btn{width:34px;height:34px;margin-left:-44px;position:relative;z-index:2;border:1px solid var(--line);border-radius:50%;background:var(--surface,var(--paper));box-shadow:0 0 0 3px var(--surface,var(--paper));display:grid;place-items:center}
+@media(max-width:620px){.controls>.lang,.nav-actions>.lang{min-height:38px;padding:3px 38px 3px 4px}.controls>.theme-btn,.nav-actions>.theme-btn{width:30px;height:30px;margin-left:-40px;box-shadow:0 0 0 2px var(--surface,var(--paper))}}
 </style>
 </head>
 <body>
