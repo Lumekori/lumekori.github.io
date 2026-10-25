@@ -77,7 +77,8 @@ const t = es ? {
 // Keep social footer links consistent on pages with older static markup.
 const lumekoriSocialProfiles = {
   instagram: "https://www.instagram.com/lumekori.dev/",
-  tiktok: "https://www.tiktok.com/@lumekori"
+  tiktok: "https://www.tiktok.com/@lumekori",
+  discord: "https://discord.gg/BcYATsz8xk"
 };
 function connectLumekoriSocials() {
   document.querySelectorAll(".preview-social-row .preview-social-unlinked[data-network]").forEach(placeholder => {
