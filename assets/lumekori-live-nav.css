@@ -56,6 +56,36 @@
   }
 }
 
+
+/* Consistent, opaque mobile menu across Lumekori pages (Nao uses --paper).
+   Only the menu stays sharp: the rest of the viewport receives a modal blur. */
+@media (max-width: 950px) {
+  .nav-preview-page .mobilemenu.open {
+    z-index: 110;
+    background: var(--surface, var(--paper, #fff));
+    color: var(--text, var(--ink, #111214));
+    border-color: var(--line, #dfe3ed);
+    box-shadow: 0 22px 64px rgba(14, 18, 28, .2);
+  }
+  body.nav-preview-page:has(.mobilemenu.open)::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 105;
+    background: rgba(12, 16, 25, .13);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+    pointer-events: auto;
+  }
+}
+@media (prefers-reduced-transparency: reduce) and (max-width: 950px) {
+  body.nav-preview-page:has(.mobilemenu.open)::before {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(12, 16, 25, .38);
+  }
+}
+
 /* Games retains its existing announcement strip above the navigation. */
 .nav-preview-page.lmk-games-page .nav-wrap { top: 44px; }
 @media (max-width: 560px) {
