@@ -23,19 +23,6 @@
   box-shadow: 0 14px 34px rgba(0, 0, 0, .055);
 }
 
-/* Lumekori Games has its own grid-based header: keep its layout, unify its surface. */
-header.shell.nav {
-  width: min(1240px, calc(100% - 36px));
-  min-height: 62px;
-  margin-top: 12px;
-  border: 1px solid var(--line, #dcded9);
-  border-radius: 22px;
-  background: color-mix(in srgb, var(--paper, #fbfbf8) 88%, transparent);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, .055);
-}
-
 /* Nao Testers uses a standalone header instead of .topbar. */
 header.shell.header {
   width: min(1240px, calc(100% - 36px));
@@ -53,38 +40,20 @@ header.header > .nav {
   box-shadow: 0 14px 34px rgba(0, 0, 0, .055);
 }
 
-/* Games uses a fixed light theme; respect it and accommodate dark theme where enabled. */
-html[data-theme="dark"] header.shell.nav {
-  background: color-mix(in srgb, #111318 88%, transparent);
-  border-color: #2a2d33;
-  color: #f4f5f7;
-}
-html[data-theme="dark"] header.shell.nav .navlinks a {
-  border-color: #34373e;
-}
-html[data-theme="dark"] header.shell.nav .navlinks a:hover {
-  color: #111214;
-}
-
 @media (max-width: 620px) {
   .topbar {
     top: 8px;
     padding-top: 8px;
   }
   .topbar > .shell,
-  header.shell.nav,
   header.shell.header {
     width: min(1240px, calc(100% - 22px));
   }
   .topbar > .shell > .navpill,
-  header.shell.nav,
   header.header > .nav {
     min-height: 54px;
     padding: 5px 6px 5px 9px;
     border-radius: 18px;
-  }
-  header.shell.nav {
-    margin-top: 8px;
   }
   header.shell.header {
     padding-top: 8px;
