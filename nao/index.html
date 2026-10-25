@@ -118,15 +118,59 @@ html[data-theme="dark"] .big .stack span:nth-child(3){background:#252a32}
 .section-head .section-copy{display:block;line-height:1.65;margin:0;max-width:680px}
 @media(max-width:850px){.section-head{gap:18px}.section-head h3{line-height:1.1;margin-bottom:16px;letter-spacing:-.045em}}
 </style>
-<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"></head>
-<body>
-<div class="topbar"><div class="shell"><nav class="nav">
-<a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
-<div class="navlinks"><a href="/products/">Products</a><a class="active" href="/nao/">Nao</a><a href="/support/">Support</a><a href="/contact/">Contact</a></div>
-<div class="nav-actions"><button class="theme-btn" data-theme-toggle aria-label="Theme">◐</button></div>
-</nav></div></div>
-
-<main>
+<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"><link rel="stylesheet" href="/assets/lumekori-live-nav.css?v=1"></head>
+<body class="nav-preview-page">
+<div class="nav-wrap"><div class="shell nav">
+  <a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
+  <nav class="navlinks" aria-label="Navigation">
+  <div class="nav-preview-item">
+    <a href="/products/" aria-describedby="nav-preview-1">Products</a>
+    <div class="nav-popover" id="nav-preview-1" role="tooltip">
+      <span class="nav-popover-kicker">Lumekori products</span>
+      <strong>Apps and experiences</strong>
+      <p>Explore the products, projects, and experiments being built by Lumekori.</p>
+      <span class="nav-popover-hint">Explore products ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/nao/" aria-describedby="nav-preview-2">Nao</a>
+    <div class="nav-popover" id="nav-preview-2" role="tooltip">
+      <span class="nav-popover-kicker">Product in development</span>
+      <strong>Nao — AI assistant</strong>
+      <p>An Android assistant with local and connected features, currently in alpha.</p>
+      <span class="nav-popover-hint">Discover Nao ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/about/" aria-describedby="nav-preview-3">About</a>
+    <div class="nav-popover" id="nav-preview-3" role="tooltip">
+      <span class="nav-popover-kicker">Our studio</span>
+      <strong>Meet Lumekori</strong>
+      <p>Discover our identity, philosophy, and approach to building useful, accessible software.</p>
+      <span class="nav-popover-hint">About the studio ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/support/" aria-describedby="nav-preview-4">Support</a>
+    <div class="nav-popover" id="nav-preview-4" role="tooltip">
+      <span class="nav-popover-kicker">Help and support</span>
+      <strong>We're here to help</strong>
+      <p>Find answers and resources for Lumekori and its products, including Nao.</p>
+      <span class="nav-popover-hint">Visit support ↗</span>
+    </div>
+  </div>
+  <div class="nav-preview-item">
+    <a href="/contact/" aria-describedby="nav-preview-5">Contact</a>
+    <div class="nav-popover" id="nav-preview-5" role="tooltip">
+      <span class="nav-popover-kicker">Get in touch</span>
+      <strong>Let's connect</strong>
+      <p>Find our official email addresses and Lumekori's social media channels.</p>
+      <span class="nav-popover-hint">View contact ↗</span>
+    </div>
+  </div>
+</nav>
+  <div class="controls preview-auth-slot"><button class="theme-btn" type="button" data-theme-toggle aria-label="Change theme">◐</button><button class="menu-btn" type="button" data-menu aria-label="Open menu">☰</button></div>
+</div></div><div class="nav-preview-spacer" aria-hidden="true"></div><div class="mobilemenu"><a href="/products/">Products</a><a href="/nao/">Nao</a><a href="/about/">About</a><a href="/support/">Support</a><a href="/contact/">Contact</a></div><main>
 <section class="hero"><div class="shell hero-grid">
 <div>
 <span class="eyebrow"><span class="dot"></span> Alpha · A Lumekori product</span>
@@ -181,5 +225,5 @@ html[data-theme="dark"] .big .stack span:nth-child(3){background:#252a32}
   updateIcon();
   document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('lumekori-theme',root.dataset.theme);updateIcon()}));
 })();
-</script><script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script></body>
+</script><script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script><script>(()=>{const b=document.querySelector("[data-menu]"),m=document.querySelector(".mobilemenu");if(b&&m){b.addEventListener("click",()=>m.classList.toggle("open"));m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>m.classList.remove("open")));}})();</script></body>
 </html>
