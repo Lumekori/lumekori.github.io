@@ -62,6 +62,18 @@ linear-gradient(90deg,rgba(49,63,105,.035) 1px,transparent 1px);background-size:
 @media(prefers-reduced-motion:reduce){.float,.scene-card{transform:none!important}}
 /* Lumekori universal dark closing section */
 .lk-site-end{background:#101113;color:#f6f6f4;padding:56px 0 24px;margin-top:64px}.lk-end-main{display:grid;grid-template-columns:1.05fr .9fr 2fr;gap:48px;align-items:start}.lk-end-title{font-size:clamp(3.2rem,5.5vw,6.4rem);line-height:.82;letter-spacing:-.065em;font-weight:900;max-width:620px}.lk-end-intro{color:#b9bdc5;font-size:.92rem;line-height:1.6;max-width:420px}.lk-end-cta{display:inline-flex;margin-top:18px;padding:10px 16px;border-radius:999px;background:#f6f5f2;color:#111214;font-size:.78rem;font-weight:850}.lk-end-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}.lk-end-group{display:grid;align-content:start;gap:8px}.lk-end-label{font-size:.58rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:#777c85;margin-bottom:5px}.lk-end-group a{color:#d7d9dd;font-size:.75rem}.lk-end-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:42px;padding-top:20px;display:flex;justify-content:space-between;gap:18px;color:#989da6;font-size:.72rem}.lk-end-bottom strong{color:#fff}.lk-end-social{display:flex;gap:18px;flex-wrap:wrap}.lk-end-social a{color:#c4c7cd;font-weight:750}@media(max-width:900px){.lk-end-main{grid-template-columns:1fr}.lk-end-links{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.lk-site-end{margin-top:38px;padding:34px 0 22px}.lk-end-main{gap:25px}.lk-end-title{font-size:clamp(2.8rem,13vw,4.4rem)}.lk-end-links{grid-template-columns:1fr 1fr;gap:22px 18px}.lk-end-bottom{margin-top:26px;flex-direction:column;align-items:flex-start}.lk-end-group a{font-size:.7rem}}
+
+/* Theme-aware Lumekori closing section */
+html[data-theme="dark"] .lk-site-end{background:#f4f4f0;color:#111214}
+html[data-theme="dark"] .lk-end-intro{color:#62676f}
+html[data-theme="dark"] .lk-end-cta{background:#111214;color:#fff}
+html[data-theme="dark"] .lk-end-label{color:#7b8088}
+html[data-theme="dark"] .lk-end-group a{color:#34373d}
+html[data-theme="dark"] .lk-end-group a:hover{color:#000}
+html[data-theme="dark"] .lk-end-bottom{border-top-color:rgba(16,17,20,.16);color:#686d75}
+html[data-theme="dark"] .lk-end-bottom strong{color:#111214}
+html[data-theme="dark"] .lk-end-social a{color:#34373d}
+
 </style>
 </head>
 <body>

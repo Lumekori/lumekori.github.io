@@ -21,15 +21,16 @@
   --bg:#f4f4f0;--paper:#fbfbf8;--ink:#101114;--muted:#6e7279;--line:#dcded9;
   --soft:#eceee9;--blue:#4d79ff;--violet:#7457ff;--green:#5bffb0;--max:1240px
 }
+html[data-theme="dark"]{--bg:#0b0c0f;--paper:#111318;--ink:#f4f5f7;--muted:#9ba0a8;--line:#2a2d33;--soft:#17191e;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;color-scheme:light}
 body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}.shell{width:min(var(--max),calc(100% - 36px));margin:auto}
 .topbar{position:sticky;top:12px;z-index:80;padding-top:12px}
-.nav{min-height:62px;background:rgba(251,251,248,.88);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:space-between;padding:7px 8px 7px 12px;box-shadow:0 14px 34px rgba(0,0,0,.055)}
+.nav{min-height:62px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:space-between;padding:7px 8px 7px 12px;box-shadow:0 14px 34px rgba(0,0,0,.055)}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700}.brand img{width:36px;height:36px}
 .navlinks{display:flex;gap:4px}.navlinks a{font-size:.82rem;color:var(--muted);padding:9px 12px;border-radius:999px}.navlinks a.active,.navlinks a:hover{background:var(--soft);color:var(--ink)}
-.nav-actions{display:flex;align-items:center;gap:7px}.nav-btn{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.72rem;font-weight:760}
+.nav-actions{display:flex;align-items:center;gap:6px}.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--paper)}.lang a{padding:5px 9px;border-radius:999px;font-size:.7rem;font-weight:800;color:var(--muted)}.lang a.active{background:var(--ink);color:var(--bg)}.theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);cursor:pointer;display:grid;place-items:center;font-size:1rem}
 
 
 .hero{padding:82px 0 72px;overflow:hidden}
@@ -39,7 +40,7 @@ a{color:inherit;text-decoration:none}.shell{width:min(var(--max),calc(100% - 36p
 .hero h1{font-size:clamp(6rem,11vw,11rem);line-height:.76;letter-spacing:-.08em;margin-top:20px}
 .hero h2{font-size:clamp(2rem,4vw,4.2rem);line-height:.94;letter-spacing:-.055em;color:#6c7077;max-width:650px;margin-top:22px}
 .hero p{font-size:1rem;line-height:1.64;color:var(--muted);max-width:610px;margin-top:20px}
-.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.78rem;font-weight:820}.btn.primary{background:#111214;color:#fff;border-color:#111214}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-size:.78rem;font-weight:820}.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:26px}.quick-item{padding-top:12px;border-top:1px solid var(--line)}.quick-item strong{display:block;font-size:.72rem}.quick-item span{display:block;font-size:.62rem;color:#8b8f96;margin-top:3px}
 
 .nao-stage{min-height:590px;position:relative;border-radius:36px;border:1px solid var(--line);background:
@@ -70,18 +71,41 @@ overflow:hidden;box-shadow:0 30px 80px rgba(33,46,85,.08)}
  .navlinks{display:none}.hero-grid{grid-template-columns:1fr}.nao-stage{min-height:520px}.section-head{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}.tile.big{grid-column:1/-1;grid-row:auto;min-height:300px}.region{grid-template-columns:1fr}.lk-end-main{grid-template-columns:1fr 1fr}.lk-end-links{grid-column:1/-1}
 }
 @media(max-width:620px){
- .shell{width:min(var(--max),calc(100% - 22px))}.topbar{top:8px;padding-top:8px}.nav{min-height:54px;border-radius:18px;padding:5px 6px 5px 9px}.brand img{width:30px;height:30px}.brand span{display:none}.nav-actions .nav-btn:first-child{display:none}.nav-btn{padding:8px 10px;font-size:.65rem}
+ .shell{width:min(var(--max),calc(100% - 22px))}.topbar{top:8px;padding-top:8px}.nav{min-height:54px;border-radius:18px;padding:5px 6px 5px 9px}.brand img{width:30px;height:30px}.brand span{display:none}.nav-actions{gap:5px}.lang{padding:3px}.lang a{padding:5px 7px;font-size:.62rem}.theme-btn{width:34px;height:34px}
  .hero{padding:52px 0 44px}.hero h1{font-size:clamp(4.8rem,24vw,7rem)}.hero h2{font-size:1.85rem}.hero p{font-size:.84rem}.quick{gap:6px}.quick-item strong{font-size:.65rem}.quick-item span{font-size:.56rem}.nao-stage{min-height:390px;border-radius:22px}.assistant-card{width:88%;padding:13px;border-radius:22px}.assistant-name{font-size:1.05rem}.mode span{font-size:.5rem;padding:5px 6px}.bubble{font-size:.63rem;padding:9px 10px}.command-grid{gap:5px}.command{font-size:.57rem;padding:9px}.composer{font-size:.55rem}
  .section{padding:48px 0}.section-head{gap:12px;margin-bottom:20px}.section h3{font-size:clamp(2.25rem,11vw,3.5rem)}.section-copy{font-size:.79rem}.mode-grid{grid-template-columns:1fr}.mode-card{min-height:300px;padding:20px}.mode-card h4{font-size:2.5rem}.mode-card p{font-size:.77rem;max-width:270px}.bento{grid-template-columns:1fr 1fr;gap:8px}.tile{padding:15px;min-height:170px;border-radius:17px}.tile.big{min-height:270px}.tile h4{font-size:1rem}.tile p{font-size:.66rem}.stack{left:15px;right:15px;bottom:15px}.stack span{font-size:.58rem;padding:9px}.region{padding:20px;border-radius:20px}.region h4{font-size:2.6rem}.region p{font-size:.76rem}.region-item{padding:12px;font-size:.64rem}.roadmap{grid-template-columns:1fr 1fr;gap:8px}.phase{min-height:185px;padding:16px}.phase:last-child{grid-column:1/-1}.phase h4{font-size:1.08rem}.phase p{font-size:.66rem}
  .lk-site-end{margin-top:38px;padding:34px 0 22px}.lk-end-main{grid-template-columns:1fr;gap:25px}.lk-end-title{font-size:clamp(2.8rem,13vw,4.4rem)}.lk-end-intro{font-size:.76rem}.lk-end-links{grid-column:auto;grid-template-columns:1fr 1fr;gap:22px 18px}.lk-end-group a{font-size:.7rem}.lk-end-bottom{margin-top:26px;flex-direction:column;align-items:flex-start;font-size:.66rem}
 }
+
+/* Nao theme controls 2026-10 */
+html[data-theme="dark"] .nao-stage{background:radial-gradient(circle at 68% 25%,rgba(116,87,255,.18),transparent 26%),radial-gradient(circle at 24% 78%,rgba(77,121,255,.14),transparent 30%),linear-gradient(145deg,#12151c,#0d1119)}
+html[data-theme="dark"] .orbit{border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .mode-card.online{background:#171a2b;border-color:#303552;color:#f4f5f7}
+html[data-theme="dark"] .mode-card.online p{color:#aeb4bd}
+html[data-theme="dark"] .mode-card.online .tag{background:#23263a;color:#c9cce0}
+html[data-theme="dark"] .region{background:linear-gradient(135deg,#10191b,#111318)}
+html[data-theme="dark"] .region-item{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"] .phase.now{background:#f4f5f7;color:#111214;border-color:#f4f5f7}
+html[data-theme="dark"] .phase.now p{color:#60656d}
+
+/* Theme-aware Lumekori closing section */
+html[data-theme="dark"] .lk-site-end{background:#f4f4f0;color:#111214}
+html[data-theme="dark"] .lk-end-intro{color:#62676f}
+html[data-theme="dark"] .lk-end-cta{background:#111214;color:#fff}
+html[data-theme="dark"] .lk-end-label{color:#7b8088}
+html[data-theme="dark"] .lk-end-group a{color:#34373d}
+html[data-theme="dark"] .lk-end-group a:hover{color:#000}
+html[data-theme="dark"] .lk-end-bottom{border-top-color:rgba(16,17,20,.16);color:#686d75}
+html[data-theme="dark"] .lk-end-bottom strong{color:#111214}
+html[data-theme="dark"] .lk-end-social a{color:#34373d}
+
 </style>
 </head>
 <body>
 <div class="topbar"><div class="shell"><nav class="nav">
 <a class="brand" href="/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
 <div class="navlinks"><a href="/products/">Products</a><a class="active" href="/nao/">Nao</a><a href="/support/">Support</a><a href="/contact/">Contact</a></div>
-<div class="nav-actions"><a class="nav-btn" href="/es/nao/">ES</a></div>
+<div class="nav-actions"><div class="lang"><a class="active" href="/nao/">EN</a><a href="/es/nao/">ES</a></div><button class="theme-btn" data-theme-toggle aria-label="Theme">☾</button></div>
 </nav></div></div>
 
 <main>
@@ -130,5 +154,14 @@ overflow:hidden;box-shadow:0 30px 80px rgba(33,46,85,.08)}
 </main>
 
 <section class="lk-site-end"><div class="shell"><div class="lk-end-main"><div class="lk-end-title">WHAT COMES NEXT<br>DOESN’T EXIST YET.</div><div class="lk-end-intro">Lumekori keeps building new ideas, tools and experiences to make software more useful, accessible and human.<br><a class="lk-end-cta" href="/products/">Explore products ↗</a></div><div class="lk-end-links"><div class="lk-end-group"><span class="lk-end-label">Contact</span><a href="mailto:hello@lumekori.dev">hello@lumekori.dev</a><a href="mailto:support@lumekori.dev">support@lumekori.dev</a></div><div class="lk-end-group"><span class="lk-end-label">Help</span><a href="/support/">General support</a><a href="/support/">FAQs</a><a href="/nao/support/">Nao support</a></div><div class="lk-end-group"><span class="lk-end-label">Lumekori</span><a href="/about/">About</a><a href="/products/">Products</a><a href="/contact/">Contact</a></div><div class="lk-end-group"><span class="lk-end-label">Legal</span><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/policies/">Policies</a></div></div></div><div class="lk-end-bottom"><div><strong>© 2026 Lumekori</strong> · Independent software development studio · lumekori.dev</div><div class="lk-end-social"><a href="https://x.com/LUMEKORI" target="_blank">X ↗</a><a href="https://www.youtube.com/@LumekoriStudio" target="_blank">YouTube ↗</a><a href="https://github.com/Lumekori" target="_blank">GitHub ↗</a></div></div></div></section>
-</body>
+<script>
+(() => {
+  const root=document.documentElement;
+  const stored=localStorage.getItem('lumekori-theme');
+  if(stored){root.dataset.theme=stored}else if(matchMedia('(prefers-color-scheme: dark)').matches){root.dataset.theme='dark'}
+  const updateIcon=()=>document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.textContent=root.dataset.theme==='dark'?'☀':'☾');
+  updateIcon();
+  document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('lumekori-theme',root.dataset.theme);updateIcon()}));
+})();
+</script></body>
 </html>
