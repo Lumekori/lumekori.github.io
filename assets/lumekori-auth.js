@@ -111,15 +111,14 @@ function enableLumekoriNavPreviewLinks() {
     const destination = item.querySelector(":scope > a[href]");
     const popover = item.querySelector(":scope > .nav-popover");
     const hint = popover?.querySelector(".nav-popover-hint");
-    if (!destination || !hint || hint.tagName === "A") return;
+    if (!destination || !hint || hint.querySelector("a")) return;
 
+    // Keep the full-width divider on the wrapper, but make only the text a link.
     const link = document.createElement("a");
-    link.className = hint.className;
     link.href = destination.getAttribute("href");
     link.textContent = hint.textContent;
-    hint.replaceWith(link);
+    hint.replaceChildren(link);
 
-    // The preview contains a focusable link, so it is a group rather than a tooltip.
     popover.setAttribute("role", "group");
     popover.setAttribute("aria-label", destination.textContent.trim());
     destination.removeAttribute("aria-describedby");
@@ -136,13 +135,16 @@ function initLumekoriSiteSwitcher() {
   const brandLink = document.querySelector(".nav-preview-page .nav-wrap .nav > a.brand");
   if (!brandLink || document.querySelector(".lmk-brand-switcher")) return;
 
+  // On inner pages the logo must remain its original link to the homepage.
   const spanish = document.documentElement.lang.toLowerCase().startsWith("es");
   const path = window.location.pathname;
-  const games = document.body.classList.contains("lmk-games-page")
-    || path === "/games" || path.startsWith("/games/")
-    || path === "/es/games" || path.startsWith("/es/games/");
-  const destination = games ? (spanish ? "/es/" : "/") : (spanish ? "/es/games/" : "/games/");
-  const optionLabel = games ? "Lumekori" : "Lumekori Games";
+  const homePaths = spanish
+    ? ["/es", "/es/", "/es/index.html"]
+    : ["/", "/index.html"];
+  if (!homePaths.includes(path)) return;
+
+  const destination = spanish ? "/es/games/" : "/games/";
+  const optionLabel = "Lumekori Games";
 
   const wrapper = document.createElement("div");
   wrapper.className = "lmk-brand-switcher";
