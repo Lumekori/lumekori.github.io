@@ -1,0 +1,113 @@
+/* Shared Lumekori footer — desktop horizontal / mobile stacked. */
+
+/* Experimental footer: rebuilt with real self-contained brand SVGs, no icon fonts. */
+.lk-site-end{background:#101113!important;color:#f6f6f4!important}
+.lk-site-end .lk-end-group a{color:#d7d9dd!important}
+.lk-site-end .lk-end-group a:hover{color:#fff!important}
+.lk-site-end .lk-end-label{color:#a5abb8!important}
+.lk-end-bottom.preview-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.15)!important;
+  color:#f4f5f6!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:0!important;text-align:center!important;
+  margin-top:42px!important;padding:39px 15px 58px!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
+}
+.preview-social-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;column-gap:40px;row-gap:14px}
+.preview-social-icon{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;color:#fff!important;text-decoration:none!important;flex:0 0 auto}
+.preview-social-icon svg{display:block;width:30px;height:30px;fill:currentColor;overflow:visible}
+.preview-social-icon[data-network="youtube"] svg,.preview-social-icon[data-network="discord"] svg{width:34px;height:30px}
+a.preview-social-icon{transition:transform .17s ease,opacity .17s ease}
+a.preview-social-icon:hover{transform:translateY(-2px);opacity:.73}
+.preview-social-unlinked{cursor:default;opacity:1}
+.preview-meta{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:30px;margin-top:32px;color:#f5f5f6!important;font-size:16px;line-height:1.5}
+#preview-cookie-button{appearance:none;border:0;background:transparent!important;cursor:pointer;color:#f5f5f6!important;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;padding:0;font:inherit}
+#preview-cookie-button:hover{opacity:.76}
+.preview-lang{position:relative;width:340px;max-width:100%;margin-top:27px;color:#fff;font-size:16px;text-align:left}
+.preview-lang summary{min-height:58px;display:flex;align-items:center;gap:13px;list-style:none;cursor:pointer;border-radius:999px;padding:0 23px;background:linear-gradient(130deg,#25262a,#1d1f23);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.02)}
+.preview-lang summary::-webkit-details-marker{display:none}
+.preview-lang .preview-globe{width:24px;height:24px;flex:0 0 24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.preview-lang strong{font-weight:600;white-space:nowrap}
+.preview-region{color:#aaadb4;white-space:nowrap}
+.preview-chevron{height:18px;width:18px;margin-left:auto;flex:0 0 18px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s ease}
+.preview-lang[open] .preview-chevron{transform:rotate(180deg)}
+.preview-language-menu{position:absolute;left:0;right:0;bottom:calc(100% + 9px);z-index:10;background:#24262b;border:1px solid #474a50;border-radius:16px;padding:8px;box-shadow:0 15px 32px rgba(0,0,0,.22);display:grid;gap:4px}
+.preview-language-menu a,.preview-language-menu span{display:block;padding:10px 13px;border-radius:10px;color:#fff;text-decoration:none;font-size:14px}
+.preview-language-menu a:hover{background:#373a40}
+.preview-language-menu .preview-current-language{background:#36383e;color:#f7f7f8}
+.preview-cookie-info{max-width:440px;margin-top:18px;padding:14px 18px;border:1px solid #3d4147;border-radius:14px;background:#1e2024;color:#cdd0d5;font-size:13px;line-height:1.6}
+.preview-cookie-info[hidden]{display:none!important}
+@media(max-width:600px){
+  .lk-end-bottom.preview-footer-bottom{margin-top:30px!important;padding:29px 0 44px!important}
+  .preview-social-row{column-gap:clamp(10px,3.5vw,24px);row-gap:14px}
+  .preview-social-icon{width:30px;height:32px}
+  .preview-social-icon svg{width:25px;height:25px}
+  .preview-social-icon[data-network="youtube"] svg,.preview-social-icon[data-network="discord"] svg{width:28px;height:26px}
+  .preview-meta{gap:12px 20px;margin-top:27px;font-size:14px}
+  .preview-lang{margin-top:22px;width:100%;max-width:340px}
+  .preview-lang summary{padding:0 20px;gap:10px;font-size:15px}
+}
+
+/* Desktop reference: three aligned columns on a single footer row. */
+@media (min-width:900px){
+  .lk-end-bottom.preview-footer-bottom{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    column-gap:18px!important;
+    row-gap:14px!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+    text-align:left!important;
+    padding:22px 0 30px!important;
+    margin-top:42px!important;
+  }
+  .preview-social-row{
+    grid-column:1;
+    justify-self:start;
+    justify-content:flex-start;
+    column-gap:clamp(9px,1.25vw,17px);
+    row-gap:0;
+    flex-wrap:nowrap;
+  }
+  .preview-social-icon{width:22px;height:25px;}
+  .preview-social-icon svg{width:17px;height:17px;}
+  .preview-social-icon[data-network="youtube"] svg,
+  .preview-social-icon[data-network="discord"] svg{width:20px;height:18px;}
+  .preview-meta{
+    grid-column:2;
+    justify-self:center;
+    justify-content:center;
+    gap:11px;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    margin:0;
+    font-size:12px;
+    line-height:1.4;
+  }
+  .preview-lang{
+    grid-column:3;
+    justify-self:end;
+    width:230px;
+    max-width:100%;
+    margin:0;
+    font-size:12px;
+  }
+  .preview-lang summary{
+    min-height:41px;
+    padding:0 14px;
+    gap:8px;
+  }
+  .preview-lang .preview-globe{
+    width:17px;height:17px;flex-basis:17px;
+  }
+  .preview-lang strong{font-size:12px;}
+  .preview-region{font-size:11px;}
+  .preview-chevron{height:13px;width:13px;flex-basis:13px;}
+  .preview-cookie-info{
+    grid-column:1 / -1;
+    justify-self:center;
+    text-align:center;
+    margin-top:0;
+  }
+}
+
