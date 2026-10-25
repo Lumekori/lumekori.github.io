@@ -33,7 +33,7 @@
     padding: 0;
     border: 1px solid var(--line, #dcdeda);
     border-radius: 50%;
-    background: var(--surface, #fff);
+    background: var(--surface, var(--paper, #fff));
     color: var(--text, var(--ink, #111214));
     font: inherit;
     font-size: 1rem;
