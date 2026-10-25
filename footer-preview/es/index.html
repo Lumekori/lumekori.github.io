@@ -330,4 +330,67 @@ a.preview-social-icon:hover{transform:translateY(-2px);opacity:.73}
   .preview-lang{margin-top:22px;width:100%;max-width:340px}
   .preview-lang summary{padding:0 20px;gap:10px;font-size:15px}
 }
+
+/* Desktop reference: three aligned columns on a single footer row. */
+@media (min-width:900px){
+  .lk-end-bottom.preview-footer-bottom{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    column-gap:18px!important;
+    row-gap:14px!important;
+    align-items:center!important;
+    justify-content:stretch!important;
+    text-align:left!important;
+    padding:22px 0 30px!important;
+    margin-top:42px!important;
+  }
+  .preview-social-row{
+    grid-column:1;
+    justify-self:start;
+    justify-content:flex-start;
+    column-gap:clamp(9px,1.25vw,17px);
+    row-gap:0;
+    flex-wrap:nowrap;
+  }
+  .preview-social-icon{width:22px;height:25px;}
+  .preview-social-icon svg{width:17px;height:17px;}
+  .preview-social-icon[data-network="youtube"] svg,
+  .preview-social-icon[data-network="discord"] svg{width:20px;height:18px;}
+  .preview-meta{
+    grid-column:2;
+    justify-self:center;
+    justify-content:center;
+    gap:11px;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    margin:0;
+    font-size:12px;
+    line-height:1.4;
+  }
+  .preview-lang{
+    grid-column:3;
+    justify-self:end;
+    width:230px;
+    max-width:100%;
+    margin:0;
+    font-size:12px;
+  }
+  .preview-lang summary{
+    min-height:41px;
+    padding:0 14px;
+    gap:8px;
+  }
+  .preview-lang .preview-globe{
+    width:17px;height:17px;flex-basis:17px;
+  }
+  .preview-lang strong{font-size:12px;}
+  .preview-region{font-size:11px;}
+  .preview-chevron{height:13px;width:13px;flex-basis:13px;}
+  .preview-cookie-info{
+    grid-column:1 / -1;
+    justify-self:center;
+    text-align:center;
+    margin-top:0;
+  }
+}
 </style><script>document.addEventListener('DOMContentLoaded',function(){const b=document.getElementById('preview-cookie-button'),p=document.getElementById('preview-cookie-info');if(b&&p)b.addEventListener('click',()=>{p.hidden=!p.hidden;});});</script></body></html>
