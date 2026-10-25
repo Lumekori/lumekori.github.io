@@ -1,0 +1,26 @@
+/* Production Lumekori navigation based on the approved /es/nav-preview/.
+   Keep navigation-only rules here, leaving page content styles unchanged. */
+@import url("/assets/lumekori-header-preview.css?v=3");
+
+.nav-preview-page .nav-wrap .navlinks a {
+  border-left: 0;
+  border-right: 0;
+  text-transform: none;
+}
+.nav-preview-page .nav-wrap .brand,
+.nav-preview-page .nav-wrap .brand:visited {
+  color: var(--text, var(--ink, #111214));
+  text-decoration: none;
+}
+.nav-preview-page .mobilemenu { display: none; }
+.nav-preview-page .nav-wrap .nav-popover { color: var(--text, var(--ink, #111214)); }
+.nav-preview-page .nav-wrap .nav-popover strong { color: var(--text, var(--ink, #111214)); }
+/* Main-site mobile navigation for every page, including Nao and Games. */
+@media (max-width: 950px) {
+  .nav-preview-page .nav-wrap .navlinks { display: none; }
+  .nav-preview-page .nav-wrap .menu-btn { display: grid; place-items: center; }
+  .nav-preview-page .mobilemenu.open { display: grid; }
+}
+@media (max-width: 560px) {
+  .nav-preview-page .nav-wrap .nav { border-radius: 999px; }
+}
