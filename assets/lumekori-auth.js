@@ -130,6 +130,42 @@ if (document.readyState === "loading") {
   enableLumekoriNavPreviewLinks();
 }
 
+
+/* Mobile navigation stays consistent on every Lumekori page:
+   dismiss the blurred backdrop by tapping outside the menu or pressing Escape. */
+function initLumekoriMobileNavDismiss() {
+  const menu = document.querySelector("body.nav-preview-page > .mobilemenu");
+  const toggle = document.querySelector(".nav-preview-page .nav-wrap [data-menu]");
+  if (!menu || !toggle) return;
+
+  if (!menu.id) menu.id = "lmk-mobile-site-menu";
+  toggle.setAttribute("aria-controls", menu.id);
+
+  const isOpen = () => menu.classList.contains("open");
+  const close = () => menu.classList.remove("open");
+  const sync = () => toggle.setAttribute("aria-expanded", String(isOpen()));
+  sync();
+  new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ["class"] });
+
+  document.addEventListener("click", event => {
+    if (isOpen() && !menu.contains(event.target) && !toggle.contains(event.target)) close();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && isOpen()) {
+      close();
+      toggle.focus();
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 950 && isOpen()) close();
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLumekoriMobileNavDismiss, { once: true });
+} else {
+  initLumekoriMobileNavDismiss();
+}
+
 /* Lumekori / Lumekori Games: show only the alternate site in the logo menu. */
 function initLumekoriSiteSwitcher() {
   const brandLink = document.querySelector(".nav-preview-page .nav-wrap .nav > a.brand");
