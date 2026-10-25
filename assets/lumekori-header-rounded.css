@@ -1,0 +1,10 @@
+/* Second temporary navbar preview: identical to nav-preview, with capsule ends.
+   This override is loaded only on /nav-preview-rounded/ and /es/nav-preview-rounded/. */
+.nav-preview-page.nav-rounded-page .nav-wrap .nav {
+  border-radius: 999px;
+}
+@media (max-width: 560px) {
+  .nav-preview-page.nav-rounded-page .nav-wrap .nav {
+    border-radius: 999px;
+  }
+}
