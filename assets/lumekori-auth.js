@@ -102,6 +102,80 @@ if (document.readyState === "loading") {
   connectLumekoriSocials();
 }
 
+
+/* Lumekori / Lumekori Games: show only the alternate site in the logo menu. */
+function initLumekoriSiteSwitcher() {
+  const brandLink = document.querySelector(".nav-preview-page .nav-wrap .nav > a.brand");
+  if (!brandLink || document.querySelector(".lmk-brand-switcher")) return;
+
+  const spanish = document.documentElement.lang.toLowerCase().startsWith("es");
+  const path = window.location.pathname;
+  const games = document.body.classList.contains("lmk-games-page")
+    || path === "/games" || path.startsWith("/games/")
+    || path === "/es/games" || path.startsWith("/es/games/");
+  const destination = games ? (spanish ? "/es/" : "/") : (spanish ? "/es/games/" : "/games/");
+  const optionLabel = games ? "Lumekori" : "Lumekori Games";
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "lmk-brand-switcher";
+
+  const trigger = document.createElement("button");
+  trigger.type = "button";
+  trigger.className = "brand lmk-brand-trigger";
+  trigger.setAttribute("aria-expanded", "false");
+  trigger.setAttribute("aria-controls", "lmk-brand-site-menu");
+  trigger.setAttribute("aria-label", spanish ? "Cambiar sitio de Lumekori" : "Switch Lumekori site");
+  trigger.title = spanish ? "Cambiar sitio" : "Switch site";
+  while (brandLink.firstChild) trigger.appendChild(brandLink.firstChild);
+
+  const chevron = document.createElement("span");
+  chevron.className = "lmk-brand-chevron";
+  chevron.setAttribute("aria-hidden", "true");
+  chevron.textContent = "⌄";
+  trigger.appendChild(chevron);
+
+  const menu = document.createElement("div");
+  menu.id = "lmk-brand-site-menu";
+  menu.className = "lmk-brand-menu";
+  menu.hidden = true;
+
+  const link = document.createElement("a");
+  link.className = "lmk-brand-option";
+  link.href = destination;
+  link.textContent = optionLabel;
+  menu.appendChild(link);
+
+  wrapper.append(trigger, menu);
+  brandLink.replaceWith(wrapper);
+
+  const close = () => {
+    menu.hidden = true;
+    trigger.setAttribute("aria-expanded", "false");
+  };
+  trigger.addEventListener("click", () => {
+    const opening = menu.hidden;
+    menu.hidden = !opening;
+    trigger.setAttribute("aria-expanded", String(opening));
+  });
+  wrapper.addEventListener("focusout", (event) => {
+    if (!wrapper.contains(event.relatedTarget)) close();
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (!wrapper.contains(event.target)) close();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !menu.hidden) {
+      close();
+      trigger.focus();
+    }
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLumekoriSiteSwitcher, { once: true });
+} else {
+  initLumekoriSiteSwitcher();
+}
+
 const app = getApps().length ? getApp() : initializeApp(config);
 const auth = getAuth(app);
 auth.languageCode = es ? "es" : "en";
