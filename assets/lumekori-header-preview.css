@@ -352,44 +352,61 @@ html[data-theme="dark"] .nav-preview-page .nav-wrap .controls > .lmk-auth-trigge
 }
 
 
-/* Consistent desktop header controls across all Lumekori sections. */
+/* Desktop header controls: match the approved second reference without drawing an extra moon. */
 @media (min-width: 701px) {
   .nav-preview-page .nav-wrap .controls.preview-auth-slot {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    flex-wrap: nowrap;
     gap: 8px;
+    height: 40px;
+    flex: 0 0 auto;
   }
   .nav-preview-page .nav-wrap .controls.preview-auth-slot > .lmk-auth-trigger {
     appearance: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
     flex: 0 0 auto;
     box-sizing: border-box;
-    width: auto;
+    width: 96px;
     min-width: 96px;
-    max-width: 210px;
+    max-width: 96px;
     height: 40px;
     min-height: 40px;
+    max-height: 40px;
     margin: 0;
-    padding: 0 14px;
+    padding: 0 12px;
+    gap: 7px;
+    border: 1px solid #11131a;
     border-radius: 14px;
+    background: #11131a;
+    color: #fff;
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     font-size: 12px;
-    font-weight: 750;
+    font-weight: 800;
     line-height: 1;
     letter-spacing: 0;
+    vertical-align: middle;
   }
   .nav-preview-page .nav-wrap .controls.preview-auth-slot > .lmk-auth-trigger svg {
-    width: 16px;
-    height: 16px;
-    flex: 0 0 16px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+  }
+  .nav-preview-page .nav-wrap .controls.preview-auth-slot > .lmk-auth-trigger .lmk-auth-label {
+    font-size: 12px;
+    line-height: 1;
   }
   .nav-preview-page .nav-wrap .controls.preview-auth-slot > .theme-btn {
     appearance: none;
     display: grid;
     place-items: center;
+    align-self: center;
     flex: 0 0 34px;
     box-sizing: border-box;
     width: 34px;
@@ -399,25 +416,21 @@ html[data-theme="dark"] .nav-preview-page .nav-wrap .controls > .lmk-auth-trigge
     min-height: 34px;
     max-height: 34px;
     margin: 0 !important;
-    padding: 0;
+    padding: 0 !important;
     border: 1px solid var(--line, #dcdeda);
     border-radius: 50%;
     background: var(--surface, var(--paper, #fff));
     color: var(--text, var(--ink, #111214));
-    font-size: 0;
+    font-family: "Segoe UI Symbol", "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
     line-height: 1;
+    text-align: center;
     box-shadow: none !important;
   }
-  /* The half-filled moon remains perfectly centered regardless of font metrics. */
-  .nav-preview-page .nav-wrap .controls.preview-auth-slot > .theme-btn::before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    width: 13px;
-    height: 13px;
-    margin: auto;
-    border: 1.5px solid currentColor;
-    border-radius: 50%;
-    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  html[data-theme="dark"] .nav-preview-page .nav-wrap .controls.preview-auth-slot > .lmk-auth-trigger {
+    border-color: #f4f5f7;
+    background: #f4f5f7;
+    color: #11131a;
   }
 }
