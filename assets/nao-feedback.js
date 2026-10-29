@@ -1,0 +1,14 @@
+(()=>{"use strict";const es=document.documentElement.lang.startsWith("es");const dict=es?{
+ready:"Se debería abrir tu aplicación de correo. Revisa el borrador y pulsa Enviar para completar el envío.",copied:"Texto copiado. Pégalo en un correo a support-nao@lumekori.dev.",failed:"No se pudo copiar. Selecciona el texto del borrador y cópialo manualmente.",label:"Opinión sobre Nao",kind:["Experiencia","Sugerencia","Error"],rating:"Estrellas",title:"Título",details:"Detalles",version:"Versión",email:"Correo de contacto"
+}:{ready:"Your email app should open. Review the draft and press Send to complete delivery.",copied:"Copied. Paste into an email to support-nao@lumekori.dev.",failed:"Could not copy. Please select and copy the draft text below.",label:"Nao feedback",kind:["Experience","Suggestion","Bug"],rating:"Stars",title:"Title",details:"Details",version:"Version",email:"Contact email"};
+const form=document.getElementById("naofb-form");if(!form)return;const radios=[...form.querySelectorAll('input[name="rating"]')],type=form.elements.kind,status=document.getElementById("naofb-result"),draft=document.getElementById("naofb-draft"),copy=document.getElementById("naofb-copy");let body="";
+const paint=()=>{const active=Number(radios.find(r=>r.checked)?.value||0);radios.forEach(r=>r.parentElement.classList.toggle("active",Number(r.value)<=active))};
+const toggle=()=>{radios[0].required=type.value==="experience";paint()};type.addEventListener("change",toggle);radios.forEach(r=>r.addEventListener("change",paint));toggle();
+form.addEventListener("submit",e=>{e.preventDefault();if(!form.reportValidity())return;const title=form.elements.title.value.trim(),details=form.elements.details.value.trim();if(title.length<3||details.length<12){form.elements[title.length<3?"title":"details"].focus();return;}
+const kindIndex=["experience","suggestion","bug"].indexOf(type.value);const kind=dict.kind[Math.max(kindIndex,0)],stars=radios.find(r=>r.checked)?.value||"-";
+body=[dict.label+" · "+kind,"",dict.rating+": "+stars+(stars==="-"?"":"/5"),dict.title+": "+title,dict.version+": "+(form.elements.version.value.trim()||"-"),dict.email+": "+(form.elements.email.value.trim()||"-"),"",dict.details+":",details].join("\n");
+const url="mailto:support-nao@lumekori.dev?subject="+encodeURIComponent(dict.label+" - "+kind+": "+title.slice(0,65))+"&body="+encodeURIComponent(body);
+status.textContent=dict.ready;status.hidden=false;draft.textContent=body;draft.hidden=false;copy.hidden=false;window.location.href=url;
+});
+copy.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(body);status.textContent=dict.copied;}catch(_){status.textContent=dict.failed;const range=document.createRange();range.selectNodeContents(draft);const s=window.getSelection();s.removeAllRanges();s.addRange(range);}status.hidden=false;});
+})();
