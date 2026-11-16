@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumekori Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--tx:#0e1726;--mu:#4f5b70;--ln:rgba(14,23,38,.18);--pl:36;--h:42;--ac:hsl(var(--h) 80% calc(var(--pl)*1%));--sy:0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--tx:#e8ecf3;--mu:#98a3b8;--ln:rgba(232,236,243,.18);--pl:64;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1220;--tx:#e8ecf3;--mu:#98a3b8;--ln:rgba(232,236,243,.18);--pl:64;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:1.1rem/1.65 Newsreader,Georgia,serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+header,h1,h2,h3,.btn,footer,#st,.mail{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+#bg,.glow{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.glow{background:radial-gradient(70% 55% at 85% 0%,hsl(var(--h) 70% 50%/.16),transparent 70%),radial-gradient(60% 50% at 0% 100%,hsl(calc(var(--h) + 70) 70% 50%/.13),transparent 70%)}
+main,header,footer{position:relative;z-index:1}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 5vw;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 72%,transparent)}
+.logo{display:flex;gap:10px;align-items:center;font-weight:800;font-size:1.2rem;letter-spacing:-.02em;text-decoration:none}
+.logo g{transform-origin:16px 16px;animation:sp 14s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+nav{display:flex;align-items:center;gap:26px;font-weight:500;font-size:1rem}
+nav a{text-decoration:none;opacity:.8;transition:opacity .2s}nav a:hover{opacity:1}
+#tm{font:inherit;background:none;color:var(--tx);border:1px solid var(--ln);border-radius:999px;padding:6px 14px;cursor:pointer}
+.wrap{max-width:1180px;margin:auto;padding:0 5vw}
+section{padding:12vh 0}
+.hero{min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:6vh 0}
+.hero h1{font-size:clamp(2.9rem,9.4vw,7.6rem);line-height:.98;letter-spacing:-.04em;font-weight:800;margin:0 0 .35em;max-width:12ch}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-right:.22em}
+.w i{display:inline-block;font-style:normal;transform:translateY(108%);animation:up 1s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:var(--d)}
+@keyframes up{to{transform:none}}
+.lead{font-size:1.3rem;color:var(--mu);max-width:34em;margin:0 0 2rem}
+.ring{position:absolute;right:-10vw;top:50%;width:min(66vw,660px);aspect-ratio:1;transform:translateY(-50%) rotate(calc(var(--sy)*.06deg));opacity:.5;z-index:-1}
+.ring circle{fill:none;stroke:var(--ac);stroke-width:1.2}
+.ring g{transform-origin:50% 50%;animation:sp 70s linear infinite}
+.btn{display:inline-block;padding:14px 28px;border:1px solid var(--tx);border-radius:999px;font-weight:700;text-decoration:none;margin:0 10px 10px 0;transition:background .3s,color .3s,border-color .3s}
+.btn:hover{background:var(--tx);color:var(--bg)}
+.btn.f{background:var(--tx);color:var(--bg)}.btn.f:hover{background:var(--ac);border-color:var(--ac);color:var(--bg)}
+h2{font-size:clamp(1.9rem,4.4vw,3.2rem);letter-spacing:-.03em;line-height:1.05;margin:0 0 1.2em;max-width:16em}
+.row{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:start;padding:44px 0;border-top:1px solid var(--ln);position:relative;transition:padding .5s cubic-bezier(.2,.7,.1,1)}
+.row:last-child{border-bottom:1px solid var(--ln)}
+.row::after{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--ac);transition:width .7s cubic-bezier(.2,.7,.1,1)}
+.row:hover::after{width:100%}.row:hover{padding-left:2vw}
+.row h3{font-size:clamp(1.9rem,4.8vw,3.8rem);margin:0;letter-spacing:-.035em;line-height:1;font-weight:800}
+.row p{margin:0;color:var(--mu)}.row em{display:block;margin-top:10px;color:var(--tx)}
+#st{font-size:clamp(1.8rem,4.8vw,3.9rem);font-weight:700;line-height:1.14;letter-spacing:-.028em;max-width:21em;margin:0}
+#st span{opacity:.2;transition:opacity .5s}#st span.on{opacity:1}
+.steps{position:relative;padding-left:52px;margin-top:20px;max-width:760px}
+.pl{position:absolute;left:12px;top:8px;bottom:30px;width:2px;background:var(--ln)}
+.pl i{position:absolute;inset:0;background:var(--ac);transform-origin:top;transform:scaleY(0)}
+.step{position:relative;padding-bottom:42px}
+.step::before{content:"";position:absolute;left:-46px;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--ac)}
+.step h3{margin:0 0 .2em;font-size:1.7rem;letter-spacing:-.02em}.step p{margin:0;color:var(--mu)}
+.mail{display:inline-block;font-size:clamp(1.7rem,6.4vw,5rem);font-weight:800;letter-spacing:-.035em;text-decoration:none;line-height:1.1;background:linear-gradient(var(--ac),var(--ac)) 0 100%/0 4px no-repeat;transition:background-size .7s cubic-bezier(.2,.7,.1,1);padding-bottom:6px;word-break:break-word}
+.mail:hover{background-size:100% 4px}
+footer{border-top:1px solid var(--ln);padding:48px 0 40px;font-size:.98rem}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h3{font-size:1rem;margin:0 0 .6em}footer a{display:block;text-decoration:none;color:var(--mu);padding:3px 0}footer a:hover{color:var(--tx)}
+footer p{color:var(--mu);margin:.5em 0 0;max-width:26em}.cp{margin-top:36px;color:var(--mu)}
+.view{display:none}.view.on{display:block;animation:vin .8s ease}@keyframes vin{from{opacity:0}}
+.doc{max-width:760px;padding:14vh 0 10vh}
+.doc h1{font-size:clamp(2.4rem,7vw,4.8rem);letter-spacing:-.04em;line-height:1;margin:0 0 .4em;font-weight:800}
+.doc h2{font-size:1.5rem;margin:2.1em 0 .4em;letter-spacing:-.02em}.doc p{margin:0 0 1em}.doc .mu{color:var(--mu)}
+@media (max-width:760px){nav a.h{display:none}.row,.fg{grid-template-columns:1fr}.row:hover{padding-left:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.w i{transform:none}html{scroll-behavior:auto}#bg{display:none}#st span{opacity:1}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas><div class="glow" aria-hidden="true"></div>
+<header>
+<a class="logo" href="#inicio" aria-label="Lumekori Studios, inicio"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round"><path d="M16 4a12 12 0 1 0 12 12"/><circle cx="25" cy="7" r="2.6" fill="var(--ac)" stroke="none"/></g></svg>Lumekori</a>
+<nav><a class="h" href="#ramas">Ramas</a><a class="h" href="#proceso">Proceso</a><a href="#nosotros">Estudio</a><a href="#contacto">Contacto</a><button id="tm" type="button" aria-label="Cambiar entre tema claro y oscuro">Tema</button></nav>
+</header>
+<main>
+<div class="view on" id="v-inicio">
+<div class="hero"><svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><g><circle cx="100" cy="100" r="98" stroke-dasharray="2 7"/><circle cx="100" cy="100" r="76"/><circle cx="100" cy="100" r="54" stroke-dasharray="40 12"/><circle cx="100" cy="100" r="32" stroke-dasharray="1 5"/></g></svg>
+<div class="wrap"><h1 id="h1">Damos forma a lo que aún no existe.</h1>
+<p class="lead">Lumekori Studios diseña y desarrolla software a medida, aplicaciones y videojuegos, con rigor de ingeniería y pulso de artesanos.</p>
+<a class="btn f" href="#ramas">Conocer nuestras ramas</a><a class="btn" href="#contacto">Hablemos de tu proyecto</a></div></div>
+<section id="ramas"><div class="wrap"><h2>Tres ramas, un mismo criterio.</h2>
+<div class="row"><h3>Lumekori Software</h3><div><p>Plataformas, sistemas internos, APIs e integraciones que soportan el día a día de un negocio y escalan con él.</p><em>Web, nube y sistemas a medida.</em></div></div>
+<div class="row"><h3>Lumekori Apps</h3><div><p>Aplicaciones móviles y de escritorio con interfaces rápidas, claras y pensadas para usarse todos los días.</p><em>iOS, Android y multiplataforma.</em></div></div>
+<div class="row"><h3>Lumekori Games</h3><div><p>Videojuegos y prototipos jugables, desde la idea hasta el lanzamiento, con atención al ritmo y a la sensación de control.</p><em>2D, 3D, móvil y PC.</em></div></div>
+</div></section>
+<section><div class="wrap"><p id="st">Creemos que un producto serio no tiene por qué sentirse rígido. Cuidamos la ingeniería hasta el último detalle y dejamos que lo demás respire, se mueva y tenga carácter.</p></div></section>
+<section id="proceso"><div class="wrap"><h2>Cómo trabajamos.</h2>
+<div class="steps"><div class="pl"><i id="pl"></i></div>
+<div class="step"><h3>Descubrir</h3><p>Escuchamos el problema, a las personas que lo viven y las restricciones reales del proyecto.</p></div>
+<div class="step"><h3>Diseñar</h3><p>Prototipamos rápido, probamos con usuarios y acordamos un alcance claro antes de escribir código de producción.</p></div>
+<div class="step"><h3>Construir</h3><p>Entregas cortas y frecuentes, con pruebas automatizadas y revisión de código en cada paso.</p></div>
+<div class="step"><h3>Evolucionar</h3><p>Medimos, corregimos y seguimos acompañando el producto después del lanzamiento.</p></div></div></div></section>
+<section id="contacto"><div class="wrap"><h2>¿Tienes algo en mente?</h2><a class="mail" href="mailto:hola@lumekori.com">hola@lumekori.com</a></div></section>
+</div>
+
+<div class="view" id="v-nosotros"><div class="wrap doc"><h1>Qué somos</h1>
+<p class="lead">Lumekori Studios es un estudio de desarrollo de software, aplicaciones y videojuegos.</p>
+<p>Nacimos de una idea sencilla: la tecnología seria también puede tener personalidad. Trabajamos con empresas, equipos y creadores que necesitan productos confiables y, al mismo tiempo, memorables.</p>
+<h2>Nuestras ramas</h2><p><b>Lumekori Software</b> para sistemas y plataformas, <b>Lumekori Apps</b> para aplicaciones móviles y de escritorio, y <b>Lumekori Games</b> para videojuegos.</p>
+<h2>Lo que nos guía</h2><p>Claridad antes que complejidad. Calidad medible en cada entrega. Diseño con intención y movimiento con propósito. Y comunicación honesta con quien confía en nosotros.</p></div></div>
+
+<div class="view" id="v-privacidad"><div class="wrap doc"><h1>Política de privacidad</h1><p class="mu">Última actualización: 16 de noviembre de 2026</p>
+<h2>Qué datos recopilamos</h2><p>Solo los que nos envías de forma voluntaria, como tu nombre, correo electrónico y los detalles de tu consulta cuando nos escribes.</p>
+<h2>Para qué los usamos</h2><p>Para responder tus mensajes, preparar propuestas y mantener la relación comercial. No vendemos tus datos personales.</p>
+<h2>Cookies y analítica</h2><p>Este sitio puede usar herramientas básicas de medición para entender su uso general. Si incorporamos cookies no esenciales, te lo informaremos y podrás rechazarlas.</p>
+<h2>Terceros</h2><p>Podemos apoyarnos en proveedores de alojamiento y correo que tratan datos en nuestro nombre y bajo obligaciones de confidencialidad.</p>
+<h2>Tus derechos</h2><p>Puedes solicitar acceso, corrección o eliminación de tus datos escribiendo a hola@lumekori.com.</p></div></div>
+
+<div class="view" id="v-terminos"><div class="wrap doc"><h1>Términos y condiciones</h1><p class="mu">Última actualización: 16 de noviembre de 2026</p>
+<h2>Uso del sitio</h2><p>Al navegar por este sitio aceptas usarlo de forma lícita y sin afectar su funcionamiento ni el de otros usuarios.</p>
+<h2>Propiedad intelectual</h2><p>Los textos, el diseño, las marcas y el código de este sitio pertenecen a Lumekori Studios o se usan con autorización. No pueden reproducirse sin permiso previo.</p>
+<h2>Servicios y contratos</h2><p>La información de este sitio es orientativa. Los servicios se rigen por la propuesta y el contrato firmados con cada cliente.</p>
+<h2>Limitación de responsabilidad</h2><p>Hacemos lo posible por mantener el sitio actualizado, pero no garantizamos que esté libre de errores o interrupciones.</p>
+<h2>Cambios y ley aplicable</h2><p>Podemos actualizar estos términos en cualquier momento. Se rigen por la legislación aplicable en la jurisdicción de Lumekori Studios.</p></div></div>
+</main>
+<footer><div class="wrap"><div class="fg">
+<div><h3>Lumekori Studios</h3><p>Software, aplicaciones y videojuegos con rigor y carácter.</p></div>
+<div><h3>Estudio</h3><a href="#nosotros">Qué somos</a><a href="#ramas">Ramas</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
+<div><h3>Legal</h3><a href="#privacidad">Privacidad</a><a href="#terminos">Términos y condiciones</a></div></div>
+<div class="cp">© 2026 Lumekori Studios. Todos los derechos reservados.</div></div></footer>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],R=document.documentElement,K=(v,a,b)=>Math.min(b,Math.max(a,v));
+const V=['inicio','nosotros','privacidad','terminos'],S=['ramas','proceso','contacto'];
+function route(){const h=location.hash.slice(1)||'inicio',v=S.includes(h)?'inicio':V.includes(h)?h:'inicio';
+$$('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));
+if(S.includes(h))setTimeout(()=>document.getElementById(h).scrollIntoView({behavior:'smooth'}),60);else scrollTo({top:0,behavior:'instant'})}
+addEventListener('hashchange',route);route();
+$('#h1').innerHTML=$('#h1').textContent.split(' ').map((w,i)=>'<span class="w"><i style="--d:'+(.15+i*.09)+'s">'+w+'</i></span>').join('');
+$('#st').innerHTML=$('#st').textContent.split(' ').map(w=>'<span>'+w+'</span>').join(' ');
+const cv=$('#bg'),cx=cv.getContext('2d'),m={x:-999,y:-999};let W,H,P=[],t=0,L=64,hue=42,sv=0,ly=0;
+function th(){L=parseFloat(getComputedStyle(R).getPropertyValue('--pl'))||64}
+function rs(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+P=Array.from({length:Math.min(190,Math.floor(W*H/8000))},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*40}))}
+addEventListener('resize',rs);rs();th();
+addEventListener('pointermove',e=>{m.x=e.clientX;m.y=e.clientY});addEventListener('pointerleave',()=>{m.x=m.y=-999});
+$('#tm').onclick=()=>{const d=matchMedia('(prefers-color-scheme: dark)').matches,c=R.dataset.theme||(d?'dark':'light');R.dataset.theme=c==='dark'?'light':'dark';th()};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',th);
+function fr(){t+=.003;sv+=((scrollY-ly)-sv)*.1;ly=scrollY;
+cx.globalCompositeOperation='destination-out';cx.fillStyle='rgba(0,0,0,.06)';cx.fillRect(0,0,W,H);cx.globalCompositeOperation='source-over';cx.lineWidth=1.3;
+for(const p of P){const a=(Math.sin(p.x*.0028+t*4)+Math.cos(p.y*.0035-t*3))*Math.PI;let dx=Math.cos(a)*1.1,dy=Math.sin(a)*1.1-sv*.18;
+const mx=p.x-m.x,my=p.y-m.y,d=Math.hypot(mx,my);if(d<150){const f=(1-d/150)*2.4;dx+=mx/d*f-my/d*f*.8;dy+=my/d*f+mx/d*f*.8}
+const ox=p.x,oy=p.y;p.x+=dx;p.y+=dy;
+if(p.x<0||p.x>W||p.y<0||p.y>H){p.x=Math.random()*W;p.y=Math.random()*H;continue}
+cx.strokeStyle='hsla('+(hue+p.l)+',78%,'+L+'%,.6)';cx.beginPath();cx.moveTo(ox,oy);cx.lineTo(p.x,p.y);cx.stroke()}
+requestAnimationFrame(fr)}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)fr();
+function sc(){const y=scrollY,p=K(y/Math.max(1,R.scrollHeight-innerHeight),0,1);hue=42+p*190;
+R.style.setProperty('--h',hue.toFixed(1));R.style.setProperty('--sy',y);
+const st=$('#st');if(st.offsetParent){const q=K((innerHeight*.85-st.getBoundingClientRect().top)/(innerHeight*.6),0,1.1),w=st.children;
+for(let i=0;i<w.length;i++)w[i].classList.toggle('on',i/w.length<q)}
+const pr=$('#proceso');if(pr.offsetParent){const r=pr.getBoundingClientRect();$('#pl').style.transform='scaleY('+K((innerHeight*.65-r.top-r.height*.15)/(r.height*.7),0,1)+')'}}
+addEventListener('scroll',()=>requestAnimationFrame(sc),{passive:true});sc();
+</script>
+</body>
+</html>
