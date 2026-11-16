@@ -1,0 +1,64 @@
+/* Lumekori: Claude visual identity for public interior pages.
+   Does not replace any product logo, original social SVG, form or navigation. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap");
+html.lmk-claude-ui{
+--bg:#eef1f4;--paper:#f8f9fb;--surface:#f9fbfd;--ink:#0e1726;--text:#0e1726;
+--muted:#4f5b70;--mu:#4f5b70;--line:rgba(14,23,38,.17);--ln:rgba(14,23,38,.17);--soft:#e6ebf1;
+--lmk-motion-hue:42;color-scheme:light
+}
+html.lmk-claude-ui[data-theme=dark]{
+--bg:#0b1220;--paper:#101b2c;--surface:#121c2b;--ink:#e8ecf3;--text:#e8ecf3;
+--muted:#98a3b8;--mu:#98a3b8;--line:rgba(232,236,243,.18);--ln:rgba(232,236,243,.18);--soft:#1c2a3b;
+color-scheme:dark
+}
+html.lmk-claude-ui body{background:var(--bg);color:var(--text);font-family:"Newsreader",Georgia,serif;line-height:1.65;overflow-x:clip}
+html.lmk-claude-ui .lmk-motion-canvas,html.lmk-claude-ui .lmk-motion-glow{
+position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0
+}
+html.lmk-claude-ui .lmk-motion-glow{
+background:radial-gradient(70% 55% at 86% 2%,hsl(var(--lmk-motion-hue) 70% 50% / .14),transparent 72%),
+radial-gradient(62% 60% at 2% 94%,hsl(calc(var(--lmk-motion-hue) + 70) 70% 50% / .13),transparent 74%)
+}
+html.lmk-claude-ui[data-theme=dark] .lmk-motion-glow{opacity:.87}
+html.lmk-claude-ui body > main,html.lmk-claude-ui body > .lk-site-end,html.lmk-claude-ui body > footer{position:relative;z-index:1}
+html.lmk-claude-ui body > .top-note{position:relative;z-index:1}
+html.lmk-claude-ui main h1,html.lmk-claude-ui main h2,html.lmk-claude-ui main h3,
+html.lmk-claude-ui main h4,html.lmk-claude-ui main .eyebrow,html.lmk-claude-ui main .kicker,
+html.lmk-claude-ui main .tag,html.lmk-claude-ui main .num,html.lmk-claude-ui main .btn{
+font-family:"Bricolage Grotesque",system-ui,sans-serif}
+html.lmk-claude-ui main h1{font-weight:800;letter-spacing:-.057em}
+html.lmk-claude-ui main h2{letter-spacing:-.035em}
+html.lmk-claude-ui main p,html.lmk-claude-ui main li{font-family:"Newsreader",Georgia,serif}
+html.lmk-claude-ui .lk-site-end{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+html.lmk-claude-ui .lk-site-end *{font-family:inherit}
+html.lmk-claude-ui .pagehero{position:relative;text-align:left;padding:clamp(90px,11vw,156px) 0 clamp(50px,7vw,94px)}
+html.lmk-claude-ui .pagehero .shell{max-width:1180px}
+html.lmk-claude-ui .pagehero h1{font-size:clamp(3.4rem,8.4vw,7.2rem);line-height:.98;letter-spacing:-.055em;max-width:15ch;margin:14px 0 0;animation:lmk-page-in .9s cubic-bezier(.2,.7,.1,1) both}
+html.lmk-claude-ui .pagehero p{margin:20px 0 0;text-align:left;max-width:37em;font:clamp(1.14rem,2vw,1.42rem)/1.62 "Newsreader",Georgia,serif;color:var(--muted);animation:lmk-page-in 1.05s .12s cubic-bezier(.2,.7,.1,1) both}
+html.lmk-claude-ui .pagehero .eyebrow{background:transparent;border:0;border-radius:0;padding:0;color:var(--muted);font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+html.lmk-claude-ui .pagehero .eyebrow::before{content:"";display:inline-block;width:21px;height:1px;background:currentColor;margin-right:10px;vertical-align:middle}
+html.lmk-claude-ui .pagehero .eyebrow .dot{display:none}
+@keyframes lmk-page-in{from{opacity:0;transform:translate3d(0,22px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+html.lmk-claude-ui .contentbox{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);box-shadow:0 18px 55px rgba(18,31,46,.055);border-radius:24px}
+html.lmk-claude-ui .contentbox h2{font-size:clamp(1.55rem,3vw,2.23rem);line-height:1.12;letter-spacing:-.034em}
+html.lmk-claude-ui .contentbox p,html.lmk-claude-ui .contentbox li{font-size:clamp(1.02rem,1.55vw,1.15rem);line-height:1.72}
+html.lmk-claude-ui .contentbox a:not(.btn){text-underline-offset:3px}
+html.lmk-claude-ui .listlinks a{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:clamp(.9rem,1.4vw,1rem);transition:padding .3s ease,color .2s}
+html.lmk-claude-ui .listlinks a:hover{padding-left:12px}
+html.lmk-claude-ui main .btn{border-radius:999px;transition:transform .22s,background .22s,color .22s}
+html.lmk-claude-ui main .btn:hover{transform:translateY(-2px)}
+html.lmk-claude-ui .naofb-card{background:var(--surface);border-color:var(--line)}
+html.lmk-claude-ui:not(.lmk-games-ui) main .card,
+html.lmk-claude-ui:not(.lmk-games-ui) main .product-feature{background:var(--surface);border-color:var(--line)}
+html.lmk-claude-ui .nav-preview-page .nav-wrap .nav{background:color-mix(in srgb,var(--surface) 82%,transparent);border-color:var(--line)}
+html.lmk-claude-ui .nav-wrap .brand,html.lmk-claude-ui .nav-wrap .navlinks,html.lmk-claude-ui .nav-wrap .controls,html.lmk-claude-ui .mobilemenu{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+html.lmk-claude-ui .nav-wrap .nav-popover p{font-family:"Newsreader",Georgia,serif}
+html.lmk-claude-ui main .hero h1,html.lmk-claude-ui main .hero h2{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+html.lmk-claude-ui main .hero p{font-family:"Newsreader",Georgia,serif}
+html.lmk-claude-ui.lmk-games-ui{--paper:#eef1f4;--ink:#0e1726}
+html.lmk-claude-ui.lmk-games-ui[data-theme=dark]{--paper:#0b1220;--ink:#e8ecf3}
+html.lmk-claude-ui.lmk-games-ui main h1,html.lmk-claude-ui.lmk-games-ui main h2{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+html.lmk-claude-ui.lmk-games-ui main p{font-family:"Newsreader",Georgia,serif}
+/* The Games cyan logo and separate header remain untouched. */
+@media(max-width:700px){html.lmk-claude-ui .pagehero{padding:76px 0 46px}html.lmk-claude-ui .pagehero h1{font-size:clamp(2.7rem,11vw,4.9rem);max-width:100%}html.lmk-claude-ui .pagehero p{font-size:1.13rem;margin-top:15px}html.lmk-claude-ui .contentbox{border-radius:18px}html.lmk-claude-ui .contentbox p,html.lmk-claude-ui .contentbox li{font-size:1rem;line-height:1.64}}
+@media(prefers-reduced-motion:reduce){html.lmk-claude-ui .lmk-motion-canvas{display:none!important}html.lmk-claude-ui .pagehero h1,html.lmk-claude-ui .pagehero p{animation:none!important}html.lmk-claude-ui main .btn{transition:none!important}}

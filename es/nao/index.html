@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="lmk-claude-ui">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -118,7 +118,7 @@ html[data-theme="dark"] .big .stack span:nth-child(3){background:#252a32}
 .section-head .section-copy{display:block;line-height:1.65;margin:0;max-width:680px}
 @media(max-width:850px){.section-head{gap:18px}.section-head h3{line-height:1.1;margin-bottom:16px;letter-spacing:-.045em}}
 </style>
-<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"><link rel="stylesheet" href="/assets/lumekori-live-nav.css?v=1"></head>
+<link rel="stylesheet" href="/assets/lumekori-footer.css?v=3"><link rel="stylesheet" href="/assets/lumekori-auth.css?v=2"><link rel="stylesheet" href="/assets/lumekori-live-nav.css?v=1"><link rel="stylesheet" href="/assets/lumekori-claude-pages.css?v=1"></head>
 <body class="nav-preview-page">
 <div class="nav-wrap"><div class="shell nav">
   <a class="brand" href="/es/"><img src="/assets/lumekori-icon.png" alt="Lumekori"><span>Lumekori</span></a>
@@ -225,5 +225,5 @@ html[data-theme="dark"] .big .stack span:nth-child(3){background:#252a32}
   updateIcon();
   document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('lumekori-theme',root.dataset.theme);updateIcon()}));
 })();
-</script><script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script><script>(()=>{const b=document.querySelector("[data-menu]"),m=document.querySelector(".mobilemenu");if(b&&m){b.addEventListener("click",()=>m.classList.toggle("open"));m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>m.classList.remove("open")));}})();</script></body>
+</script><script>document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("preview-cookie-button"),p=document.getElementById("preview-cookie-info");if(b&&p)b.addEventListener("click",()=>{p.hidden=!p.hidden})});</script><script type="module" src="/assets/lumekori-auth.js?v=3"></script><script>(()=>{const b=document.querySelector("[data-menu]"),m=document.querySelector(".mobilemenu");if(b&&m){b.addEventListener("click",()=>m.classList.toggle("open"));m.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>m.classList.remove("open")));}})();</script><script defer src="/assets/lumekori-claude-pages.js?v=1"></script></body>
 </html>
