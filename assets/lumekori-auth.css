@@ -1,17 +1,36 @@
-
-/* Optional unified Lumekori / Nao sign-in. No content is gated. */
-.lmk-auth-trigger{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  min-height:38px;padding:8px 15px;border:1px solid var(--line,#dcdeda);
-  border-radius:999px;background:var(--soft,#efefeb);color:var(--text,#111214);
-  font:inherit;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer;
-  max-width:210px;position:relative;z-index:2}
-.lmk-auth-trigger:hover{filter:brightness(.96)}
-.lmk-auth-trigger svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
-.lmk-auth-label{overflow:hidden;text-overflow:ellipsis}
+/* Stable account control across all pages and both Firebase auth states. */
+.lmk-auth-trigger{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:39px;min-width:104px;padding:5px 12px 5px 6px;
+  border:1px solid var(--line,var(--ln,rgba(128,136,151,.35)));
+  border-radius:999px;
+  background:color-mix(in srgb,var(--surface,var(--bg,#fff)) 88%,var(--text,var(--tx,#101827)) 12%);
+  color:var(--text,var(--tx,#111214));
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:12px;font-weight:650;line-height:1;white-space:nowrap;
+  cursor:pointer;position:relative;isolation:isolate;
+  transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.lmk-auth-trigger:hover{filter:none;transform:translateY(-1px);
+  border-color:color-mix(in srgb,currentColor 38%,transparent);
+  box-shadow:0 5px 15px rgba(0,0,0,.09)}
+.lmk-auth-trigger:active{transform:translateY(0)}
+.lmk-auth-trigger:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.lmk-auth-avatar{display:grid;place-items:center;flex:none;width:26px;height:26px;
+  border-radius:50%;background:color-mix(in srgb,currentColor 8%,transparent)}
+.lmk-auth-avatar svg{width:16px;height:16px;fill:none;stroke:currentColor;
+  stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lmk-auth-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.005em}
+.lmk-auth-indicator{position:absolute;left:24px;top:4px;width:9px;height:9px;
+  border-radius:50%;border:2px solid var(--surface,var(--bg,#fff));background:#39b883;
+  opacity:0;transform:scale(.5);transition:opacity .2s ease,transform .2s ease}
+.lmk-auth-trigger[data-auth-state="signed-in"] .lmk-auth-indicator{opacity:1;transform:scale(1)}
 .controls:has(>.lmk-auth-trigger)>.theme-btn,
 .nav-actions:has(>.lmk-auth-trigger)>.theme-btn{margin-left:0!important;box-shadow:none!important}
 .lmk-account-nav{display:flex;align-items:center;justify-content:end;padding-right:10px}
-.lmk-account-nav .lmk-auth-trigger{background:#fff;color:#111214;border:2px solid #111214}
+.lmk-account-nav .lmk-auth-trigger{background:#fff;color:#111214;border-color:#111214}
+@media(prefers-reduced-motion:reduce){.lmk-auth-trigger,.lmk-auth-indicator{transition:none!important}}
 .lmk-auth-dialog{width:min(430px,calc(100vw - 28px));max-height:min(92dvh,740px);
   border:1px solid var(--line,#dcdeda);border-radius:24px;
   padding:0;margin:auto;box-shadow:0 25px 90px rgba(0,0,0,.25);
@@ -58,8 +77,8 @@ html[data-theme="dark"] .lmk-auth-submit{background:#f1f2f4;color:#111214}
 .lmk-auth-legal{font-size:11px;color:var(--muted,#686d75);margin:20px 0 0;line-height:1.5}
 .lmk-auth-legal a{color:var(--text,#111214);text-decoration:underline}
 .lmk-auth-dialog button:disabled{opacity:.55;cursor:wait}
-@media(max-width:700px){.lmk-auth-label{display:none}.lmk-auth-trigger{width:35px;min-height:35px;min-width:35px;padding:6px}
- .lmk-auth-trigger svg{width:19px;height:19px}.lmk-auth-window{padding:25px 22px}
+@media(max-width:700px){.lmk-auth-label{display:none}.lmk-auth-trigger{width:39px;min-height:39px;min-width:39px;padding:5px}
+ .lmk-auth-avatar{width:27px;height:27px}.lmk-auth-indicator{left:26px;top:3px}.lmk-auth-window{padding:25px 22px}
  .lmk-account-nav{padding-right:5px}}
 
 /* Only phones use the appearance control within the account dialog. */
