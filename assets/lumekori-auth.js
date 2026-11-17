@@ -18,7 +18,7 @@ const config = {
 };
 const es = document.documentElement.lang.toLowerCase().startsWith("es");
 const t = es ? {
-  login:"Iniciar sesión", account:"Mi cuenta", heading:"Bienvenido a Lumekori",
+  login:"Iniciar sesión", navAccount:"Cuenta", account:"Mi cuenta", heading:"Bienvenido a Lumekori",
   intro:"Accede con una cuenta de Nao o crea una cuenta de Lumekori. La navegación siempre es pública.",
   google:"Continuar con Google", email:"Continuar con correo", loginEmail:"Entrar con correo",
   register:"Crear una cuenta", signIn:"Iniciar sesión", reset:"Recuperar contraseña",
@@ -46,7 +46,7 @@ const t = es ? {
   note:"No es obligatorio iniciar sesión para utilizar el sitio.", googleCanceled:"Inicio de sesión cancelado.",
   verifyAgain:"Se envió otro mensaje de verificación."
 } : {
-  login:"Sign in", account:"My account", heading:"Welcome to Lumekori",
+  login:"Sign in", navAccount:"Account", account:"My account", heading:"Welcome to Lumekori",
   intro:"Use your Nao account or create a Lumekori account. Browsing remains open to everyone.",
   google:"Continue with Google", email:"Continue with email", loginEmail:"Sign in with email",
   register:"Create an account", signIn:"Sign in", reset:"Reset password",
@@ -256,9 +256,11 @@ if (holder) {
   opener.className="lmk-auth-trigger";
   opener.setAttribute("aria-haspopup","dialog");
   opener.setAttribute("aria-label",t.login);
-  opener.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.3"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg><span class="lmk-auth-label"></span>';
+  opener.innerHTML='<span class="lmk-auth-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.3"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></span><span class="lmk-auth-label"></span><span class="lmk-auth-indicator" aria-hidden="true"></span>';
   const buttonText=opener.querySelector(".lmk-auth-label");
-  buttonText.textContent=t.login;
+  buttonText.textContent=t.navAccount;
+  // A fixed visible label prevents the sign-in text from flashing on every page load.
+  opener.dataset.authState="checking";
   holder.insertBefore(opener,holder.firstChild);
 
   const dialog=document.createElement("dialog");
@@ -380,7 +382,8 @@ if (holder) {
   }
   function renderUser(user){
     current=user;
-    buttonText.textContent=user?(user.displayName||user.email?.split("@")[0]||t.account).slice(0,22):t.login;
+    buttonText.textContent=t.navAccount;
+    opener.dataset.authState=user?"signed-in":"signed-out";
     opener.setAttribute("aria-label",user?t.account:t.login);
     opener.title=user?t.account:t.login;
     if(dialog.open)showMode(user?"profile":"choice");
