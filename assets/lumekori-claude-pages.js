@@ -42,3 +42,5 @@ function stop(){if(raf)cancelAnimationFrame(raf);raf=0}
 document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
 resize();scrollUpdate();if(reduced){canvas.style.display="none";return}start();
 })();
+/* Load only the approved ink-logo and scroll-entrance effects. */
+(()=>{if(document.querySelector("script[data-lmk-entry]"))return;const s=document.createElement("script");s.src="/assets/lumekori-entry-motion.js?v=1";s.dataset.lmkEntry="1";document.head.appendChild(s)})();

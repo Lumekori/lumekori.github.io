@@ -1,0 +1,73 @@
+/* Lumekori - two visual details approved from Claude: header logo ink and scroll entrances.
+   This stylesheet deliberately does not define background, colors, layout or ambient motion. */
+html.lmk-entry-init .lmk-site-header .lk.lmk-entry-logo use.fv,
+html.lmk-entry-init .lmk-site-header .lk.lmk-entry-logo use.ff {
+  stroke:currentColor;
+  stroke-width:7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
+  fill-opacity:0;
+  animation:lmk-entry-logo-stroke 1.25s .15s cubic-bezier(.5,0,.2,1) forwards,
+            lmk-entry-logo-ink .55s 1s ease forwards;
+}
+html.lmk-entry-init .lmk-site-header .lk.lmk-entry-logo use.ff {
+  animation-delay:.35s,1.15s;
+}
+@keyframes lmk-entry-logo-stroke {to{stroke-dashoffset:0}}
+@keyframes lmk-entry-logo-ink {to{fill-opacity:1;stroke-width:0}}
+/* Games keeps its existing cyan symbol instead of switching to a black mark. */
+html.lmk-entry-init .games-logo.lmk-entry-games-logo {
+  animation:lmk-entry-games-draw 1.25s .15s cubic-bezier(.5,0,.2,1) both;
+}
+@keyframes lmk-entry-games-draw {
+  from {clip-path:inset(0 100% 0 0)}
+  to {clip-path:inset(0 0 0 0)}
+}
+/* Only elements marked by our observer animate; all original style rules remain intact. */
+html.lmk-entry-init .lmk-entry-block {
+  opacity:0;
+  translate:0 24px;
+  transition:opacity .8s ease var(--lmk-enter-delay,0ms),
+             translate .85s cubic-bezier(.2,.7,.1,1) var(--lmk-enter-delay,0ms);
+}
+html.lmk-entry-init .lmk-entry-block.lmk-entry-on {
+  opacity:1;translate:0 0;
+}
+html.lmk-entry-init .lmk-entry-block.lmk-entry-soft {
+  translate:0 12px;
+}
+html.lmk-entry-init .lmk-entry-block.lmk-entry-soft.lmk-entry-on {translate:0 0}
+/* Text unfolds word-by-word, only for plain-text headings. */
+html.lmk-entry-init .lmk-entry-text {
+  animation:none!important;
+}
+html.lmk-entry-init .lmk-entry-text .lmk-entry-word {
+  display:inline-block;
+  overflow:hidden;
+  vertical-align:top;
+  padding:.04em .06em .16em;
+  margin:-.04em -.06em -.16em;
+}
+html.lmk-entry-init .lmk-entry-text .lmk-entry-word>span {
+  display:inline-block;
+  opacity:0;
+  transform:translate3d(0,112%,0);
+}
+html.lmk-entry-init .lmk-entry-text.lmk-entry-on .lmk-entry-word>span {
+  animation:lmk-entry-word-up .9s cubic-bezier(.2,.75,.1,1) both;
+  animation-delay:calc(var(--lmk-enter-delay,0ms) + var(--lmk-word-i,0)*.07s);
+}
+@keyframes lmk-entry-word-up {to{opacity:1;transform:none}}
+@media print, (prefers-reduced-motion:reduce) {
+  html.lmk-entry-init .lmk-site-header .lk.lmk-entry-logo use.fv,
+  html.lmk-entry-init .lmk-site-header .lk.lmk-entry-logo use.ff {
+    stroke-width:0!important;stroke-dashoffset:0!important;fill-opacity:1!important;animation:none!important;
+  }
+  html.lmk-entry-init .games-logo.lmk-entry-games-logo {animation:none!important;clip-path:none!important}
+  html.lmk-entry-init .lmk-entry-block {opacity:1!important;translate:none!important;transition:none!important}
+  html.lmk-entry-init .lmk-entry-text .lmk-entry-word>span {
+    opacity:1!important;transform:none!important;animation:none!important;
+  }
+}
