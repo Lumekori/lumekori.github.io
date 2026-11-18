@@ -64,8 +64,37 @@ html.lmk-games-page #lmk-bg-controls button[aria-pressed="true"]{background:#f3f
  #lmk-bg-controls .lmk-bg-caption{display:none}
  #lmk-bg-controls .lmk-bg-toggle{display:grid;place-items:center;width:36px;height:36px;min-width:36px;padding:0;border-radius:50%;color:inherit;background:transparent}
  #lmk-bg-controls .lmk-bg-toggle svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
- #lmk-bg-controls .lmk-bg-options{display:none;position:absolute;right:0;bottom:calc(100% + 10px);width:max-content;max-width:calc(100vw - 24px);padding:6px;gap:3px;border-radius:999px;border:1px solid color-mix(in srgb,var(--tx,var(--text,#777)) 15%,transparent);background:color-mix(in srgb,var(--bg,#fff) 96%,transparent);box-shadow:0 10px 35px rgba(0,0,0,.17);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
- #lmk-bg-controls.lmk-bg-open .lmk-bg-options{display:flex}
- #lmk-bg-controls .lmk-bg-options button{font-size:11px;padding:10px 12px}
+ #lmk-bg-controls .lmk-bg-options{
+  display:flex;position:absolute;right:0;bottom:calc(100% + 10px);
+  width:max-content;max-width:calc(100vw - 24px);padding:6px;gap:3px;
+  border-radius:999px;border:1px solid color-mix(in srgb,var(--tx,var(--text,#777)) 15%,transparent);
+  background:color-mix(in srgb,var(--bg,#fff) 96%,transparent);
+  box-shadow:0 10px 35px rgba(0,0,0,.17);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform-origin:right bottom;transform:translate3d(0,12px,0) scale(.91);
+  transition:opacity .25s ease,transform .36s cubic-bezier(.2,.8,.2,1),visibility 0s linear .36s;
+ }
+ #lmk-bg-controls.lmk-bg-open .lmk-bg-options{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translate3d(0,0,0) scale(1);
+  transition:opacity .25s ease,transform .36s cubic-bezier(.2,.8,.2,1),visibility 0s;
+ }
+ #lmk-bg-controls .lmk-bg-options button{
+  font-size:11px;padding:10px 12px;opacity:0;transform:translateY(7px);
+  transition:opacity .22s ease,transform .33s cubic-bezier(.2,.8,.2,1),background-color .2s ease;
+  transition-delay:0s;
+ }
+ #lmk-bg-controls.lmk-bg-open .lmk-bg-options button{
+  opacity:1;transform:translateY(0);transition-delay:.06s;
+ }
+ #lmk-bg-controls.lmk-bg-open .lmk-bg-options button:nth-child(2){transition-delay:.10s}
+ #lmk-bg-controls.lmk-bg-open .lmk-bg-options button:nth-child(3){transition-delay:.14s}
+ #lmk-bg-controls.lmk-bg-open .lmk-bg-toggle svg{transform:rotate(90deg)}
+ #lmk-bg-controls .lmk-bg-toggle svg{transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+ #lmk-bg-controls .lmk-bg-options button:hover{transform:translateY(0)}
+
  html.lmk-games-page #lmk-bg-controls .lmk-bg-options{background:rgba(11,18,32,.96);border-color:rgba(238,244,255,.22)}
+}
+
+@media(max-width:600px) and (prefers-reduced-motion:reduce){
+ #lmk-bg-controls .lmk-bg-options,#lmk-bg-controls .lmk-bg-options button,#lmk-bg-controls .lmk-bg-toggle svg{transition:none!important}
 }
