@@ -68,9 +68,30 @@
   width:104px;min-width:104px;height:38px;border:1px solid var(--line,var(--ln,rgba(128,136,151,.35)));
   border-radius:999px;background:transparent;order:-1;
 }
+/* Mobile account button remains a circle in every Firebase state and on every page. */
 @media(max-width:700px){
-  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger{width:104px!important;min-width:104px!important;max-width:104px!important}
-  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-label{display:block!important}
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger{
+    box-sizing:border-box!important;display:inline-flex!important;
+    width:39px!important;min-width:39px!important;max-width:39px!important;
+    flex:0 0 39px!important;height:39px!important;min-height:39px!important;max-height:39px!important;
+    padding:5px!important;gap:0!important;align-items:center!important;justify-content:center!important;
+    border-radius:50%!important;aspect-ratio:1!important;
+  }
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-avatar{
+    display:grid!important;place-items:center!important;
+    flex:0 0 27px!important;width:27px!important;height:27px!important;
+  }
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-label{display:none!important}
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-indicator{
+    left:auto!important;right:3px!important;top:3px!important;
+    width:9px!important;height:9px!important;
+  }
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger:hover{transform:none!important}
+  /* The loading placeholder has the exact same circular footprint. */
+  .lmk-site-header .lmk-header-actions:not(:has(>.lmk-auth-trigger))::before{
+    width:39px;min-width:39px;max-width:39px;flex:0 0 39px;
+    height:39px;min-height:39px;max-height:39px;border-radius:50%;
+  }
 }
 
 .lmk-account-nav{display:flex;align-items:center;justify-content:end;padding-right:10px}
