@@ -258,9 +258,10 @@ if (holder) {
   opener.setAttribute("aria-label",t.login);
   opener.innerHTML='<span class="lmk-auth-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.3"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></span><span class="lmk-auth-label"></span><span class="lmk-auth-indicator" aria-hidden="true"></span>';
   const buttonText=opener.querySelector(".lmk-auth-label");
-  buttonText.textContent=t.navAccount;
-  // A fixed visible label prevents the sign-in text from flashing on every page load.
+  // Keep the account name after Firebase resolves, without flashing a guest label first.
+  buttonText.textContent="";
   opener.dataset.authState="checking";
+  opener.setAttribute("aria-label",es?"Comprobando sesión":"Checking account");
   holder.insertBefore(opener,holder.firstChild);
 
   const dialog=document.createElement("dialog");
@@ -382,10 +383,11 @@ if (holder) {
   }
   function renderUser(user){
     current=user;
-    buttonText.textContent=t.navAccount;
+    const displayName=user?(user.displayName||user.email?.split("@")[0]||t.account).slice(0,22):t.login;
+    buttonText.textContent=displayName;
     opener.dataset.authState=user?"signed-in":"signed-out";
-    opener.setAttribute("aria-label",user?t.account:t.login);
-    opener.title=user?t.account:t.login;
+    opener.setAttribute("aria-label",user?t.account+": "+displayName:t.login);
+    opener.title=user?displayName:t.login;
     if(dialog.open)showMode(user?"profile":"choice");
   }
   opener.addEventListener("click",()=>{
