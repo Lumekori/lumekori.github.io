@@ -30,16 +30,18 @@ const ox=q.x,oy=q.y;q.x+=dx*k;q.y+=dy*k;
 if(q.x<0||q.x>w||q.y<0||q.y>h){q.x=Math.random()*w;q.y=Math.random()*h;continue}
 ctx.moveTo(ox,oy);ctx.lineTo(q.x,q.y)}
 ctx.strokeStyle="hsla("+(hue+b*13)+",78%,"+(dark?65:36)+"%,.6)";ctx.stroke()}}
-function tick(now){raf=requestAnimationFrame(tick);
+function backgroundIsOriginal(){return !root.dataset.lmkBackground||root.dataset.lmkBackground==="original"}
+function tick(now){if(!backgroundIsOriginal()){raf=0;return}raf=requestAnimationFrame(tick);
 const dt=Math.min(50,now-last||16.7);last=now;
 vel+=((y-prevY)-vel)*.13;prevY=y;
 if(now-lastDraw<30)return;
 const k=Math.min(1.8,Math.max(.65,(now-lastDraw||33.3)/33.3));lastDraw=now;paint(k);
 bad=dt>26?bad+1:Math.max(0,bad-1);
 if(bad>40&&p.length>28){p.length=Math.floor(p.length*.8);bad=0}}
-function start(){if(!raf&&!document.hidden&&!reduced){last=lastDraw=0;raf=requestAnimationFrame(tick)}}
+function start(){if(!raf&&!document.hidden&&!reduced&&backgroundIsOriginal()){last=lastDraw=0;raf=requestAnimationFrame(tick)}}
 function stop(){if(raf)cancelAnimationFrame(raf);raf=0}
 document.addEventListener("visibilitychange",()=>document.hidden?stop():start());
+new MutationObserver(()=>{if(backgroundIsOriginal())start();else stop()}).observe(root,{attributes:true,attributeFilter:["data-lmk-background"]});
 resize();scrollUpdate();if(reduced){canvas.style.display="none";return}start();
 })();
 /* Load only the approved ink-logo and scroll-entrance effects. */

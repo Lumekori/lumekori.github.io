@@ -1,4 +1,13 @@
 /* Shared background modes. Independent of Studio/Games color theme and entrance animations. */
+/* Interior pages draw their original strokes on a different canvas than the homepage.
+   Hide both the canvas and its halo whenever an alternate background is active. */
+html.lmk-claude-ui[data-lmk-background="aurora"] .lmk-motion-canvas,
+html.lmk-claude-ui[data-lmk-background="aurora"] .lmk-motion-glow,
+html.lmk-claude-ui[data-lmk-background="flechas"] .lmk-motion-canvas,
+html.lmk-claude-ui[data-lmk-background="flechas"] .lmk-motion-glow {
+  display:none!important;
+}
+
 html[data-lmk-background="aurora"] body,
 html[data-lmk-background="flechas"] body{isolation:isolate}
 html[data-lmk-background="aurora"] body > #bg,
