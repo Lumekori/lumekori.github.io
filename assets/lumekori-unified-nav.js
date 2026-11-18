@@ -19,19 +19,5 @@ theme.addEventListener("click",()=>{
   try{localStorage.setItem("lumekori-theme",root.dataset.theme)}catch(e){}
   theme.textContent=label;
 });
-const closeMenu=()=>{
-  menu.hidden=true;
-  menuButton.setAttribute("aria-expanded","false");
-};
-menuButton.addEventListener("click",()=>{
-  const next=menu.hidden;
-  menu.hidden=!next;
-  menuButton.setAttribute("aria-expanded",String(next));
-});
-menu.addEventListener("click",e=>{if(e.target.closest("a"))closeMenu()});
-document.addEventListener("pointerdown",e=>{
-  if(!menu.hidden&&!menu.contains(e.target)&&!menuButton.contains(e.target))closeMenu();
-});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
-window.addEventListener("resize",()=>{if(innerWidth>1140)closeMenu()},{passive:true});
+// Animated mobile menu behavior is attached by lumekori-mobile-menu-motion.js.
 })();
