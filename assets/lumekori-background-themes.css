@@ -1,0 +1,49 @@
+/* Shared background modes. Independent of Studio/Games color theme and entrance animations. */
+html[data-lmk-background="aurora"] body,
+html[data-lmk-background="flechas"] body{isolation:isolate}
+html[data-lmk-background="aurora"] body > #bg,
+html[data-lmk-background="flechas"] body > #bg,
+html[data-lmk-background="aurora"] body > .glow,
+html[data-lmk-background="flechas"] body > .glow{visibility:hidden!important}
+html[data-lmk-background="aurora"] body > main,
+html[data-lmk-background="flechas"] body > main,
+html[data-lmk-background="aurora"] body > footer,
+html[data-lmk-background="flechas"] body > footer{position:relative;z-index:1}
+#lmk-bg-aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;display:none;isolation:isolate}
+#lmk-bg-aurora .lmk-bg-glows{position:absolute;inset:-16%;opacity:.9;filter:blur(57px);transform:translateZ(0)}
+#lmk-bg-aurora .lmk-bg-blob{position:absolute;display:block;border-radius:50%;will-change:transform}
+#lmk-bg-aurora .lmk-bg-blob.a{left:-5%;top:42%;width:65%;height:67%;background:radial-gradient(ellipse,rgba(172,225,204,.33),transparent 72%);animation:lmk-aurora-a 21s ease-in-out infinite alternate}
+#lmk-bg-aurora .lmk-bg-blob.b{right:-16%;top:-18%;width:75%;height:69%;background:radial-gradient(ellipse,rgba(224,198,251,.37),transparent 72%);animation:lmk-aurora-b 27s ease-in-out infinite alternate}
+#lmk-bg-aurora .lmk-bg-blob.c{left:23%;top:-25%;width:69%;height:62%;background:radial-gradient(ellipse,rgba(159,209,250,.40),transparent 71%);animation:lmk-aurora-c 25s ease-in-out infinite alternate}
+#lmk-bg-aurora .lmk-bg-blob.d{right:-14%;bottom:-34%;width:67%;height:72%;background:radial-gradient(ellipse,rgba(159,209,250,.40),transparent 70%);animation:lmk-aurora-d 32s ease-in-out infinite alternate}
+@keyframes lmk-aurora-a{to{transform:translate3d(17%,-10%,0) rotate(5deg) scale(1.10)}}
+@keyframes lmk-aurora-b{to{transform:translate3d(-13%,19%,0) rotate(-8deg) scale(.89)}}
+@keyframes lmk-aurora-c{to{transform:translate3d(10%,27%,0) scale(1.08)}}
+@keyframes lmk-aurora-d{to{transform:translate3d(-20%,-11%,0) scale(1.11)}}
+#lmk-bg-aurora canvas{position:absolute;inset:0;width:100%;height:100%}
+html[data-lmk-background="aurora"] #lmk-bg-aurora{display:block}
+#lmk-bg-flow{position:absolute;top:0;left:0;width:100%;z-index:0;pointer-events:none;overflow:hidden;display:none}
+#lmk-bg-flow canvas{display:block;position:absolute;left:0;width:100%;pointer-events:none}
+html[data-lmk-background="flechas"] #lmk-bg-flow{display:block}
+html.lmk-games-page #lmk-bg-aurora .lmk-bg-glows,
+html[data-theme="dark"] #lmk-bg-aurora .lmk-bg-glows{opacity:.75}
+html.lmk-games-page #lmk-bg-aurora .lmk-bg-blob.a,
+html[data-theme="dark"] #lmk-bg-aurora .lmk-bg-blob.a{background:radial-gradient(ellipse,rgba(37,126,110,.29),transparent 72%)}
+html.lmk-games-page #lmk-bg-aurora .lmk-bg-blob.b,
+html[data-theme="dark"] #lmk-bg-aurora .lmk-bg-blob.b{background:radial-gradient(ellipse,rgba(112,74,174,.31),transparent 72%)}
+html.lmk-games-page #lmk-bg-aurora .lmk-bg-blob.c,
+html.lmk-games-page #lmk-bg-aurora .lmk-bg-blob.d,
+html[data-theme="dark"] #lmk-bg-aurora .lmk-bg-blob.c,
+html[data-theme="dark"] #lmk-bg-aurora .lmk-bg-blob.d{background:radial-gradient(ellipse,rgba(40,91,167,.37),transparent 72%)}
+#lmk-bg-controls{position:fixed;right:16px;bottom:16px;z-index:95;display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:19px;border:1px solid color-mix(in srgb,var(--tx,var(--text,#777)) 15%,transparent);background:color-mix(in srgb,var(--bg,#fff) 85%,transparent);color:var(--tx,var(--text,#111));box-shadow:0 13px 36px rgba(0,0,0,.13);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);font:600 11px/1.1 Inter,system-ui,sans-serif;max-width:calc(100vw - 24px)}
+#lmk-bg-controls .lmk-bg-caption{color:var(--mu,var(--muted,#777));font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+#lmk-bg-controls .lmk-bg-options{display:flex;gap:2px;padding:3px;background:color-mix(in srgb,var(--bg,#fff) 76%,var(--tx,var(--text,#111)) 8%);border-radius:999px}
+#lmk-bg-controls button{font:700 11px/1.2 Inter,system-ui,sans-serif;padding:8px 11px;border:0;border-radius:999px;background:transparent;color:inherit;cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
+#lmk-bg-controls button:hover{transform:translateY(-1px)}
+#lmk-bg-controls button[aria-pressed="true"]{background:var(--tx,var(--text,#111));color:var(--bg,#fff);box-shadow:0 1px 7px rgba(0,0,0,.12)}
+#lmk-bg-controls button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+html.lmk-games-page #lmk-bg-controls{border-color:rgba(238,244,255,.17);background:rgba(11,18,32,.87);color:#f3f6fc}
+html.lmk-games-page #lmk-bg-controls .lmk-bg-options{background:rgba(255,255,255,.08)}
+html.lmk-games-page #lmk-bg-controls button[aria-pressed="true"]{background:#f3f6fc;color:#0b1220}
+@media(max-width:600px){#lmk-bg-controls{right:9px;bottom:9px;padding:6px;gap:0}#lmk-bg-controls .lmk-bg-caption{display:none}#lmk-bg-controls button{font-size:10px;padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){#lmk-bg-aurora .lmk-bg-blob{animation:none!important}#lmk-bg-controls button{transition:none}}

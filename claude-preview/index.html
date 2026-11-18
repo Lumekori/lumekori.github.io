@@ -70,7 +70,7 @@ footer p{color:var(--mu);margin:.5em 0 0;max-width:26em}.cp{margin-top:36px;colo
 @media (max-width:760px){nav a.h{display:none}.row,.fg{grid-template-columns:1fr}.row:hover{padding-left:0}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.w i{transform:none}html{scroll-behavior:auto}#bg{display:none}#st span{opacity:1}}
 </style>
-</head>
+<script>/* Remember only the background choice; do not alter the light/dark preference. */try{var lmkBgMode=localStorage.getItem("lumekori-background-v1");document.documentElement.dataset.lmkBackground=(lmkBgMode==="aurora"||lmkBgMode==="flechas")?lmkBgMode:"original"}catch(e){document.documentElement.dataset.lmkBackground="original"}</script><link rel="stylesheet" href="/assets/lumekori-background-themes.css?v=1"></head>
 <body>
 <canvas id="bg" aria-hidden="true"></canvas><div class="glow" aria-hidden="true"></div>
 <header>
@@ -156,5 +156,5 @@ for(let i=0;i<w.length;i++)w[i].classList.toggle('on',i/w.length<q)}
 const pr=$('#proceso');if(pr.offsetParent){const r=pr.getBoundingClientRect();$('#pl').style.transform='scaleY('+K((innerHeight*.65-r.top-r.height*.15)/(r.height*.7),0,1)+')'}}
 addEventListener('scroll',()=>requestAnimationFrame(sc),{passive:true});sc();
 </script>
-</body>
+<script defer src="/assets/lumekori-background-themes.js?v=1"></script></body>
 </html>
