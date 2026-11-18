@@ -1,12 +1,12 @@
 /* Stable account control across all pages and both Firebase auth states. */
 .lmk-auth-trigger{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  min-height:39px;min-width:104px;padding:5px 12px 5px 6px;
+  box-sizing:border-box;width:104px;min-width:104px;max-width:104px;flex:0 0 104px;height:38px;min-height:38px;max-height:38px;padding:5px 9px 5px 6px;
   border:1px solid var(--line,var(--ln,rgba(128,136,151,.35)));
   border-radius:999px;
   background:color-mix(in srgb,var(--surface,var(--bg,#fff)) 88%,var(--text,var(--tx,#101827)) 12%);
   color:var(--text,var(--tx,#111214));
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-family:"Bricolage Grotesque",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   font-size:12px;font-weight:650;line-height:1;white-space:nowrap;
   cursor:pointer;position:relative;isolation:isolate;
   transition:border-color .18s ease,background .18s ease,transform .18s ease,box-shadow .18s ease;
@@ -21,10 +21,10 @@
   border-radius:50%;background:color-mix(in srgb,currentColor 8%,transparent)}
 .lmk-auth-avatar svg{width:16px;height:16px;fill:none;stroke:currentColor;
   stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.lmk-auth-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.005em}
-/* Reserve the button's final space while auth loads: show only the centered avatar. */
-.lmk-auth-trigger[data-auth-state="checking"]{justify-content:center;padding:5px;min-width:104px}
-.lmk-auth-trigger[data-auth-state="checking"] .lmk-auth-label{display:none}
+.lmk-auth-label{display:block;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.005em}
+/* All states use the same geometry; never collapse the label while Firebase checks. */
+.lmk-auth-trigger[data-auth-state="checking"]{justify-content:center}
+.lmk-auth-trigger[data-auth-state="checking"] .lmk-auth-label{display:block}
 
 .lmk-auth-indicator{position:absolute;left:24px;top:4px;width:9px;height:9px;
   border-radius:50%;border:2px solid var(--surface,var(--bg,#fff));background:#39b883;
@@ -32,6 +32,47 @@
 .lmk-auth-trigger[data-auth-state="signed-in"] .lmk-auth-indicator{opacity:1;transform:scale(1)}
 .controls:has(>.lmk-auth-trigger)>.theme-btn,
 .nav-actions:has(>.lmk-auth-trigger)>.theme-btn{margin-left:0!important;box-shadow:none!important}
+
+/* Header account is the same fixed pill on Studio, Games and interior pages.
+   Override older mobile circular and stretchy header rules without changing dialogs. */
+.lmk-site-header .lmk-header-actions>.lmk-auth-trigger{
+  box-sizing:border-box!important;display:inline-flex!important;
+  width:104px!important;min-width:104px!important;max-width:104px!important;
+  flex:0 0 104px!important;
+  height:38px!important;min-height:38px!important;max-height:38px!important;
+  padding:5px 9px 5px 6px!important;gap:8px!important;
+  justify-content:flex-start!important;align-items:center!important;
+  border-radius:999px!important;white-space:nowrap!important;
+  font:650 12px/1 "Bricolage Grotesque",Inter,system-ui,sans-serif!important;
+  transition:border-color .18s ease,background-color .18s ease,box-shadow .18s ease,transform .18s ease!important;
+}
+.lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-avatar{
+  display:grid!important;place-items:center!important;
+  flex:0 0 26px!important;width:26px!important;height:26px!important;
+}
+.lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-avatar svg{
+  display:block!important;width:16px!important;height:16px!important;
+}
+.lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-label{
+  display:block!important;min-width:0!important;flex:1 1 auto!important;
+  font:inherit!important;overflow:hidden!important;text-overflow:ellipsis!important;
+  white-space:nowrap!important;text-align:left!important;
+}
+.lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-indicator{
+  position:absolute!important;left:24px!important;top:4px!important;
+  width:9px!important;height:9px!important;pointer-events:none!important;
+}
+/* Keep the header width reserved before the Firebase module finishes importing. */
+.lmk-site-header .lmk-header-actions:not(:has(>.lmk-auth-trigger))::before{
+  content:"";display:block;box-sizing:border-box;flex:0 0 104px;
+  width:104px;min-width:104px;height:38px;border:1px solid var(--line,var(--ln,rgba(128,136,151,.35)));
+  border-radius:999px;background:transparent;order:-1;
+}
+@media(max-width:700px){
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger{width:104px!important;min-width:104px!important;max-width:104px!important}
+  .lmk-site-header .lmk-header-actions>.lmk-auth-trigger .lmk-auth-label{display:block!important}
+}
+
 .lmk-account-nav{display:flex;align-items:center;justify-content:end;padding-right:10px}
 .lmk-account-nav .lmk-auth-trigger{background:#fff;color:#111214;border-color:#111214}
 @media(prefers-reduced-motion:reduce){.lmk-auth-trigger,.lmk-auth-indicator{transition:none!important}}
