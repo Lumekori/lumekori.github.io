@@ -22,6 +22,10 @@
 .lmk-auth-avatar svg{width:16px;height:16px;fill:none;stroke:currentColor;
   stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .lmk-auth-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.005em}
+/* Reserve the button's final space while auth loads: show only the centered avatar. */
+.lmk-auth-trigger[data-auth-state="checking"]{justify-content:center;padding:5px;min-width:104px}
+.lmk-auth-trigger[data-auth-state="checking"] .lmk-auth-label{display:none}
+
 .lmk-auth-indicator{position:absolute;left:24px;top:4px;width:9px;height:9px;
   border-radius:50%;border:2px solid var(--surface,var(--bg,#fff));background:#39b883;
   opacity:0;transform:scale(.5);transition:opacity .2s ease,transform .2s ease}
