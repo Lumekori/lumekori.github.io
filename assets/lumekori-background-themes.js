@@ -5,9 +5,12 @@ if(window.__lmkBackgroundThemesLoaded)return;
 window.__lmkBackgroundThemesLoaded=true;
 const root=document.documentElement,es=(root.lang||'').toLowerCase().startsWith('es');
 const options=['original','aurora','flechas'],storageKey='lumekori-background-v1';
+const isAndroid=/Android/i.test(navigator.userAgent);
+const availableOptions=isAndroid?options.filter(key=>key!=='original'):options;
 const rand=(a,b)=>a+Math.random()*(b-a),clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 let mode=root.dataset.lmkBackground||'original';
 if(!options.includes(mode))mode='original';
+if(isAndroid&&mode==='original')mode='aurora';
 let aurora,auroraCtx,world,tools,flowTiles=[],particles=[],dots=[],W=0,H=0,docH=0,dpr=1,flowDPR=1,last=0,mouseX=-1000,mouseY=-1000,scheduled=false,raf=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const desktopPointer=!/Android/i.test(navigator.userAgent)&&matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -30,7 +33,7 @@ function create(){
  tools.setAttribute('aria-label',es?'Elegir animación de fondo':'Choose background animation');
  const label=document.createElement('span');label.className='lmk-bg-caption';label.textContent=es?'Fondo':'Background';
  const group=document.createElement('div');group.className='lmk-bg-options';group.id='lmk-bg-options';
- for(const key of options){
+ for(const key of availableOptions){
   const b=document.createElement('button');b.type='button';b.dataset.mode=key;
   b.textContent=key==='original'?(es?'Original':'Original'):key==='aurora'?'Aurora':es?'Flechitas':'Arrows';
   b.setAttribute('aria-pressed',String(mode===key));b.addEventListener('click',()=>choose(key));
@@ -59,7 +62,7 @@ function create(){
  resize();apply();if(reduced){drawAurora(0);drawFlow(0,1)}else raf=requestAnimationFrame(frame);
 }
 function choose(key){
- if(!options.includes(key))return;
+ if(!availableOptions.includes(key))return;
  mode=key;
  try{localStorage.setItem(storageKey,key)}catch(e){}
  root.dataset.lmkBackground=key;tools.classList.remove('lmk-bg-open');const toggle=tools.querySelector('.lmk-bg-toggle');if(toggle)toggle.setAttribute('aria-expanded','false');apply();
