@@ -49,8 +49,7 @@ function create(){
   window.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mouseX=e.clientX;mouseY=e.clientY},{passive:true});
   window.addEventListener('pointerleave',()=>{mouseX=mouseY=-1000});
  }
- window.addEventListener('resize',()=>{docH=0;resize()},{passive:true});
- window.addEventListener('scroll',()=>{if(mode==='flechas')scheduleHeight()},{passive:true});
+ window.addEventListener('resize',resize,{passive:true});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden){last=0;if(!raf&&!reduced)raf=requestAnimationFrame(frame)}});
  if('ResizeObserver' in window){
   const ob=new ResizeObserver(()=>scheduleHeight());
@@ -73,12 +72,15 @@ function apply(){
  if(mode==='flechas')scheduleHeight();
 }
 function resize(){
+ const previousW=W;
  W=innerWidth;H=innerHeight;
  dpr=Math.min(1.65,devicePixelRatio||1);
  aurora.width=Math.max(1,Math.round(W*dpr));aurora.height=Math.max(1,Math.round(H*dpr));
  auroraCtx.setTransform(dpr,0,0,dpr,0,0);
  dots=Array.from({length:Math.round(clamp(W*H/25000,24,72))},()=>({x:rand(0,W),y:rand(0,H),r:rand(.9,3.2),pulse:rand(0,Math.PI*2),speed:rand(.08,.27),alpha:rand(.09,.26)}));
- rebuild();
+ // Mobile browser chrome changes innerHeight while scrolling. Keep the flow canvases
+ // and their particle state intact unless the layout width actually changes.
+ if(previousW!==W||!flowTiles.length)rebuild();
 }
 function currentX(y){
  const period=W<700?930:1390;
