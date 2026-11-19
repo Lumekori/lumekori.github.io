@@ -136,3 +136,20 @@ html.lmk-claude-ui #mobile-site-menu a:focus-visible{
 @media(prefers-reduced-motion:reduce){
   html.lmk-claude-ui .lmk-site-header .lk{transition:none}
 }
+
+/* Match the homepage header geometry on desktop pointer devices only. */
+@media (min-width:701px) and (hover:hover) and (pointer:fine){
+  html.lmk-claude-ui body > header.lmk-site-header{
+    box-sizing:border-box;
+    width:100%;
+    height:64px;
+    min-height:64px;
+    padding:12px 5vw;
+    gap:16px;
+  }
+  html.lmk-claude-ui .lmk-site-header .logo{gap:10px;font-size:1.2rem;line-height:1.2}
+  html.lmk-claude-ui .lmk-site-header .lk{height:30px}
+  html.lmk-claude-ui .lmk-site-header .site-nav{gap:clamp(12px,1.4vw,22px);font-size:1rem;line-height:1.4}
+  html.lmk-claude-ui .lmk-site-header .lmk-header-actions{gap:8px}
+  html.lmk-claude-ui .lmk-site-header #tm{height:38px;min-height:38px;padding:6px 14px}
+}
