@@ -10,6 +10,7 @@ let mode=root.dataset.lmkBackground||'original';
 if(!options.includes(mode))mode='original';
 let aurora,auroraCtx,world,tools,flowTiles=[],particles=[],dots=[],W=0,H=0,docH=0,dpr=1,flowDPR=1,last=0,mouseX=-1000,mouseY=-1000,scheduled=false,raf=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const desktopPointer=!/Android/i.test(navigator.userAgent)&&matchMedia('(hover: hover) and (pointer: fine)').matches;
 function dark(){
  const str=getComputedStyle(document.body).backgroundColor;
  const rgb=str.match(/[\d.]+/g);
@@ -44,8 +45,10 @@ function create(){
  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
  window.addEventListener('resize',()=>{if(innerWidth>600)closeMenu()},{passive:true});
  tools.append(label,toggle,group);document.body.append(tools);
- window.addEventListener('pointermove',e=>{mouseX=e.clientX;mouseY=e.clientY},{passive:true});
- window.addEventListener('pointerleave',()=>{mouseX=mouseY=-1000});
+ if(desktopPointer){
+  window.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mouseX=e.clientX;mouseY=e.clientY},{passive:true});
+  window.addEventListener('pointerleave',()=>{mouseX=mouseY=-1000});
+ }
  window.addEventListener('resize',()=>{docH=0;resize()},{passive:true});
  window.addEventListener('scroll',()=>{if(mode==='flechas')scheduleHeight()},{passive:true});
  document.addEventListener('visibilitychange',()=>{if(!document.hidden){last=0;if(!raf&&!reduced)raf=requestAnimationFrame(frame)}});
@@ -130,7 +133,7 @@ function drawFlow(t,step){
  if(!flowTiles.length)return;
  const top=clamp(scrollY-100,0,Math.max(0,docH-1));
  const bottom=Math.min(docH,scrollY+H+120);if(bottom<=top)return;
- const isDark=dark(),pointerY=mouseY+scrollY,pointerOn=mouseX>=0&&mouseY>=0;
+ const isDark=dark(),pointerY=mouseY+scrollY,pointerOn=desktopPointer&&mouseX>=0&&mouseY>=0;
  const bandWidth=Math.max(140,W*.225),damping=Math.pow(.84,step);
  const strokes=[[],[],[],[]];
  for(const p of particles){
