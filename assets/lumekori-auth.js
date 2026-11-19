@@ -258,10 +258,22 @@ if (holder) {
   opener.setAttribute("aria-label",t.login);
   opener.innerHTML='<span class="lmk-auth-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.3"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></span><span class="lmk-auth-label"></span><span class="lmk-auth-indicator" aria-hidden="true"></span>';
   const buttonText=opener.querySelector(".lmk-auth-label");
-  // Keep the account name after Firebase resolves, without flashing a guest label first.
-  buttonText.textContent=t.navAccount;
-  opener.dataset.authState="checking";
-  opener.setAttribute("aria-label",es?"Comprobando sesión":"Checking account");
+  // On desktop, reuse the last confirmed account label while Firebase restores its session.
+  // Android and other touch-first devices keep their existing initialization unchanged.
+  const desktopAccountPreview = !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    && window.matchMedia("(min-width: 701px) and (hover: hover) and (pointer: fine)").matches;
+  const accountPreviewKey = "lumekori-account-preview";
+  let cachedAccountName = "";
+  if (desktopAccountPreview) {
+    try {
+      const cached = JSON.parse(localStorage.getItem(accountPreviewKey) || "null");
+      if (typeof cached?.name === "string" && cached.name.trim()) cachedAccountName = cached.name.slice(0,22);
+    } catch {}
+  }
+  buttonText.textContent=cachedAccountName||t.navAccount;
+  opener.dataset.authState=cachedAccountName?"signed-in":"checking";
+  opener.setAttribute("aria-label",cachedAccountName?t.account+": "+cachedAccountName:(es?"Comprobando sesión":"Checking account"));
+  if(cachedAccountName)opener.title=cachedAccountName;
   holder.insertBefore(opener,holder.firstChild);
 
   const dialog=document.createElement("dialog");
@@ -384,6 +396,12 @@ if (holder) {
   function renderUser(user){
     current=user;
     const displayName=user?(user.displayName||user.email?.split("@")[0]||t.account).slice(0,22):t.login;
+    if(desktopAccountPreview){
+      try{
+        if(user)localStorage.setItem(accountPreviewKey,JSON.stringify({name:displayName}));
+        else localStorage.removeItem(accountPreviewKey);
+      }catch{}
+    }
     buttonText.textContent=user?displayName:t.navAccount;
     opener.dataset.authState=user?"signed-in":"signed-out";
     opener.setAttribute("aria-label",user?t.account+": "+displayName:t.login);
