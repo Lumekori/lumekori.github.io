@@ -2,6 +2,7 @@
    No flow-field, gradients, theme switching, forms, auth or page logic are modified. */
 (()=>{'use strict';
   const root=document.documentElement;
+  const homepage=root.classList.contains('lmk-homepage');
   if(root.classList.contains('lmk-entry-init'))return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const logo=document.querySelector('.lmk-site-header .lk');
@@ -65,7 +66,7 @@
   const delays=new Map();
   targets.forEach(el=>{
     const siblings=Array.from(el.parentElement?.children||[]).filter(node=>seen.has(node));
-    delays.set(el,Math.min(5,Math.max(0,siblings.indexOf(el)))*65);
+    delays.set(el,(homepage?Math.min(3,Math.max(0,siblings.indexOf(el)))*40:Math.min(5,Math.max(0,siblings.indexOf(el)))*65));
   });
   if(!('IntersectionObserver' in window)){
     targets.forEach(el=>{el.classList.add('lmk-entry-on')});
@@ -79,7 +80,7 @@
       el.classList.add('lmk-entry-on');
       observer.unobserve(el);
     }
-  },{threshold:.07,rootMargin:'0px 0px -5% 0px'});
+  },homepage?{threshold:.01,rootMargin:'0px 0px 8% 0px'}:{threshold:.07,rootMargin:'0px 0px -5% 0px'});
   targets.forEach(el=>observer.observe(el));
   root.classList.add('lmk-entry-init');
 })();
