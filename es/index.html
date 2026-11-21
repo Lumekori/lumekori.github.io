@@ -167,7 +167,10 @@ html[data-theme=dark]{--text:var(--tx);--surface:var(--bg);--soft:color-mix(in s
 @media(max-width:380px){.lmk-header-actions #tm{padding:7px 10px}.lmk-header-actions .lmk-auth-trigger{min-width:34px;width:34px}}
 </style><script>document.documentElement.dataset.theme="dark";</script><link rel="stylesheet" href="/assets/lumekori-entry-motion.css?v=1"><script>document.documentElement.dataset.lmkBackground="aurora";</script><link rel="stylesheet" href="/assets/lumekori-background-themes.css?v=4"><style id="lmk-homepage-refinements">
 :root{color-scheme:dark}
-#tm,#lmk-bg-controls,.lmk-auth-trigger,.lmk-auth-dialog{display:none!important}
+#tm,#lmk-bg-controls{display:none!important}
+html.lmk-homepage .lmk-site-header .lmk-header-actions>.lmk-auth-trigger{display:none!important}
+html.lmk-homepage .lmk-site-header .lmk-header-actions:not(:has(>.lmk-auth-trigger))::before{display:none!important;content:none!important}
+html.lmk-homepage dialog.lmk-auth-dialog{display:none!important}
 #lmk-bg-aurora{opacity:.62}
 #uinfo{min-height:clamp(300px,34vw,390px)}
 .ui.in{animation:rv .55s cubic-bezier(.2,.7,.1,1) both}
@@ -211,7 +214,7 @@ html[data-theme="dark"] .lk-site-end,html[data-theme="dark"] .lk-site-end .lk-en
 <linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="var(--lg)" stop-opacity="0"/><stop offset=".5" stop-color="var(--lg)" stop-opacity=".35"/><stop offset="1" stop-color="var(--lg)" stop-opacity="0"/></linearGradient>
 </defs></svg>
 <canvas id="bg" aria-hidden="true"></canvas><div class="glow" aria-hidden="true"></div>
-<header class="lmk-site-header"><a class="logo" href="/es/" aria-label="Lumekori"><svg class="lk" viewBox="-6 -6 492 685" aria-hidden="true"><use href="#pv" class="fv"/><use href="#pf" class="fb"/><use href="#pf" class="ff"/></svg><span>Lumekori</span></a><nav class="site-nav" aria-label="Navegación"><a href="#ramas">Ramas</a><a href="#universo">Universo</a><a href="#proceso">Proceso</a><a href="/es/products/">Productos</a><a href="/es/nao/">Nao</a><a href="/es/support/">Soporte</a></nav><div class="controls lmk-header-actions"><button id="site-menu-toggle" class="menu-toggle" type="button" aria-controls="mobile-site-menu" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div></header><div id="mobile-site-menu" hidden><a href="#ramas">Ramas</a><a href="#universo">Universo</a><a href="#proceso">Proceso</a><a href="/es/products/">Productos</a><a href="/es/nao/">Nao</a><a href="/es/games/">Lumekori Games</a><a href="/es/about/">Acerca de</a><a href="/es/support/">Soporte</a><a href="/es/contact/">Contacto</a></div>
+<header class="lmk-site-header"><a class="logo" href="/es/" aria-label="Lumekori"><svg class="lk" viewBox="-6 -6 492 685" aria-hidden="true"><use href="#pv" class="fv"/><use href="#pf" class="fb"/><use href="#pf" class="ff"/></svg><span>Lumekori</span></a><nav class="site-nav" aria-label="Navegación"><a href="#ramas">Ramas</a><a href="#universo">Universo</a><a href="#proceso">Proceso</a><a href="/es/products/">Productos</a><a href="/es/nao/">Nao</a><a href="/es/support/">Soporte</a></nav><div class="controls lmk-header-actions"><button id="tm" data-theme-toggle type="button" aria-label="Cambiar tema claro u oscuro">Tema</button><button id="site-menu-toggle" class="menu-toggle" type="button" aria-controls="mobile-site-menu" aria-expanded="false" aria-label="Abrir menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div></header><div id="mobile-site-menu" hidden><a href="#ramas">Ramas</a><a href="#universo">Universo</a><a href="#proceso">Proceso</a><a href="/es/products/">Productos</a><a href="/es/nao/">Nao</a><a href="/es/games/">Lumekori Games</a><a href="/es/about/">Acerca de</a><a href="/es/support/">Soporte</a><a href="/es/contact/">Contacto</a></div>
 <main>
 <div class="view on" id="v-inicio">
 <div class="hero" id="hero"><div class="hl" id="hl" aria-hidden="true"><svg class="mk" viewBox="-6 -6 492 685"><use href="#pv-hero" class="fv"/><use href="#pf-hero" class="fb"/><use href="#pf-hero" class="ff"/><g clip-path="url(#cp-hero)"><rect class="sw" x="60" y="-6" width="260" height="685"/></g><use href="#pv-hero" class="hero-trace"/><use href="#pf-hero" class="hero-trace foot"/></svg></div>
@@ -258,6 +261,8 @@ const LOW=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)||(navigator.hard
 let L=64,hue=42,hueSet=-99,sy=0,sv=0,lastY=-1,dirty=true,raf=0,last=0,slow=0,Q=LOW?.72:1;
 const vis={hero:true,uv:false,st:false,pr:false};
 function th(){L=parseFloat(getComputedStyle(R).getPropertyValue('--pl'))||64}th();
+$('#tm').onclick=()=>{const d=matchMedia('(prefers-color-scheme: dark)').matches,c=R.dataset.theme||(d?'dark':'light');R.dataset.theme=c==='dark'?'light':'dark';try{localStorage.setItem('lumekori-theme',R.dataset.theme)}catch(e){}th()};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',th);
 
 /* Visibilidad por sección: lo que no se ve no se calcula */
 const io=new IntersectionObserver(es=>es.forEach(e=>{const k=e.target.dataset.k;vis[k]=e.isIntersecting;
