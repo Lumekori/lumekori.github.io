@@ -62,12 +62,6 @@
   position:absolute!important;left:24px!important;top:4px!important;
   width:9px!important;height:9px!important;pointer-events:none!important;
 }
-/* Keep the header width reserved before the Firebase module finishes importing. */
-.lmk-site-header .lmk-header-actions:not(:has(>.lmk-auth-trigger))::before{
-  content:"";display:block;box-sizing:border-box;flex:0 0 104px;
-  width:104px;min-width:104px;height:38px;border:1px solid var(--line,var(--ln,rgba(128,136,151,.35)));
-  border-radius:999px;background:transparent;order:-1;
-}
 /* Mobile account button remains a circle in every Firebase state and on every page. */
 @media(max-width:700px){
   .lmk-site-header .lmk-header-actions>.lmk-auth-trigger{
@@ -87,11 +81,6 @@
     width:9px!important;height:9px!important;
   }
   .lmk-site-header .lmk-header-actions>.lmk-auth-trigger:hover{transform:none!important}
-  /* The loading placeholder has the exact same circular footprint. */
-  .lmk-site-header .lmk-header-actions:not(:has(>.lmk-auth-trigger))::before{
-    width:39px;min-width:39px;max-width:39px;flex:0 0 39px;
-    height:39px;min-height:39px;max-height:39px;border-radius:50%;
-  }
 }
 
 .lmk-account-nav{display:flex;align-items:center;justify-content:end;padding-right:10px}
