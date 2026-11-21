@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
 <style>
+/* Homepage header: allow only the mobile menu toggle. No account/theme placeholder may paint, even during script initialization. */
+body > header.lmk-site-header .lmk-header-actions > :not(#site-menu-toggle){display:none!important}
 :root{--bg:#eef1f4;--tx:#0e1726;--mu:#4f5b70;--ln:rgba(14,23,38,.18);--lg:#141a22;--pl:36;--h:42;--ac:hsl(var(--h) 80% calc(var(--pl)*1%));box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--tx:#e8ecf3;--mu:#98a3b8;--ln:rgba(232,236,243,.18);--lg:#eef1f6;--pl:64;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0b1220;--tx:#e8ecf3;--mu:#98a3b8;--ln:rgba(232,236,243,.18);--lg:#eef1f6;--pl:64;color-scheme:dark}
