@@ -240,12 +240,12 @@ const app = getApps().length ? getApp() : initializeApp(config);
 const auth = getAuth(app);
 auth.languageCode = es ? "es" : "en";
 const privacyPath = es ? "/es/privacy/" : "/privacy/";
-/* Do not mount the account launcher on Lumekori's public homepages.
-   The Firebase module and account flow remain available on all interior pages. */
-const isStudioHomepage = ["/", "/index.html", "/es", "/es/", "/es/index.html"].includes(window.location.pathname);
-const controls = isStudioHomepage ? null : document.querySelector(".controls, .nav-actions, .tester-controls, .navend");
+/* Keep Firebase, routing and account code intact without creating any account button
+   in Lumekori's public site headers. The launcher can be reenabled deliberately. */
+const enableHeaderAccountLauncher = false;
+const controls = enableHeaderAccountLauncher ? document.querySelector(".controls, .nav-actions, .tester-controls, .navend") : null;
 let holder=controls;
-if (!holder && !isStudioHomepage) {
+if (!holder && enableHeaderAccountLauncher) {
   const gamesHeader = document.querySelector("header.nav");
   if (gamesHeader) {
     holder=document.createElement("div");
