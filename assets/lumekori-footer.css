@@ -160,3 +160,14 @@ html[data-theme="dark"] .preview-cookie-info{
   border-color:#d3d5d1!important;
   color:#3d424a!important;
 }
+
+/* Compact, accessible appearance control for all Studio and Games footer variants. */
+.lk-site-end .preview-meta .lmk-footer-theme-switch{
+ appearance:none!important;display:inline-flex!important;align-items:center;justify-content:center;
+ min-height:32px;padding:5px 3px!important;margin:0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+ color:inherit!important;font:500 11px/1.2 Inter,system-ui,sans-serif!important;
+ letter-spacing:.02em;opacity:.6;cursor:pointer;white-space:nowrap;transition:opacity .2s ease;
+}
+.lk-site-end .preview-meta .lmk-footer-theme-switch:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+.lk-site-end .preview-meta .lmk-footer-theme-switch:focus-visible{opacity:1;outline:2px solid currentColor!important;outline-offset:3px}
