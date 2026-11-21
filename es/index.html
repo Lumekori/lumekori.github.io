@@ -258,8 +258,6 @@ const LOW=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)||(navigator.hard
 let L=64,hue=42,hueSet=-99,sy=0,sv=0,lastY=-1,dirty=true,raf=0,last=0,slow=0,Q=LOW?.72:1;
 const vis={hero:true,uv:false,st:false,pr:false};
 function th(){L=parseFloat(getComputedStyle(R).getPropertyValue('--pl'))||64}th();
-$('#tm').onclick=()=>{const d=matchMedia('(prefers-color-scheme: dark)').matches,c=R.dataset.theme||(d?'dark':'light');R.dataset.theme=c==='dark'?'light':'dark';try{localStorage.setItem('lumekori-theme',R.dataset.theme)}catch(e){}th()};
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change',th);
 
 /* Visibilidad por sección: lo que no se ve no se calcula */
 const io=new IntersectionObserver(es=>es.forEach(e=>{const k=e.target.dataset.k;vis[k]=e.isIntersecting;
