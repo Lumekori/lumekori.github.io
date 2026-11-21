@@ -240,9 +240,12 @@ const app = getApps().length ? getApp() : initializeApp(config);
 const auth = getAuth(app);
 auth.languageCode = es ? "es" : "en";
 const privacyPath = es ? "/es/privacy/" : "/privacy/";
-const controls = document.querySelector(".controls, .nav-actions, .tester-controls, .navend");
+/* Do not mount the account launcher on Lumekori's public homepages.
+   The Firebase module and account flow remain available on all interior pages. */
+const isStudioHomepage = ["/", "/index.html", "/es", "/es/", "/es/index.html"].includes(window.location.pathname);
+const controls = isStudioHomepage ? null : document.querySelector(".controls, .nav-actions, .tester-controls, .navend");
 let holder=controls;
-if (!holder) {
+if (!holder && !isStudioHomepage) {
   const gamesHeader = document.querySelector("header.nav");
   if (gamesHeader) {
     holder=document.createElement("div");
