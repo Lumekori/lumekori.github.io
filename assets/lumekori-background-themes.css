@@ -98,3 +98,6 @@ html.lmk-games-page #lmk-bg-controls button[aria-pressed="true"]{background:#f3f
 @media(max-width:600px) and (prefers-reduced-motion:reduce){
  #lmk-bg-controls .lmk-bg-options,#lmk-bg-controls .lmk-bg-options button,#lmk-bg-controls .lmk-bg-toggle svg{transition:none!important}
 }
+
+/* Selector removed site-wide: fallback for previously cached or external markup. */
+#lmk-bg-controls{display:none!important}
