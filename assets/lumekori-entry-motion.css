@@ -73,5 +73,5 @@ html.lmk-entry-init .lmk-entry-text.lmk-entry-on .lmk-entry-word>span {
 }
 
 /* Homepage-specific scroll reveals: shorter travel and a calmer fade. */
-html.lmk-homepage.lmk-entry-init .lmk-entry-block{translate:0 14px;transition:opacity .58s ease var(--lmk-enter-delay,0ms),translate .62s cubic-bezier(.2,.7,.1,1) var(--lmk-enter-delay,0ms)}
-html.lmk-homepage.lmk-entry-init .lmk-entry-block.lmk-entry-soft{translate:0 8px}
+html:where(.lmk-homepage).lmk-entry-init .lmk-entry-block{translate:0 14px;transition:opacity .58s ease var(--lmk-enter-delay,0ms),translate .62s cubic-bezier(.2,.7,.1,1) var(--lmk-enter-delay,0ms)}
+html:where(.lmk-homepage).lmk-entry-init .lmk-entry-block.lmk-entry-soft{translate:0 8px}

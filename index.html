@@ -189,7 +189,7 @@ html[data-theme=dark]{--text:var(--tx);--surface:var(--bg);--soft:color-mix(in s
 html.lmk-homepage .lmk-site-header .lmk-header-actions>.lmk-auth-trigger{display:none!important}
 html.lmk-homepage .lmk-site-header .lmk-header-actions:not(:has(>.lmk-auth-trigger))::before{display:none!important;content:none!important}
 html.lmk-homepage dialog.lmk-auth-dialog{display:none!important}
-#lmk-bg-aurora{opacity:.62}
+
 #uinfo{min-height:clamp(300px,34vw,390px)}
 .ui.in{animation:rv .55s cubic-bezier(.2,.7,.1,1) both}
 .ui.out{animation:fo .22s ease both;pointer-events:none}
@@ -265,7 +265,7 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],R=d
 const V=['inicio'],S=['ramas','universo','proceso','contacto'];
 function route(){const h=location.hash.slice(1)||'inicio',v=S.includes(h)?'inicio':V.includes(h)?h:'inicio';
 $$('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));
-if(S.includes(h))setTimeout(()=>document.getElementById(h).scrollIntoView({behavior:'smooth'}),60);else scrollTo({top:0,behavior:'instant'})}
+if(S.includes(h))setTimeout(()=>document.getElementById(h).scrollIntoView(),60);else scrollTo({top:0,behavior:'instant'})}
 addEventListener('hashchange',route);route();
 $('#h1').innerHTML=$('#h1').textContent.split(' ').map((w,i)=>'<span class="w"><i style="--d:'+(.15+i*.09)+'s">'+w+'</i></span>').join(' ');
 $('#st').innerHTML=$('#st').textContent.split(' ').map(w=>'<span>'+w+'</span>').join(' ');
