@@ -208,7 +208,7 @@ html[data-theme=dark]{--text:var(--tx);--surface:var(--bg);--soft:color-mix(in s
 <section><div class="wrap"><p id="st">Creemos que un producto serio no tiene por qué sentirse rígido. Cuidamos la ingeniería hasta el último detalle y dejamos que lo demás respire, se mueva y tenga carácter.</p></div></section>
 <section id="universo" class="uv"><div class="ln" id="ln" aria-hidden="true"><div class="sp" id="sp"><div class="tl" id="tl"></div></div></div><div class="wrap"><h2>En nuestro universo.</h2>
 <p class="lead">Cada proyecto del estudio tiene su propia órbita. Mueve el cursor cerca de uno, o tócalo, para ver de qué va.</p>
-<div class="ug"><div class="stage" id="stg"><svg class="orb" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="24"/><circle cx="50" cy="50" r="33"/><circle cx="50" cy="50" r="41"/></svg><svg class="sun mk" id="sun" viewBox="-6 -6 492 685" aria-hidden="true"><use href="#pv" class="fv"/><use href="#pf" class="fb"/><use href="#pf" class="ff"/></svg></div>
+<div class="ug"><div class="stage" id="stg"><svg class="orb" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="24"/><circle cx="50" cy="50" r="33"/></svg><svg class="sun mk" id="sun" viewBox="-6 -6 492 685" aria-hidden="true"><use href="#pv" class="fv"/><use href="#pf" class="fb"/><use href="#pf" class="ff"/></svg></div>
 <div id="uinfo" aria-live="polite"></div></div></div></section>
 <section id="proceso"><div class="wrap"><h2>Cómo trabajamos.</h2>
 <div class="steps"><div class="pl"><i id="pl"></i></div>
@@ -289,8 +289,7 @@ function hero(){const x=U.x*14,y=U.y*10-sy*.07;hl.style.transform='translate3d('
 
 /* Universo */
 const PR=[{n:'Nao',o:24,w:19,s:.0007,k:.0007,a:.6,A:'#8b7bff',B:'#c5ecff',r:'58% 42% 55% 45%/48% 56% 44% 52%',T:'26s',t:'Nuestro asistente inteligente para Android en fase alfa, con funciones locales y conectadas.',e:'Android · Alfa'},
-{n:'Lumekori Games',o:33,w:23,s:-.00052,k:-.0006,a:3.5,A:'#e49bff',B:'#a99bff',r:'44% 56% 48% 52%/55% 45% 55% 45%',T:'32s',t:'La rama de videojuegos del estudio: prototipos jugables y lanzamientos donde el ritmo y la sensación de control pesan tanto como el código.',e:'2D, 3D, móvil y PC.'},
-{n:'Tu proyecto',o:41,w:15,s:.00042,k:.0005,a:5.3,A:'#8fd3ff',B:'#bdf0e6',op:1,r:'50% 50% 46% 54%/52% 48% 52% 48%',T:'38s',t:'Esta órbita queda abierta a nuevas ideas. Conoce nuestros proyectos o ponte en contacto con el estudio.',e:'Software, apps o videojuegos.'}];
+{n:'Lumekori Games',o:33,w:23,s:-.00052,k:-.0006,a:3.5,A:'#e49bff',B:'#a99bff',r:'44% 56% 48% 52%/55% 45% 55% 45%',T:'32s',t:'La rama de videojuegos del estudio: prototipos jugables y lanzamientos donde el ritmo y la sensación de control pesan tanto como el código.',e:'2D, 3D, móvil y PC.'}];
 const stg=$('#stg'),inf=$('#uinfo'),sun=$('#sun'),orb=$$('.orb circle'),uv=$('#universo'),spE=$('#sp'),tlE=$('#tl');let cur=-1,SW=0,SP=520;
 PR.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='pn'+(p.op?' op':'');b.style.cssText='--a:'+p.A+';--b:'+p.B+';--r:'+p.r+';--t:'+p.T;b.setAttribute('aria-pressed','false');
 b.innerHTML='<i class="bl"></i><span>'+p.n+'</span>';stg.append(b);p.el=b;p.ox=p.oy=p.vx=p.vy=0;p.ang=p.a;p.sp=1;p.sc=1;p.pop=0;p.hv=0;
@@ -300,7 +299,7 @@ function pick(i){if(i===cur)return;cur=i;const p=PR[i];PR.forEach((q,j)=>{q.el.s
 const o=inf.querySelector('.ui:not(.out)');if(o){o.classList.add('out');setTimeout(()=>o.remove(),520)}
 const n=document.createElement('div'),r=p.el.getBoundingClientRect(),q=inf.getBoundingClientRect();
 n.className='ui in';n.style.cssText='--a:'+p.A+';--b:'+p.B+';--cx:'+(r.left+r.width/2-q.left)+'px;--cy:'+(r.top+r.height/2-q.top)+'px';
-n.innerHTML='<h3>'+p.n+'</h3><p>'+p.t+'</p><em>'+p.e+'</em><a class="btn f" href="'+(i===0?'/es/nao/':i===1?'/es/games/':'/es/contact/')+'">'+(i===0?'Conocer Nao':i===1?'Lumekori Games':'Escríbenos')+'</a>';inf.append(n)}
+n.innerHTML='<h3>'+p.n+'</h3><p>'+p.t+'</p><em>'+p.e+'</em><a class="btn f" href="'+(i===0?'/es/nao/':'/es/games/')+'">'+(i===0?'Conocer Nao':'Lumekori Games')+'</a>';inf.append(n)}
 pick(0);
 function measure(){SW=stg.offsetWidth;const f=SW<430?1.3:SW<560?1.12:1;PR.forEach(p=>{p.px=Math.round(SW*p.w/100*f);p.el.style.width=p.el.style.height=p.px+'px'});
 SP=innerWidth<700?340:520;spE.style.setProperty('--sp',SP+'px')}
