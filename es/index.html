@@ -307,7 +307,7 @@ function hero(){const x=U.x*14,y=U.y*10-sy*.07;hl.style.transform='translate3d('
 
 /* Universo */
 const PR=[{n:'Nao',o:27,w:19,s:.0007,k:.0007,a:.6,A:'#8b7bff',B:'#c5ecff',r:'58% 42% 55% 45%/48% 56% 44% 52%',T:'26s',t:'Nuestro asistente inteligente para Android en fase alfa, con funciones locales y conectadas.',e:'Android · Alfa'},
-{n:'Lumekori Games',o:38,w:23,s:-.00052,k:-.0006,a:3.5,A:'#e49bff',B:'#a99bff',r:'44% 56% 48% 52%/55% 45% 55% 45%',T:'32s',t:'La rama de videojuegos del estudio: prototipos jugables y lanzamientos donde el ritmo y la sensación de control pesan tanto como el código.',e:'2D, 3D, móvil y PC.'}];
+{n:'Lumekori Games',o:35,w:23,s:-.00052,k:-.0006,a:3.5,A:'#e49bff',B:'#a99bff',r:'44% 56% 48% 52%/55% 45% 55% 45%',T:'32s',t:'La rama de videojuegos del estudio: prototipos jugables y lanzamientos donde el ritmo y la sensación de control pesan tanto como el código.',e:'2D, 3D, móvil y PC.'}];
 const stg=$('#stg'),inf=$('#uinfo'),sun=$('#sun'),orb=$$('.orb circle'),uv=$('#universo'),spE=$('#sp'),tlE=$('#tl');let cur=-1,SW=0,SP=520;
 PR.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='pn'+(p.op?' op':'');b.style.cssText='--a:'+p.A+';--b:'+p.B+';--r:'+p.r+';--t:'+p.T;b.setAttribute('aria-pressed','false');
 b.innerHTML='<i class="bl"></i><span>'+p.n+'</span>';stg.append(b);p.el=b;p.ox=p.oy=p.vx=p.vy=0;p.ang=p.a;p.sp=1;p.sc=1;p.pop=0;p.hv=0;
