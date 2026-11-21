@@ -70,12 +70,20 @@ footer p{color:var(--mu);margin:.5em 0 0;max-width:26em}.cp{margin-top:36px;colo
 @media (max-width:760px){nav a.h{display:none}.row,.fg{grid-template-columns:1fr}.row:hover{padding-left:0}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.w i{transform:none}html{scroll-behavior:auto}#bg{display:none}#st span{opacity:1}}
 </style>
-<script>/* Remember only the background choice; do not alter the light/dark preference. */try{var lmkBgMode=localStorage.getItem("lumekori-background-v1");document.documentElement.dataset.lmkBackground=(lmkBgMode==="aurora"||lmkBgMode==="flechas")?lmkBgMode:"original"}catch(e){document.documentElement.dataset.lmkBackground="original"}</script><link rel="stylesheet" href="/assets/lumekori-background-themes.css?v=4"><link rel="icon" type="image/svg+xml" sizes="any" href="/assets/lumekori-tab-search-style.svg?v=3"></head>
+<script>/* Fixed Aurora on the standalone preview. */document.documentElement.dataset.lmkBackground="aurora";</script><link rel="stylesheet" href="/assets/lumekori-background-themes.css?v=4"><link rel="icon" type="image/svg+xml" sizes="any" href="/assets/lumekori-tab-search-style.svg?v=3"><style>
+/* Footer-only appearance switch; nothing occupies the header. */
+.cp #tm{appearance:none;display:inline-flex;align-items:center;justify-content:center;
+ margin-left:16px;padding:6px 3px;min-height:32px;border:0;border-radius:0;background:transparent;
+ color:var(--mu);font:500 11px/1.2 "Bricolage Grotesque",system-ui,sans-serif;
+ text-decoration:none;opacity:.64;cursor:pointer}
+.cp #tm:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+.cp #tm:focus-visible{opacity:1;outline:2px solid currentColor;outline-offset:3px}
+</style></head>
 <body>
 <canvas id="bg" aria-hidden="true"></canvas><div class="glow" aria-hidden="true"></div>
 <header>
 <a class="logo" href="#inicio" aria-label="Lumekori Studios, inicio"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round"><path d="M16 4a12 12 0 1 0 12 12"/><circle cx="25" cy="7" r="2.6" fill="var(--ac)" stroke="none"/></g></svg>Lumekori</a>
-<nav><a class="h" href="#ramas">Ramas</a><a class="h" href="#proceso">Proceso</a><a href="#nosotros">Estudio</a><a href="#contacto">Contacto</a><button id="tm" type="button" aria-label="Cambiar entre tema claro y oscuro">Tema</button></nav>
+<nav><a class="h" href="#ramas">Ramas</a><a class="h" href="#proceso">Proceso</a><a href="#nosotros">Estudio</a><a href="#contacto">Contacto</a></nav>
 </header>
 <main>
 <div class="view on" id="v-inicio">
@@ -122,7 +130,7 @@ footer p{color:var(--mu);margin:.5em 0 0;max-width:26em}.cp{margin-top:36px;colo
 <div><h3>Lumekori Studios</h3><p>Software, aplicaciones y videojuegos con rigor y carácter.</p></div>
 <div><h3>Estudio</h3><a href="#nosotros">Qué somos</a><a href="#ramas">Ramas</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
 <div><h3>Legal</h3><a href="#privacidad">Privacidad</a><a href="#terminos">Términos y condiciones</a></div></div>
-<div class="cp">© 2026 Lumekori Studios. Todos los derechos reservados.</div></div></footer>
+<div class="cp">© 2026 Lumekori Studios. Todos los derechos reservados.<button id="tm" type="button" aria-label="Cambiar entre tema claro y oscuro">Tema</button></div></div></footer>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],R=document.documentElement,K=(v,a,b)=>Math.min(b,Math.max(a,v));
 const V=['inicio','nosotros','privacidad','terminos'],S=['ramas','proceso','contacto'];
@@ -138,7 +146,7 @@ function rs(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight
 P=Array.from({length:Math.min(190,Math.floor(W*H/8000))},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*40}))}
 addEventListener('resize',rs);rs();th();
 addEventListener('pointermove',e=>{m.x=e.clientX;m.y=e.clientY});addEventListener('pointerleave',()=>{m.x=m.y=-999});
-$('#tm').onclick=()=>{const d=matchMedia('(prefers-color-scheme: dark)').matches,c=R.dataset.theme||(d?'dark':'light');R.dataset.theme=c==='dark'?'light':'dark';th()};
+$('#tm').onclick=()=>{const d=matchMedia('(prefers-color-scheme: dark)').matches,c=R.dataset.theme||(d?'dark':'light');R.dataset.theme=c==='dark'?'light':'dark';try{localStorage.setItem('lumekori-theme',R.dataset.theme)}catch(e){}th()};
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change',th);
 function fr(){t+=.003;sv+=((scrollY-ly)-sv)*.1;ly=scrollY;
 cx.globalCompositeOperation='destination-out';cx.fillStyle='rgba(0,0,0,.06)';cx.fillRect(0,0,W,H);cx.globalCompositeOperation='source-over';cx.lineWidth=1.3;
