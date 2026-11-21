@@ -1,17 +1,12 @@
-/* Global Lumekori background selector: original canvas, aurora or flowing arrows.
-   Does not replace page animations, logotypes, login, navigation or the light/dark setting. */
+/* Global Lumekori Aurora background. Other page animations, logos, navigation, and light/dark theme remain unchanged. */
 (()=>{'use strict';
 if(window.__lmkBackgroundThemesLoaded)return;
 window.__lmkBackgroundThemesLoaded=true;
 const root=document.documentElement,es=(root.lang||'').toLowerCase().startsWith('es');
-const options=['original','aurora','flechas'],storageKey='lumekori-background-v1';
-const isAndroid=/Android/i.test(navigator.userAgent);
-const availableOptions=isAndroid?options.filter(key=>key!=='original'):options;
+const mode='aurora';
+root.dataset.lmkBackground=mode;
 const rand=(a,b)=>a+Math.random()*(b-a),clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
-let mode=root.dataset.lmkBackground||'original';
-if(!options.includes(mode))mode='original';
-if(isAndroid&&mode==='original')mode='aurora';
-let aurora,auroraCtx,world,tools,flowTiles=[],particles=[],dots=[],W=0,H=0,docH=0,dpr=1,flowDPR=1,last=0,mouseX=-1000,mouseY=-1000,scheduled=false,raf=0;
+let aurora,auroraCtx,world,flowTiles=[],particles=[],dots=[],W=0,H=0,docH=0,dpr=1,flowDPR=1,last=0,mouseX=-1000,mouseY=-1000,scheduled=false,raf=0;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const desktopPointer=!/Android/i.test(navigator.userAgent)&&matchMedia('(hover: hover) and (pointer: fine)').matches;
 function dark(){
@@ -29,25 +24,7 @@ function create(){
  document.body.prepend(a);
  aurora=a.querySelector('canvas');auroraCtx=aurora.getContext('2d',{alpha:true});
  world=document.createElement('div');world.id='lmk-bg-flow';world.setAttribute('aria-hidden','true');document.body.insertBefore(world,a.nextSibling);
- tools=document.createElement('div');tools.id='lmk-bg-controls';tools.setAttribute('role','group');
- tools.setAttribute('aria-label',es?'Elegir animación de fondo':'Choose background animation');
- const label=document.createElement('span');label.className='lmk-bg-caption';label.textContent=es?'Fondo':'Background';
- const group=document.createElement('div');group.className='lmk-bg-options';group.id='lmk-bg-options';
- for(const key of availableOptions){
-  const b=document.createElement('button');b.type='button';b.dataset.mode=key;
-  b.textContent=key==='original'?(es?'Original':'Original'):key==='aurora'?'Aurora':es?'Flechitas':'Arrows';
-  b.setAttribute('aria-pressed',String(mode===key));b.addEventListener('click',()=>choose(key));
-  group.append(b);
- }
- const toggle=document.createElement('button');toggle.type='button';toggle.className='lmk-bg-toggle';
- toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls','lmk-bg-options');
- toggle.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/><circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="12" cy="17" r="2" fill="currentColor" stroke="none"/></svg>';
- const closeMenu=()=>{tools.classList.remove('lmk-bg-open');toggle.setAttribute('aria-expanded','false')};
- toggle.addEventListener('click',()=>{const open=tools.classList.toggle('lmk-bg-open');toggle.setAttribute('aria-expanded',String(open))});
- document.addEventListener('pointerdown',e=>{if(!tools.contains(e.target))closeMenu()});
- document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
- window.addEventListener('resize',()=>{if(innerWidth>600)closeMenu()},{passive:true});
- tools.append(label,toggle,group);document.body.append(tools);
+ /* No background picker is created: Aurora is fixed site-wide. */
  if(desktopPointer){
   window.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mouseX=e.clientX;mouseY=e.clientY},{passive:true});
   window.addEventListener('pointerleave',()=>{mouseX=mouseY=-1000});
@@ -61,19 +38,7 @@ function create(){
  if(document.fonts?.ready)document.fonts.ready.then(scheduleHeight);
  resize();apply();if(reduced){drawAurora(0);drawFlow(0,1)}else raf=requestAnimationFrame(frame);
 }
-function choose(key){
- if(!availableOptions.includes(key))return;
- mode=key;
- try{localStorage.setItem(storageKey,key)}catch(e){}
- root.dataset.lmkBackground=key;tools.classList.remove('lmk-bg-open');const toggle=tools.querySelector('.lmk-bg-toggle');if(toggle)toggle.setAttribute('aria-expanded','false');apply();
-}
-function apply(){
- root.dataset.lmkBackground=mode;
- for(const b of tools.querySelectorAll('button[data-mode]'))b.setAttribute('aria-pressed',String(b.dataset.mode===mode));
- const toggle=tools.querySelector('.lmk-bg-toggle');
- if(toggle)toggle.setAttribute('aria-label',(es?'Cambiar fondo. Actual: ':'Change background. Current: ')+(mode==='original'?'Original':mode==='aurora'?'Aurora':es?'Flechitas':'Arrows'));
- if(mode==='flechas')scheduleHeight();
-}
+function apply(){root.dataset.lmkBackground=mode;}
 function resize(){
  const previousW=W;
  W=innerWidth;H=innerHeight;
