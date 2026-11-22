@@ -49,11 +49,12 @@ var cv=$('#cv'),g=cv.getContext('2d'),hero=$('#hero'),rule=$('#rule'),W,H,N=15,c
 function cols(){var s=getComputedStyle(document.documentElement);ink=s.getPropertyValue('--ink').trim();acc=s.getPropertyValue('--acc').trim()}
 function size(){var d=Math.min(2,devicePixelRatio||1),r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;g.setTransform(d,0,0,d,0,0);cols()}
 addEventListener('resize',size);matchMedia('(prefers-color-scheme: dark)').addEventListener('change',cols);size();
+if('ResizeObserver'in window)new ResizeObserver(size).observe(cv);
 if('IntersectionObserver'in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(hero);
 hero.addEventListener('pointermove',function(e){px=e.clientX-cv.getBoundingClientRect().left});hero.addEventListener('pointerleave',function(){px=-999});
 function frame(ts){requestAnimationFrame(frame);if(!vis||document.hidden)return;
 calm+=(target-calm)*(reduce?1:.05);turb+=(tt-turb)*(reduce?1:.06);
-var time=reduce?0:ts/1000,rr=rule.getBoundingClientRect(),hr=cv.getBoundingClientRect(),base=rr.top-hr.top+rr.height/2;
+var time=reduce?0:ts/1000,rr=rule.getBoundingClientRect(),hr=cv.getBoundingClientRect(),base=(rr.top-hr.top+rr.height/2)*(hr.height?H/hr.height:1);
 var k=Math.min(1,Math.max(0,(calm-.4)/.6)),s=k*k*(3-2*k),amp=(1-calm)*(12+turb*34),mid=N>>1,gap=H/(N+1);
 g.clearRect(0,0,W,H);g.lineCap='round';g.lineJoin='round';
 for(var i=0;i<N;i++){var home=gap*(i+1),y0=home+(base-home)*s,hot=i===mid;g.beginPath();
