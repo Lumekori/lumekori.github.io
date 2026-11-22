@@ -45,7 +45,7 @@ return 'This is a preview with sample answers. Visit Nao Testers to learn how to
 function typeTo(set,txt,step,sound,alive){return new Promise(function(res){var i=0;(function n(){if(alive&&!alive())return res(false);i=reduce?txt.length:Math.min(txt.length,i+step);set(txt.slice(0,i));if(sound&&i%3<step)Snd.key();if(i>=txt.length)return res(true);setTimeout(n,sound?55:18)})()})}
 
 /* Hero: líneas de ruido que se alinean en una sola cuando Nao responde */
-var cv=$('#cv'),g=cv.getContext('2d'),hero=$('#hero'),rule=$('#rule'),W,H,N=15,calm=.3,target=.3,turb=1,tt=0,vis=true,px=-999,ink,acc;
+var cv=$('#cv'),g=cv.getContext('2d'),hero=$('#hero'),rule=$('#rule'),W,H,N=15,calm=.98,target=.98,turb=0,tt=0,vis=true,px=-999,ink,acc;
 function cols(){var s=getComputedStyle(document.documentElement);ink=s.getPropertyValue('--ink').trim();acc=s.getPropertyValue('--acc').trim()}
 function size(){var d=Math.min(2,devicePixelRatio||1),r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;g.setTransform(d,0,0,d,0,0);cols()}
 addEventListener('resize',size);matchMedia('(prefers-color-scheme: dark)').addEventListener('change',cols);size();
@@ -75,9 +75,11 @@ $('#ask').addEventListener('submit',function(e){e.preventDefault();used=true;var
 inp.addEventListener('input',function(){Snd.key();if(!busy){target=.3;tt=0}});
 CHIPS.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=c;b.addEventListener('click',function(){used=true;ask(c,true)});$('#chips').appendChild(b)});
 addEventListener('pointerdown',function(){used=true},{once:true});addEventListener('keydown',function(){used=true},{once:true});
-/* Apertura: caos → una línea → ondas suaves → demostración */
-(async function(){if(reduce){calm=target=.3;ans.textContent=answerFor('What is photosynthesis?');return}
-calm=0;turb=1;await delay(600);target=1;tt=0;await delay(1400);target=.3;await delay(1200);if(!used)ask('What is photosynthesis?',true)})();
+/* Apertura: un trazo tranquilo, título legible desde el inicio y entrada suave del formulario. */
+(async function(){if(reduce){calm=target=.98;ans.textContent=answerFor('What is photosynthesis?');return}
+/* Mantener la línea centrada sin activar el caos de la animación de respuestas. */
+calm=target=.98;turb=tt=0;
+await delay(1850);if(!used&&!busy)ask('What is photosynthesis?',true)})();
 
 /* Sin relleno */
 var fills=[].slice.call(document.querySelectorAll('.fill')),keeps=[].slice.call(document.querySelectorAll('.keep'));
