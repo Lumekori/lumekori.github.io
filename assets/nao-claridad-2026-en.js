@@ -41,7 +41,7 @@ var FEATS=[['Answers','Direct explanations from the first line.','What makes Nao
 function answerFor(q){var n=q.toLowerCase().trim().replace(/\s+/g,' ');if(A[n])return A[n];
 if(/^(hello|hi|hey|good morning|good evening)/.test(n))return 'Hi. How can I help today?';if(/thank(s| you)?/.test(n))return 'You are welcome. I am here whenever you need me.';
 if(/(who are you|what is nao)/.test(n))return 'I am Nao, an intelligent assistant built by Lumekori Studio. I aim for clear, direct answers.';
-return 'Esta es una demostración con respuestas de ejemplo. Visita la página de testers para saber cómo acceder a Nao en Android.'}
+return 'This is a preview with sample answers. Visit Nao Testers to learn how to access the Android app.'}
 function typeTo(set,txt,step,sound,alive){return new Promise(function(res){var i=0;(function n(){if(alive&&!alive())return res(false);i=reduce?txt.length:Math.min(txt.length,i+step);set(txt.slice(0,i));if(sound&&i%3<step)Snd.key();if(i>=txt.length)return res(true);setTimeout(n,sound?55:18)})()})}
 
 /* Hero: líneas de ruido que se alinean en una sola cuando Nao responde */
