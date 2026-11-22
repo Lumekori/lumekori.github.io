@@ -29,3 +29,8 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 #nao-experience #funciones.pane{background:#11182d;border:0!important;border-bottom:0!important;box-shadow:none}
 #nao-experience #descargar.get{background:#11182d!important;border:0!important;border-top:0!important;outline:0!important;box-shadow:none!important;margin-top:-2px;z-index:2}
 html.lmk-claude-ui body > main#nao-experience + section.lk-site-end{margin-top:0!important}
+
+/* Nao download buttons: same height and shared baseline, no positional shift on wrap. */
+#nao-experience .get .nao-download-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+#nao-experience .get .nao-download-actions .btn,#nao-experience .get .nao-download-actions .pill{display:inline-flex;align-items:center;justify-content:center;height:50px;min-height:50px;box-sizing:border-box;vertical-align:middle;line-height:1.2;margin:0!important}
+#nao-experience .get .nao-download-actions .btn svg{flex:none}
