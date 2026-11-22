@@ -103,3 +103,27 @@ html[data-theme="dark"] .lk-nao-try:focus-visible{outline-color:#2f3bff}
   .lk-nao-end .lk-nao-links .lk-end-group:first-child{grid-column:1/-1}
   .lk-nao-end .lk-end-bottom.preview-footer-bottom{margin-top:22px!important}
 }
+
+/* Quiet, text-only access to Nao-specific support and legal pages. */
+.lk-nao-end .lk-nao-meta-links{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  column-gap:15px;
+  row-gap:5px;
+  margin-top:10px;
+}
+.lk-nao-end .lk-nao-meta-links a{
+  color:inherit;
+  opacity:.76;
+  font-size:.75rem;
+  line-height:1.55;
+  font-weight:500;
+  text-decoration:underline;
+  text-decoration-color:currentColor;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  transition:opacity .2s ease;
+}
+.lk-nao-end .lk-nao-meta-links a:hover,
+.lk-nao-end .lk-nao-meta-links a:focus-visible{opacity:1}
