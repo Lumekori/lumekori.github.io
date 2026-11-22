@@ -24,3 +24,8 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 #nao-experience .nao-sound-control:hover{color:var(--acc);border-color:var(--acc)}
 #nao-experience .nao-sound-control svg{width:17px;height:17px}
 @media(max-width:480px){#nao-experience .nao-sound-control{margin-left:0;padding:7px 10px}}
+
+/* Nao section joins — no hairline between features/download, no aurora gap before Lumekori footer. */
+#nao-experience #funciones.pane{background:#11182d;border:0!important;border-bottom:0!important;box-shadow:none}
+#nao-experience #descargar.get{background:#11182d!important;border:0!important;border-top:0!important;outline:0!important;box-shadow:none!important;margin-top:-2px;z-index:2}
+html.lmk-claude-ui body > main#nao-experience + section.lk-site-end{margin-top:0!important}
