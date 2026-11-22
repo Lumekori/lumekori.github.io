@@ -26,7 +26,7 @@ ding:p(function(){tone(988,0,.3,'sine',.09);tone(1480,.08,.4,'sine',.05)}),
 isOn:function(){return on},
 toggle:function(){on=!on;try{localStorage.setItem('nao-sound',on?'1':'0')}catch(e){}if(on){unlock();setTimeout(function(){Snd.send()},60)}return on}}})();
 var sb=$('#sndBtn');sb.addEventListener('click',function(){Snd.toggle();var o=Snd.isOn();sb.setAttribute('aria-pressed',o);sb.setAttribute('aria-label',o?'Mute sound':'Enable sound')});
-sb.setAttribute('aria-pressed',Snd.isOn());sb.setAttribute('aria-label',Snd.isOn()?'Desactivar sonido':'Activar sonido');
+sb.setAttribute('aria-pressed',Snd.isOn());sb.setAttribute('aria-label',Snd.isOn()?'Mute sound':'Enable sound');
 document.addEventListener('click',function(e){if(e.target.closest('.chip,.tab,.btn,.pill,.again,.nav a'))Snd.click()});
 
 /* Contenido */
